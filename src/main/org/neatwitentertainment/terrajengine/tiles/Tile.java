@@ -1,0 +1,25 @@
+package org.neatwitentertainment.terrajengine.tiles;
+
+import java.awt.image.BufferedImage;
+
+public class Tile {
+
+    private BufferedImage image;
+    private boolean isSolid;
+
+    public BufferedImage getImage() {
+        return image;
+    }
+
+    public void setImage(BufferedImage image) {
+        this.image = image;
+    }
+
+    public boolean isSolid() {
+        return isSolid;
+    }
+
+    public void setSolid(boolean isSolid) {
+        this.isSolid = isSolid;
+    }
+}

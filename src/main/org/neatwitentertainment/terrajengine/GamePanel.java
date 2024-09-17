@@ -1,0 +1,88 @@
+package org.neatwitentertainment.terrajengine;
+
+import org.neatwitentertainment.terrajengine.entity.Player;
+import org.neatwitentertainment.terrajengine.tiles.TileManager;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class GamePanel extends JPanel implements Runnable {
+
+    public static final int WIDTH = 768;
+    public static final int HEIGHT = 432;
+    public static final int TILE_SIZE = 48;
+
+    public static final int MAX_WORLD_COL = 32;
+    public static final int MAX_WORLD_ROW = 18;
+
+    private static final int FPS = 60;
+
+    private final TileManager tileManager = new TileManager(this);
+    private final transient KeyHandler keyHandler = new KeyHandler();
+    private final CollisionsChecker collisionsChecker = new CollisionsChecker(this);
+    private transient Thread gameThread;
+
+    private final Player player = new Player(keyHandler, this);
+
+    public GamePanel() {
+        this.setPreferredSize(new Dimension(WIDTH, HEIGHT));
+        this.setBackground(Color.WHITE);
+        this.setDoubleBuffered(true);
+        this.setFocusable(true);
+        this.addKeyListener(keyHandler);
+    }
+
+    public void startGameThread() {
+        gameThread = new Thread(this);
+        gameThread.start();
+    }
+
+    @Override
+    public void run() {
+
+        while (gameThread != null) {
+
+            long currentTime = System.nanoTime();
+
+            update();
+            repaint();
+
+            long elapsedTime = System.nanoTime() - currentTime;
+            long sleepTime = 1000 / FPS - elapsedTime / 1000000;
+            if (sleepTime < 0) {
+                sleepTime = 0;
+            }
+            try {
+                Thread.sleep(sleepTime);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void update() {
+        player.update();
+    }
+
+    @Override
+    public void paintComponent(Graphics g) {
+
+        super.paintComponent(g);
+        Graphics2D g2d = (Graphics2D) g;
+        tileManager.draw(g2d);
+        player.draw(g2d);
+        g2d.dispose();
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public CollisionsChecker getCollisionsChecker() {
+        return collisionsChecker;
+    }
+
+    public TileManager getTileManager() {
+        return tileManager;
+    }
+}
