@@ -12,6 +12,9 @@ public class Main {
         window.setResizable(true);
         window.setTitle("TerraJ Engine");
 
+        ImageIcon icon = new ImageIcon(Main.class.getResource("/resources/static/icon.png"));
+        window.setIconImage(icon.getImage());
+
         GamePanel gamePanel = new GamePanel();
         window.add(gamePanel);
 
