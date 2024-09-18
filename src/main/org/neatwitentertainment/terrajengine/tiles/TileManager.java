@@ -14,19 +14,16 @@ public class TileManager {
 
     private final Tile[] tiles;
     private final int[][] mapTileGrid;
-    private final Player player;
 
     private static final int MAX_WORLD_COL = 32;
     private static final int MAX_WORLD_ROW = 18;
 
-    public TileManager(Player player) {
+    public TileManager() {
         tiles = new Tile[16];
         loadTiles();
 
         mapTileGrid = new int[MAX_WORLD_ROW][MAX_WORLD_COL];
         loadMap();
-
-        this.player = player;
     }
 
     private void loadMap() {
@@ -59,7 +56,7 @@ public class TileManager {
         }
     }
 
-    public void draw(Graphics2D graphics2D) {
+    public void draw(Graphics2D graphics2D, Player player) {
         int cameraMargin = GamePanel.TILE_SIZE * 2;
 
         int startCol = Math.max((player.getX() - GamePanel.SCREEN_CENTER_X - cameraMargin) / GamePanel.TILE_SIZE, 0);

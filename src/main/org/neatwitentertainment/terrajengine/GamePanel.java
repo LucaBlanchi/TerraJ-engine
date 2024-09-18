@@ -17,8 +17,8 @@ public class GamePanel extends JPanel implements Runnable {
     private static final int MAX_FPS = 60;
 
     private final transient KeyHandler keyHandler = new KeyHandler();
-    private final transient Player player = new Player(keyHandler, this);
-    private final transient TileManager tileManager = new TileManager(this.player);
+    private final transient Player player = new Player(keyHandler);
+    private final transient TileManager tileManager = new TileManager();
     private final transient CollisionsChecker collisionsChecker = new CollisionsChecker();
 
     private transient Thread gameThread;
@@ -60,7 +60,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void update() {
-        player.update(tileManager);
+        player.update(tileManager, collisionsChecker);
     }
 
     @Override
@@ -68,12 +68,8 @@ public class GamePanel extends JPanel implements Runnable {
 
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
-        tileManager.draw(g2d);
+        tileManager.draw(g2d, player);
         player.draw(g2d);
         g2d.dispose();
-    }
-
-    public CollisionsChecker getCollisionsChecker() {
-        return collisionsChecker;
     }
 }

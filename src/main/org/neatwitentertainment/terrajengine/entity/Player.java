@@ -1,5 +1,6 @@
 package org.neatwitentertainment.terrajengine.entity;
 
+import org.neatwitentertainment.terrajengine.CollisionsChecker;
 import org.neatwitentertainment.terrajengine.GamePanel;
 import org.neatwitentertainment.terrajengine.KeyHandler;
 import org.neatwitentertainment.terrajengine.tiles.TileManager;
@@ -12,14 +13,12 @@ import java.io.IOException;
 public class Player extends Entity {
 
     private final KeyHandler keyHandler;
-    private final GamePanel gamePanel;
 
-    public Player(KeyHandler keyHandler, GamePanel gamePanel) {
+    public Player(KeyHandler keyHandler) {
         this.keyHandler = keyHandler;
         setDefaultValues();
         loadSprites();
         solidBounds = new Rectangle(8, 16, 32, 32);
-        this.gamePanel = gamePanel;
     }
 
     public void setDefaultValues() {
@@ -44,7 +43,7 @@ public class Player extends Entity {
         }
     }
 
-    public void update(TileManager tileManager) {
+    public void update(TileManager tileManager, CollisionsChecker collisionsChecker) {
 
         if (!keyHandler.isUpPressed()
                 && !keyHandler.isDownPressed()
@@ -68,7 +67,7 @@ public class Player extends Entity {
         }
 
         isColliding = false;
-        gamePanel.getCollisionsChecker().checkTile(this, tileManager);
+        collisionsChecker.checkTile(this, tileManager);
 
         if (!isColliding) {
             switch (direction) {
