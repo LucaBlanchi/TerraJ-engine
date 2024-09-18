@@ -13,9 +13,6 @@ public class Player extends Entity {
     private KeyHandler keyHandler;
     private GamePanel gamePanel;
 
-    public final int SCREEN_X = GamePanel.WIDTH / 2 - GamePanel.TILE_SIZE / 2;
-    public final int SCREEN_Y = GamePanel.HEIGHT / 2 - GamePanel.TILE_SIZE / 2;
-
     public Player(KeyHandler keyHandler, GamePanel gamePanel) {
         this.keyHandler = keyHandler;
         setDefaultValues();
@@ -128,6 +125,6 @@ public class Player extends Entity {
                 }
                 break;
         }
-        g2d.drawImage(image, SCREEN_X, SCREEN_Y, GamePanel.TILE_SIZE, GamePanel.TILE_SIZE, null);
+        g2d.drawImage(image, GamePanel.SCREEN_CENTER_X, GamePanel.SCREEN_CENTER_Y, GamePanel.TILE_SIZE, GamePanel.TILE_SIZE, null);
     }
 }
