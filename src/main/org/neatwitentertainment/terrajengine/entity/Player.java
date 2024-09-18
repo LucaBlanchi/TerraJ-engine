@@ -10,8 +10,8 @@ import java.io.IOException;
 
 public class Player extends Entity {
 
-    private KeyHandler keyHandler;
-    private GamePanel gamePanel;
+    private final KeyHandler keyHandler;
+    private final GamePanel gamePanel;
 
     public Player(KeyHandler keyHandler, GamePanel gamePanel) {
         this.keyHandler = keyHandler;
@@ -25,7 +25,7 @@ public class Player extends Entity {
         x = GamePanel.TILE_SIZE * 16;
         y = GamePanel.TILE_SIZE * 9;
         speed = 4;
-        direction = "down";
+        direction = Direction.DOWN;
     }
 
     public void getPlayerImage() {
@@ -54,16 +54,16 @@ public class Player extends Entity {
         }
 
         if (keyHandler.isUpPressed()) {
-            direction = "up";
+            direction = Direction.UP;
         }
         if (keyHandler.isDownPressed()) {
-            direction = "down";
+            direction = Direction.DOWN;
         }
         if (keyHandler.isLeftPressed()) {
-            direction = "left";
+            direction = Direction.LEFT;
         }
         if (keyHandler.isRightPressed()) {
-            direction = "right";
+            direction = Direction.RIGHT;
         }
 
         isColliding = false;
@@ -71,16 +71,16 @@ public class Player extends Entity {
 
         if (!isColliding) {
             switch (direction) {
-                case "up":
+                case UP:
                     y -= speed;
                     break;
-                case "down":
+                case DOWN:
                     y += speed;
                     break;
-                case "left":
+                case LEFT:
                     x -= speed;
                     break;
-                case "right":
+                case RIGHT:
                     x += speed;
                     break;
             }
@@ -96,28 +96,28 @@ public class Player extends Entity {
     public void draw(Graphics2D g2d) {
         BufferedImage image = null;
         switch (direction) {
-            case "up":
+            case UP:
                 if (spriteNum == 1) {
                     image = up1;
                 } else {
                     image = up2;
                 }
                 break;
-            case "down":
+            case DOWN:
                 if (spriteNum == 1) {
                     image = down1;
                 } else {
                     image = down2;
                 }
                 break;
-            case "left":
+            case LEFT:
                 if (spriteNum == 1) {
                     image = left1;
                 } else {
                     image = left2;
                 }
                 break;
-            case "right":
+            case RIGHT:
                 if (spriteNum == 1) {
                     image = right1;
                 } else {

@@ -8,7 +8,7 @@ public class Entity {
     protected int x;
     protected int y;
     protected int speed;
-    protected String direction;
+    protected Direction direction;
 
     protected BufferedImage up1;
     protected BufferedImage up2;
@@ -29,7 +29,7 @@ public class Entity {
         return x;
     }
 
-    public String getDirection() {
+    public Direction getDirection() {
         return direction;
     }
 
