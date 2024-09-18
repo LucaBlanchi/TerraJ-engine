@@ -1,4 +1,4 @@
-package org.neatwitentertainment.terrajengine.tiles;
+package org.neatwitentertainment.terrajengine.map;
 
 import java.awt.image.BufferedImage;
 

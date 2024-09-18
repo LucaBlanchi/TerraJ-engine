@@ -1,7 +1,7 @@
 package org.neatwitentertainment.terrajengine;
 
 import org.neatwitentertainment.terrajengine.entity.Player;
-import org.neatwitentertainment.terrajengine.tiles.TileManager;
+import org.neatwitentertainment.terrajengine.map.MapManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,7 +18,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     private final transient KeyHandler keyHandler = new KeyHandler();
     private final transient Player player = new Player(keyHandler);
-    private final transient TileManager tileManager = new TileManager();
+    private final transient MapManager mapManager = new MapManager();
     private final transient CollisionsChecker collisionsChecker = new CollisionsChecker();
 
     private transient Thread gameThread;
@@ -64,7 +64,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void update() {
-        player.update(tileManager, collisionsChecker);
+        player.update(mapManager, collisionsChecker);
     }
 
     @Override
@@ -72,7 +72,7 @@ public class GamePanel extends JPanel implements Runnable {
 
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
-        tileManager.draw(g2d, player);
+        mapManager.draw(g2d, player.getX(), player.getY());
         player.draw(g2d);
         g2d.dispose();
     }

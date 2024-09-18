@@ -1,11 +1,11 @@
 package org.neatwitentertainment.terrajengine;
 
 import org.neatwitentertainment.terrajengine.entity.Entity;
-import org.neatwitentertainment.terrajengine.tiles.TileManager;
+import org.neatwitentertainment.terrajengine.map.MapManager;
 
 public class CollisionsChecker {
 
-    public boolean isColliding(Entity entity, TileManager tileManager) {
+    public boolean isColliding(Entity entity, MapManager mapManager) {
         int entityLeftWorldX = entity.getX() + entity.getSolidBounds().x;
         int entityRightWorldX = entity.getX() + entity.getSolidBounds().x + entity.getSolidBounds().width;
         int entityUpWorldY = entity.getY() + entity.getSolidBounds().y;
@@ -19,25 +19,25 @@ public class CollisionsChecker {
         switch (entity.getDirection()) {
             case UP:
                 entityTopRow = (entityUpWorldY - entity.getSpeed()) / GamePanel.TILE_SIZE;
-                if (tileManager.isTileSolid(entityTopRow, entityLeftCol) || tileManager.isTileSolid(entityTopRow, entityRightCol)) {
+                if (mapManager.isTileSolid(entityTopRow, entityLeftCol) || mapManager.isTileSolid(entityTopRow, entityRightCol)) {
                     return true;
                 }
                 break;
             case DOWN:
                 entityBottomRow = (entityDownWorldY + entity.getSpeed()) / GamePanel.TILE_SIZE;
-                if (tileManager.isTileSolid(entityBottomRow, entityLeftCol) || tileManager.isTileSolid(entityBottomRow, entityRightCol)) {
+                if (mapManager.isTileSolid(entityBottomRow, entityLeftCol) || mapManager.isTileSolid(entityBottomRow, entityRightCol)) {
                     return true;
                 }
                 break;
             case LEFT:
                 entityLeftCol = (entityLeftWorldX - entity.getSpeed()) / GamePanel.TILE_SIZE;
-                if (tileManager.isTileSolid(entityTopRow, entityLeftCol) || tileManager.isTileSolid(entityBottomRow, entityLeftCol)) {
+                if (mapManager.isTileSolid(entityTopRow, entityLeftCol) || mapManager.isTileSolid(entityBottomRow, entityLeftCol)) {
                     return true;
                 }
                 break;
             case RIGHT:
                 entityRightCol = (entityRightWorldX + entity.getSpeed()) / GamePanel.TILE_SIZE;
-                if (tileManager.isTileSolid(entityTopRow, entityRightCol) || tileManager.isTileSolid(entityBottomRow, entityRightCol)) {
+                if (mapManager.isTileSolid(entityTopRow, entityRightCol) || mapManager.isTileSolid(entityBottomRow, entityRightCol)) {
                     return true;
                 }
                 break;

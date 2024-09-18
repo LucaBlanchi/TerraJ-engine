@@ -3,7 +3,7 @@ package org.neatwitentertainment.terrajengine.entity;
 import org.neatwitentertainment.terrajengine.CollisionsChecker;
 import org.neatwitentertainment.terrajengine.GamePanel;
 import org.neatwitentertainment.terrajengine.KeyHandler;
-import org.neatwitentertainment.terrajengine.tiles.TileManager;
+import org.neatwitentertainment.terrajengine.map.MapManager;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -43,7 +43,7 @@ public class Player extends Entity {
         }
     }
 
-    public void update(TileManager tileManager, CollisionsChecker collisionsChecker) {
+    public void update(MapManager mapManager, CollisionsChecker collisionsChecker) {
 
         if (!keyHandler.isUpPressed()
                 && !keyHandler.isDownPressed()
@@ -66,7 +66,7 @@ public class Player extends Entity {
             direction = Direction.RIGHT;
         }
 
-        if (!collisionsChecker.isColliding(this, tileManager)) {
+        if (!collisionsChecker.isColliding(this, mapManager)) {
             switch (direction) {
                 case UP:
                     y -= speed;
