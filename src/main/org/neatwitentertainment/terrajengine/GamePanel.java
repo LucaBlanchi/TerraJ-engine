@@ -8,9 +8,11 @@ import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable {
 
-    public static final int WIDTH = 768;
-    public static final int HEIGHT = 432;
-    public static final int TILE_SIZE = 48;
+    public static final Dimension SCREEN_SIZE = Toolkit.getDefaultToolkit().getScreenSize();
+    public static final int WIDTH = (int) SCREEN_SIZE.getWidth();
+    public static final int HEIGHT = (int) SCREEN_SIZE.getHeight();
+
+    public static final int TILE_SIZE = WIDTH / 16;
     public static final int SCREEN_CENTER_X = WIDTH / 2 - TILE_SIZE / 2;
     public static final int SCREEN_CENTER_Y = HEIGHT / 2 - TILE_SIZE / 2;
 
@@ -29,6 +31,8 @@ public class GamePanel extends JPanel implements Runnable {
         this.setDoubleBuffered(true);
         this.setFocusable(true);
         this.addKeyListener(keyHandler);
+
+        System.out.println(WIDTH);
     }
 
     public void startGameThread() {
