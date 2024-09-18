@@ -80,6 +80,9 @@ public class MapManager {
     }
 
     public boolean isBlockSolid(int row, int col) {
+        if (row < 0 || row >= MAX_WORLD_ROW || col < 0 || col >= MAX_WORLD_COL) {
+            return true;
+        }
         return blocks[mapGrid[row][col]].isSolid();
     }
 }
