@@ -1,13 +1,14 @@
 package org.neatwitentertainment.terrajengine;
 
 import org.neatwitentertainment.terrajengine.entity.Entity;
+import org.neatwitentertainment.terrajengine.tiles.TileManager;
 
 public class CollisionsChecker {
 
-    private GamePanel gamePanel;
+    private TileManager tileManager;
 
-    public CollisionsChecker(GamePanel gamePanel) {
-        this.gamePanel = gamePanel;
+    public CollisionsChecker(TileManager tileManager) {
+        this.tileManager = tileManager;
     }
 
     public void checkTile(Entity entity) {
@@ -27,30 +28,30 @@ public class CollisionsChecker {
         switch (entity.getDirection()) {
             case "up":
                 entityTopRow = (entityUpWorldY - entity.getSpeed()) / GamePanel.TILE_SIZE;
-                tileNum1 = gamePanel.getTileManager().getMapTileGrid()[entityTopRow][entityLeftCol];
-                tileNum2 = gamePanel.getTileManager().getMapTileGrid()[entityTopRow][entityRightCol];
-                if (gamePanel.getTileManager().getTile(tileNum1).isSolid() || gamePanel.getTileManager().getTile(tileNum2).isSolid())
+                tileNum1 = tileManager.getMapTileGrid()[entityTopRow][entityLeftCol];
+                tileNum2 = tileManager.getMapTileGrid()[entityTopRow][entityRightCol];
+                if (tileManager.getTile(tileNum1).isSolid() || tileManager.getTile(tileNum2).isSolid())
                     entity.setCollisionOn(true);
                 break;
             case "down":
                 entityBottomRow = (entityDownWorldY + entity.getSpeed()) / GamePanel.TILE_SIZE;
-                tileNum1 = gamePanel.getTileManager().getMapTileGrid()[entityBottomRow][entityLeftCol];
-                tileNum2 = gamePanel.getTileManager().getMapTileGrid()[entityBottomRow][entityRightCol];
-                if (gamePanel.getTileManager().getTile(tileNum1).isSolid() || gamePanel.getTileManager().getTile(tileNum2).isSolid())
+                tileNum1 = tileManager.getMapTileGrid()[entityBottomRow][entityLeftCol];
+                tileNum2 = tileManager.getMapTileGrid()[entityBottomRow][entityRightCol];
+                if (tileManager.getTile(tileNum1).isSolid() || tileManager.getTile(tileNum2).isSolid())
                     entity.setCollisionOn(true);
                 break;
             case "left":
                 entityLeftCol = (entityLeftWorldX - entity.getSpeed()) / GamePanel.TILE_SIZE;
-                tileNum1 = gamePanel.getTileManager().getMapTileGrid()[entityTopRow][entityLeftCol];
-                tileNum2 = gamePanel.getTileManager().getMapTileGrid()[entityBottomRow][entityLeftCol];
-                if (gamePanel.getTileManager().getTile(tileNum1).isSolid() || gamePanel.getTileManager().getTile(tileNum2).isSolid())
+                tileNum1 = tileManager.getMapTileGrid()[entityTopRow][entityLeftCol];
+                tileNum2 = tileManager.getMapTileGrid()[entityBottomRow][entityLeftCol];
+                if (tileManager.getTile(tileNum1).isSolid() || tileManager.getTile(tileNum2).isSolid())
                     entity.setCollisionOn(true);
                 break;
             case "right":
                 entityRightCol = (entityRightWorldX + entity.getSpeed()) / GamePanel.TILE_SIZE;
-                tileNum1 = gamePanel.getTileManager().getMapTileGrid()[entityTopRow][entityRightCol];
-                tileNum2 = gamePanel.getTileManager().getMapTileGrid()[entityBottomRow][entityRightCol];
-                if (gamePanel.getTileManager().getTile(tileNum1).isSolid() || gamePanel.getTileManager().getTile(tileNum2).isSolid())
+                tileNum1 = tileManager.getMapTileGrid()[entityTopRow][entityRightCol];
+                tileNum2 = tileManager.getMapTileGrid()[entityBottomRow][entityRightCol];
+                if (tileManager.getTile(tileNum1).isSolid() || tileManager.getTile(tileNum2).isSolid())
                     entity.setCollisionOn(true);
                 break;
         }

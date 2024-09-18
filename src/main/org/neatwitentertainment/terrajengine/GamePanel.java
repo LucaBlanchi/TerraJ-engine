@@ -12,14 +12,14 @@ public class GamePanel extends JPanel implements Runnable {
     public static final int HEIGHT = 432;
     public static final int TILE_SIZE = 48;
 
-    private static final int FPS = 60;
+    private static final int MAX_FPS = 60;
 
-    private final transient TileManager tileManager = new TileManager(this);
     private final transient KeyHandler keyHandler = new KeyHandler();
-    private final transient CollisionsChecker collisionsChecker = new CollisionsChecker(this);
-    private transient Thread gameThread;
-
     private final transient Player player = new Player(keyHandler, this);
+    private final transient TileManager tileManager = new TileManager(this.player);
+    private final transient CollisionsChecker collisionsChecker = new CollisionsChecker(this.tileManager);
+
+    private transient Thread gameThread;
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -45,7 +45,7 @@ public class GamePanel extends JPanel implements Runnable {
             repaint();
 
             long elapsedTime = System.nanoTime() - currentTime;
-            long sleepTime = 1000 / FPS - elapsedTime / 1000000;
+            long sleepTime = 1000 / MAX_FPS - elapsedTime / 1000000;
             if (sleepTime < 0) {
                 sleepTime = 0;
             }
@@ -71,15 +71,7 @@ public class GamePanel extends JPanel implements Runnable {
         g2d.dispose();
     }
 
-    public Player getPlayer() {
-        return player;
-    }
-
     public CollisionsChecker getCollisionsChecker() {
         return collisionsChecker;
-    }
-
-    public TileManager getTileManager() {
-        return tileManager;
     }
 }

@@ -1,6 +1,7 @@
 package org.neatwitentertainment.terrajengine.tiles;
 
 import org.neatwitentertainment.terrajengine.GamePanel;
+import org.neatwitentertainment.terrajengine.entity.Player;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -13,18 +14,18 @@ public class TileManager {
 
     private final Tile[] tiles;
     private final int[][] mapTileGrid;
-    private final GamePanel gamePanel;
+    private final Player player;
 
     private static final int MAX_WORLD_COL = 32;
     private static final int MAX_WORLD_ROW = 18;
 
-    public TileManager(GamePanel gamePanel) {
+    public TileManager(Player player) {
         tiles = new Tile[16];
         mapTileGrid = new int[MAX_WORLD_ROW][MAX_WORLD_COL];
 
         loadMap();
         getTileImage();
-        this.gamePanel = gamePanel;
+        this.player = player;
     }
 
     public void loadMap() {
@@ -62,10 +63,10 @@ public class TileManager {
             for (int worldCol = 0; worldCol < MAX_WORLD_COL; worldCol++) {
 
                 int cameraMargin = GamePanel.TILE_SIZE * 2;
-                if (!(worldCol * GamePanel.TILE_SIZE > gamePanel.getPlayer().getX() - gamePanel.getPlayer().SCREEN_X - cameraMargin
-                        && worldCol * GamePanel.TILE_SIZE < gamePanel.getPlayer().getX() - gamePanel.getPlayer().SCREEN_X + GamePanel.WIDTH + cameraMargin
-                        && worldRow * GamePanel.TILE_SIZE > gamePanel.getPlayer().getY() - gamePanel.getPlayer().SCREEN_Y - cameraMargin
-                        && worldRow * GamePanel.TILE_SIZE < gamePanel.getPlayer().getY() - gamePanel.getPlayer().SCREEN_Y + GamePanel.HEIGHT + cameraMargin)) {
+                if (!(worldCol * GamePanel.TILE_SIZE > player.getX() - player.SCREEN_X - cameraMargin
+                        && worldCol * GamePanel.TILE_SIZE < player.getX() - player.SCREEN_X + GamePanel.WIDTH + cameraMargin
+                        && worldRow * GamePanel.TILE_SIZE > player.getY() - player.SCREEN_Y - cameraMargin
+                        && worldRow * GamePanel.TILE_SIZE < player.getY() - player.SCREEN_Y + GamePanel.HEIGHT + cameraMargin)) {
                     continue;
                 }
 
@@ -73,8 +74,8 @@ public class TileManager {
 
                 int worldX = worldCol * GamePanel.TILE_SIZE;
                 int worldY = worldRow * GamePanel.TILE_SIZE;
-                int screenX = worldX - gamePanel.getPlayer().getX() + gamePanel.getPlayer().SCREEN_X;
-                int screenY = worldY - gamePanel.getPlayer().getY() + gamePanel.getPlayer().SCREEN_Y;
+                int screenX = worldX - player.getX() + player.SCREEN_X;
+                int screenY = worldY - player.getY() + player.SCREEN_Y;
 
                 graphics2D.drawImage(tiles[tileNum].getImage(), screenX, screenY, GamePanel.TILE_SIZE, GamePanel.TILE_SIZE, null);
             }
