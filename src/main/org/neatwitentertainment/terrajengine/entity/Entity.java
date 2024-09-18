@@ -5,8 +5,8 @@ import java.awt.image.BufferedImage;
 
 public class Entity {
 
-    protected int worldX;
-    protected int worldY;
+    protected int x;
+    protected int y;
     protected int speed;
 
     protected BufferedImage up1;
@@ -26,8 +26,8 @@ public class Entity {
     protected Rectangle solidBounds;
     protected boolean isCollisionOn = false;
 
-    public int getWorldX() {
-        return worldX;
+    public int getX() {
+        return x;
     }
 
     public String getDirection() {
@@ -38,8 +38,8 @@ public class Entity {
         return speed;
     }
 
-    public int getWorldY() {
-        return worldY;
+    public int getY() {
+        return y;
     }
 
     public Rectangle getSolidBounds() {

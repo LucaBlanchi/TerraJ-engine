@@ -25,8 +25,8 @@ public class Player extends Entity {
     }
 
     public void setDefaultValues() {
-        worldX = GamePanel.TILE_SIZE * 16;
-        worldY = GamePanel.TILE_SIZE * 9;
+        x = GamePanel.TILE_SIZE * 16;
+        y = GamePanel.TILE_SIZE * 9;
         speed = 4;
         direction = "down";
     }
@@ -75,16 +75,16 @@ public class Player extends Entity {
         if (!isCollisionOn) {
             switch (direction) {
                 case "up":
-                    worldY -= speed;
+                    y -= speed;
                     break;
                 case "down":
-                    worldY += speed;
+                    y += speed;
                     break;
                 case "left":
-                    worldX -= speed;
+                    x -= speed;
                     break;
                 case "right":
-                    worldX += speed;
+                    x += speed;
                     break;
             }
         }

@@ -12,17 +12,14 @@ public class GamePanel extends JPanel implements Runnable {
     public static final int HEIGHT = 432;
     public static final int TILE_SIZE = 48;
 
-    public static final int MAX_WORLD_COL = 32;
-    public static final int MAX_WORLD_ROW = 18;
-
     private static final int FPS = 60;
 
-    private final TileManager tileManager = new TileManager(this);
+    private final transient TileManager tileManager = new TileManager(this);
     private final transient KeyHandler keyHandler = new KeyHandler();
-    private final CollisionsChecker collisionsChecker = new CollisionsChecker(this);
+    private final transient CollisionsChecker collisionsChecker = new CollisionsChecker(this);
     private transient Thread gameThread;
 
-    private final Player player = new Player(keyHandler, this);
+    private final transient Player player = new Player(keyHandler, this);
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(WIDTH, HEIGHT));
