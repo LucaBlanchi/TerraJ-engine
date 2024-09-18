@@ -19,7 +19,7 @@ public class GamePanel extends JPanel implements Runnable {
     private final transient KeyHandler keyHandler = new KeyHandler();
     private final transient Player player = new Player(keyHandler, this);
     private final transient TileManager tileManager = new TileManager(this.player);
-    private final transient CollisionsChecker collisionsChecker = new CollisionsChecker(this.tileManager);
+    private final transient CollisionsChecker collisionsChecker = new CollisionsChecker();
 
     private transient Thread gameThread;
 
@@ -60,7 +60,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void update() {
-        player.update();
+        player.update(tileManager);
     }
 
     @Override

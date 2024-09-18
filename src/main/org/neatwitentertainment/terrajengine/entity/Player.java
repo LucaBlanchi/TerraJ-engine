@@ -2,6 +2,7 @@ package org.neatwitentertainment.terrajengine.entity;
 
 import org.neatwitentertainment.terrajengine.GamePanel;
 import org.neatwitentertainment.terrajengine.KeyHandler;
+import org.neatwitentertainment.terrajengine.tiles.TileManager;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -43,7 +44,7 @@ public class Player extends Entity {
         }
     }
 
-    public void update() {
+    public void update(TileManager tileManager) {
 
         if (!keyHandler.isUpPressed()
                 && !keyHandler.isDownPressed()
@@ -67,7 +68,7 @@ public class Player extends Entity {
         }
 
         isColliding = false;
-        gamePanel.getCollisionsChecker().checkTile(this);
+        gamePanel.getCollisionsChecker().checkTile(this, tileManager);
 
         if (!isColliding) {
             switch (direction) {

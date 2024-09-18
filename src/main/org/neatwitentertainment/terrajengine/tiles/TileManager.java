@@ -83,11 +83,7 @@ public class TileManager {
         }
     }
 
-    public Tile getTile(int tileNum) {
-        return tiles[tileNum];
-    }
-
-    public int[][] getMapTileGrid() {
-        return mapTileGrid;
+    public boolean isTileSolid(int row, int col) {
+        return tiles[mapTileGrid[row][col]].isSolid();
     }
 }

@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Clean Player class">
+    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Clean TileManager class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/CollisionsChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/CollisionsChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/entity/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/tiles/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/tiles/TileManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -96,7 +99,7 @@
       <workItem from="1726310145192" duration="3346000" />
       <workItem from="1726602677361" duration="8304000" />
       <workItem from="1726648021823" duration="3302000" />
-      <workItem from="1726677049790" duration="1363000" />
+      <workItem from="1726677049790" duration="1821000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1726610372645</created>
@@ -168,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1726682733765</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Clean TileManager class">
+      <created>1726682990223</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1726682990223</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,6 +191,7 @@
     <MESSAGE value="Clean code" />
     <MESSAGE value="Introduce direction enum" />
     <MESSAGE value="Clean Player class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clean Player class" />
+    <MESSAGE value="Clean TileManager class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Clean TileManager class" />
   </component>
 </project>
