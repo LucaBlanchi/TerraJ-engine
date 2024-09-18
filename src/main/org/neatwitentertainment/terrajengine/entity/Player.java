@@ -25,7 +25,6 @@ public class Player extends Entity {
         x = GamePanel.TILE_SIZE * 16;
         y = GamePanel.TILE_SIZE * 9;
         speed = 4;
-        direction = Direction.DOWN;
     }
 
     public void loadSprites() {
@@ -53,33 +52,23 @@ public class Player extends Entity {
             return;
         }
 
-        if (keyHandler.isUpPressed()) {
-            direction = Direction.UP;
-        }
-        if (keyHandler.isDownPressed()) {
-            direction = Direction.DOWN;
-        }
-        if (keyHandler.isLeftPressed()) {
-            direction = Direction.LEFT;
-        }
-        if (keyHandler.isRightPressed()) {
-            direction = Direction.RIGHT;
-        }
+        isGoingUp = keyHandler.isUpPressed();
+        isGoingDown = keyHandler.isDownPressed();
+        isGoingLeft = keyHandler.isLeftPressed();
+        isGoingRight = keyHandler.isRightPressed();
 
         if (!collisionsChecker.isColliding(this, mapManager)) {
-            switch (direction) {
-                case UP:
-                    y -= speed;
-                    break;
-                case DOWN:
-                    y += speed;
-                    break;
-                case LEFT:
-                    x -= speed;
-                    break;
-                case RIGHT:
-                    x += speed;
-                    break;
+            if (isGoingUp) {
+                y -= speed;
+            }
+            if (isGoingDown) {
+                y += speed;
+            }
+            if (isGoingLeft) {
+                x -= speed;
+            }
+            if (isGoingRight) {
+                x += speed;
             }
         }
 
@@ -96,29 +85,30 @@ public class Player extends Entity {
     }
 
     private BufferedImage selectSprite() {
-        switch (direction) {
-            case UP:
-                if (spriteNum == 1) {
-                    return up1;
-                }
-                return up2;
-            case DOWN:
-                if (spriteNum == 1) {
-                    return down1;
-                }
-                return down2;
-            case LEFT:
-                if (spriteNum == 1) {
-                    return left1;
-                }
-                return left2;
-            case RIGHT:
-                if (spriteNum == 1) {
-                    return right1;
-                }
-                return right2;
-            default:
-                throw new IllegalStateException("Unexpected value: " + direction);
+        if (isGoingUp) {
+            if (spriteNum == 1) {
+                return up1;
+            }
+            return up2;
         }
+        if (isGoingDown) {
+            if (spriteNum == 1) {
+                return down1;
+            }
+            return down2;
+        }
+        if (isGoingLeft) {
+            if (spriteNum == 1) {
+                return left1;
+            }
+            return left2;
+        }
+        if (isGoingRight) {
+            if (spriteNum == 1) {
+                return right1;
+            }
+            return right2;
+        }
+        return down1;
     }
 }

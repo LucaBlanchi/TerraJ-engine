@@ -8,7 +8,11 @@ public class Entity {
     protected int x;
     protected int y;
     protected int speed;
-    protected Direction direction;
+
+    protected boolean isGoingUp;
+    protected boolean isGoingDown;
+    protected boolean isGoingLeft;
+    protected boolean isGoingRight;
 
     protected BufferedImage up1;
     protected BufferedImage up2;
@@ -28,16 +32,28 @@ public class Entity {
         return x;
     }
 
-    public Direction getDirection() {
-        return direction;
+    public int getY() {
+        return y;
     }
 
     public int getSpeed() {
         return speed;
     }
 
-    public int getY() {
-        return y;
+    public boolean isGoingUp() {
+        return isGoingUp;
+    }
+
+    public boolean isGoingDown() {
+        return isGoingDown;
+    }
+
+    public boolean isGoingLeft() {
+        return isGoingLeft;
+    }
+
+    public boolean isGoingRight() {
+        return isGoingRight;
     }
 
     public Rectangle getSolidBounds() {
