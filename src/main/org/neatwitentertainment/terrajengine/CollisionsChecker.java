@@ -5,7 +5,7 @@ import org.neatwitentertainment.terrajengine.tiles.TileManager;
 
 public class CollisionsChecker {
 
-    public void checkTile(Entity entity, TileManager tileManager) {
+    public boolean isColliding(Entity entity, TileManager tileManager) {
         int entityLeftWorldX = entity.getX() + entity.getSolidBounds().x;
         int entityRightWorldX = entity.getX() + entity.getSolidBounds().x + entity.getSolidBounds().width;
         int entityUpWorldY = entity.getY() + entity.getSolidBounds().y;
@@ -20,27 +20,28 @@ public class CollisionsChecker {
             case UP:
                 entityTopRow = (entityUpWorldY - entity.getSpeed()) / GamePanel.TILE_SIZE;
                 if (tileManager.isTileSolid(entityTopRow, entityLeftCol) || tileManager.isTileSolid(entityTopRow, entityRightCol)) {
-                    entity.setColliding(true);
+                    return true;
                 }
                 break;
             case DOWN:
                 entityBottomRow = (entityDownWorldY + entity.getSpeed()) / GamePanel.TILE_SIZE;
                 if (tileManager.isTileSolid(entityBottomRow, entityLeftCol) || tileManager.isTileSolid(entityBottomRow, entityRightCol)) {
-                    entity.setColliding(true);
+                    return true;
                 }
                 break;
             case LEFT:
                 entityLeftCol = (entityLeftWorldX - entity.getSpeed()) / GamePanel.TILE_SIZE;
                 if (tileManager.isTileSolid(entityTopRow, entityLeftCol) || tileManager.isTileSolid(entityBottomRow, entityLeftCol)) {
-                    entity.setColliding(true);
+                    return true;
                 }
                 break;
             case RIGHT:
                 entityRightCol = (entityRightWorldX + entity.getSpeed()) / GamePanel.TILE_SIZE;
                 if (tileManager.isTileSolid(entityTopRow, entityRightCol) || tileManager.isTileSolid(entityBottomRow, entityRightCol)) {
-                    entity.setColliding(true);
+                    return true;
                 }
                 break;
         }
+        return false;
     }
 }

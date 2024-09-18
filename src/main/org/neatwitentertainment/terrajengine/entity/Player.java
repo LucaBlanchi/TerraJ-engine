@@ -66,10 +66,7 @@ public class Player extends Entity {
             direction = Direction.RIGHT;
         }
 
-        isColliding = false;
-        collisionsChecker.checkTile(this, tileManager);
-
-        if (!isColliding) {
+        if (!collisionsChecker.isColliding(this, tileManager)) {
             switch (direction) {
                 case UP:
                     y -= speed;

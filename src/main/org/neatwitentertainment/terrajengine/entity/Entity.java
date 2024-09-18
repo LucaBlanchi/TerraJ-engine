@@ -23,7 +23,6 @@ public class Entity {
     protected int spriteNum = 1;
 
     protected Rectangle solidBounds;
-    protected boolean isColliding = false;
 
     public int getX() {
         return x;
@@ -43,9 +42,5 @@ public class Entity {
 
     public Rectangle getSolidBounds() {
         return solidBounds;
-    }
-
-    public void setColliding(boolean isColliding) {
-        this.isColliding = isColliding;
     }
 }
