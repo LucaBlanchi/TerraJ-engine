@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Clean up dependencies">
-      <change beforePath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/entity/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/entity/Entity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +93,7 @@
       <workItem from="1726259455911" duration="5436000" />
       <workItem from="1726310145192" duration="3346000" />
       <workItem from="1726602677361" duration="8304000" />
-      <workItem from="1726648021823" duration="1833000" />
+      <workItem from="1726648021823" duration="2221000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1726610372645</created>
@@ -131,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1726649180463</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Clean up dependencies">
+      <created>1726650050952</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1726650050952</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

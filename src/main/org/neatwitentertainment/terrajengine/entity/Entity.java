@@ -8,6 +8,7 @@ public class Entity {
     protected int x;
     protected int y;
     protected int speed;
+    protected String direction;
 
     protected BufferedImage up1;
     protected BufferedImage up2;
@@ -18,13 +19,11 @@ public class Entity {
     protected BufferedImage right1;
     protected BufferedImage right2;
 
-    protected String direction;
-
     protected int spriteCounter = 0;
     protected int spriteNum = 1;
 
     protected Rectangle solidBounds;
-    protected boolean isCollisionOn = false;
+    protected boolean isColliding = false;
 
     public int getX() {
         return x;
@@ -46,7 +45,7 @@ public class Entity {
         return solidBounds;
     }
 
-    public void setCollisionOn(boolean isCollisionOn) {
-        this.isCollisionOn = isCollisionOn;
+    public void setColliding(boolean isColliding) {
+        this.isColliding = isColliding;
     }
 }

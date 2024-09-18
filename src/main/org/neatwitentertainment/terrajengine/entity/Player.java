@@ -69,10 +69,10 @@ public class Player extends Entity {
             direction = "right";
         }
 
-        isCollisionOn = false;
+        isColliding = false;
         gamePanel.getCollisionsChecker().checkTile(this);
 
-        if (!isCollisionOn) {
+        if (!isColliding) {
             switch (direction) {
                 case "up":
                     y -= speed;

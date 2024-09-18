@@ -31,28 +31,28 @@ public class CollisionsChecker {
                 tileNum1 = tileManager.getMapTileGrid()[entityTopRow][entityLeftCol];
                 tileNum2 = tileManager.getMapTileGrid()[entityTopRow][entityRightCol];
                 if (tileManager.getTile(tileNum1).isSolid() || tileManager.getTile(tileNum2).isSolid())
-                    entity.setCollisionOn(true);
+                    entity.setColliding(true);
                 break;
             case "down":
                 entityBottomRow = (entityDownWorldY + entity.getSpeed()) / GamePanel.TILE_SIZE;
                 tileNum1 = tileManager.getMapTileGrid()[entityBottomRow][entityLeftCol];
                 tileNum2 = tileManager.getMapTileGrid()[entityBottomRow][entityRightCol];
                 if (tileManager.getTile(tileNum1).isSolid() || tileManager.getTile(tileNum2).isSolid())
-                    entity.setCollisionOn(true);
+                    entity.setColliding(true);
                 break;
             case "left":
                 entityLeftCol = (entityLeftWorldX - entity.getSpeed()) / GamePanel.TILE_SIZE;
                 tileNum1 = tileManager.getMapTileGrid()[entityTopRow][entityLeftCol];
                 tileNum2 = tileManager.getMapTileGrid()[entityBottomRow][entityLeftCol];
                 if (tileManager.getTile(tileNum1).isSolid() || tileManager.getTile(tileNum2).isSolid())
-                    entity.setCollisionOn(true);
+                    entity.setColliding(true);
                 break;
             case "right":
                 entityRightCol = (entityRightWorldX + entity.getSpeed()) / GamePanel.TILE_SIZE;
                 tileNum1 = tileManager.getMapTileGrid()[entityTopRow][entityRightCol];
                 tileNum2 = tileManager.getMapTileGrid()[entityBottomRow][entityRightCol];
                 if (tileManager.getTile(tileNum1).isSolid() || tileManager.getTile(tileNum2).isSolid())
-                    entity.setCollisionOn(true);
+                    entity.setColliding(true);
                 break;
         }
     }
