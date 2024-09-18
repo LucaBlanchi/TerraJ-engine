@@ -2,7 +2,7 @@ package org.neatwitentertainment.terrajengine.map;
 
 import java.awt.image.BufferedImage;
 
-public class Tile {
+public class Block {
 
     private BufferedImage image;
     private boolean isSolid;

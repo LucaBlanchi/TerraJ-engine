@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Make game fullscreen">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/Main.java" afterDir="false" />
+    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Add icon">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/entity/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,11 +60,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static" />
       <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\maps" />
       <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\tiles" />
       <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources" />
       <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\sprites" />
-      <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static.tiles" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -223,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1726700024956</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Add icon">
+      <created>1726700441541</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1726700441541</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,6 +250,7 @@
     <MESSAGE value="Refactor TileManager" />
     <MESSAGE value="Allow for diagonal movement again" />
     <MESSAGE value="Make game fullscreen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make game fullscreen" />
+    <MESSAGE value="Add icon" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add icon" />
   </component>
 </project>

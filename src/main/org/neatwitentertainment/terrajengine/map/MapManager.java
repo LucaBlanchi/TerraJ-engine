@@ -1,7 +1,6 @@
 package org.neatwitentertainment.terrajengine.map;
 
 import org.neatwitentertainment.terrajengine.GamePanel;
-import org.neatwitentertainment.terrajengine.entity.Player;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -12,15 +11,15 @@ import java.io.InputStreamReader;
 
 public class MapManager {
 
-    private final Tile[] tiles;
+    private final Block[] blocks;
     private final int[][] mapGrid;
 
     private static final int MAX_WORLD_COL = 32;
     private static final int MAX_WORLD_ROW = 18;
 
     public MapManager() {
-        tiles = new Tile[16];
-        loadTiles();
+        blocks = new Block[16];
+        loadBlocks();
 
         mapGrid = new int[MAX_WORLD_ROW][MAX_WORLD_COL];
         loadMap();
@@ -43,14 +42,14 @@ public class MapManager {
         }
     }
 
-    private void loadTiles() {
+    private void loadBlocks() {
         try {
-            tiles[0] = new Tile();
-            tiles[0].setImage(ImageIO.read(getClass().getResourceAsStream("/resources/static/tiles/dirt.png")));
+            blocks[0] = new Block();
+            blocks[0].setImage(ImageIO.read(getClass().getResourceAsStream("/static/blocks/dirt.png")));
 
-            tiles[1] = new Tile();
-            tiles[1].setImage(ImageIO.read(getClass().getResourceAsStream("/resources/static/tiles/grass.png")));
-            tiles[1].setSolid(true);
+            blocks[1] = new Block();
+            blocks[1].setImage(ImageIO.read(getClass().getResourceAsStream("/static/blocks/grass.png")));
+            blocks[1].setSolid(true);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -75,12 +74,12 @@ public class MapManager {
                 int screenX = worldX - cameraCenterX + GamePanel.SCREEN_CENTER_X;
                 int screenY = worldY - cameraCenterY + GamePanel.SCREEN_CENTER_Y;
 
-                graphics2D.drawImage(tiles[tileNum].getImage(), screenX, screenY, GamePanel.TILE_SIZE, GamePanel.TILE_SIZE, null);
+                graphics2D.drawImage(blocks[tileNum].getImage(), screenX, screenY, GamePanel.TILE_SIZE, GamePanel.TILE_SIZE, null);
             }
         }
     }
 
-    public boolean isTileSolid(int row, int col) {
-        return tiles[mapGrid[row][col]].isSolid();
+    public boolean isBlockSolid(int row, int col) {
+        return blocks[mapGrid[row][col]].isSolid();
     }
 }

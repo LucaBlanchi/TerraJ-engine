@@ -18,25 +18,25 @@ public class CollisionsChecker {
 
         if (entity.isGoingUp()) {
             entityTopRow = (entityUpWorldY - entity.getSpeed()) / GamePanel.TILE_SIZE;
-            if (mapManager.isTileSolid(entityTopRow, entityLeftCol) || mapManager.isTileSolid(entityTopRow, entityRightCol)) {
+            if (mapManager.isBlockSolid(entityTopRow, entityLeftCol) || mapManager.isBlockSolid(entityTopRow, entityRightCol)) {
                 return true;
             }
         }
         if (entity.isGoingDown()) {
             entityBottomRow = (entityDownWorldY + entity.getSpeed()) / GamePanel.TILE_SIZE;
-            if (mapManager.isTileSolid(entityBottomRow, entityLeftCol) || mapManager.isTileSolid(entityBottomRow, entityRightCol)) {
+            if (mapManager.isBlockSolid(entityBottomRow, entityLeftCol) || mapManager.isBlockSolid(entityBottomRow, entityRightCol)) {
                 return true;
             }
         }
         if (entity.isGoingLeft()) {
             entityLeftCol = (entityLeftWorldX - entity.getSpeed()) / GamePanel.TILE_SIZE;
-            if (mapManager.isTileSolid(entityTopRow, entityLeftCol) || mapManager.isTileSolid(entityBottomRow, entityLeftCol)) {
+            if (mapManager.isBlockSolid(entityTopRow, entityLeftCol) || mapManager.isBlockSolid(entityBottomRow, entityLeftCol)) {
                 return true;
             }
         }
         if (entity.isGoingRight()) {
             entityRightCol = (entityRightWorldX + entity.getSpeed()) / GamePanel.TILE_SIZE;
-            if (mapManager.isTileSolid(entityTopRow, entityRightCol) || mapManager.isTileSolid(entityBottomRow, entityRightCol)) {
+            if (mapManager.isBlockSolid(entityTopRow, entityRightCol) || mapManager.isBlockSolid(entityBottomRow, entityRightCol)) {
                 return true;
             }
         }

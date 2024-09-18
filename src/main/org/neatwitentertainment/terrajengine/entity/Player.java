@@ -17,19 +17,23 @@ public class Player extends Entity {
     public Player(KeyHandler keyHandler) {
         this.keyHandler = keyHandler;
         setDefaultValues();
+        setSolidBounds();
         loadSprites();
-        solidBounds = new Rectangle(
-                GamePanel.TILE_SIZE / 6,
-                GamePanel.TILE_SIZE / 3,
-                GamePanel.TILE_SIZE * 2/3,
-                GamePanel.TILE_SIZE * 2/3
-        );
     }
 
     public void setDefaultValues() {
         x = GamePanel.TILE_SIZE * 16;
         y = GamePanel.TILE_SIZE * 9;
         speed = 10 * GamePanel.TILE_SIZE / 120;
+    }
+
+    public void setSolidBounds() {
+        solidBounds = new Rectangle(
+                GamePanel.TILE_SIZE / 6,
+                GamePanel.TILE_SIZE / 3,
+                GamePanel.TILE_SIZE * 2/3,
+                GamePanel.TILE_SIZE * 2/3
+        );
     }
 
     public void loadSprites() {
