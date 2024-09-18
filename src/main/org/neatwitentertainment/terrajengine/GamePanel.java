@@ -47,15 +47,19 @@ public class GamePanel extends JPanel implements Runnable {
             repaint();
 
             long elapsedTime = System.nanoTime() - currentTime;
-            long sleepTime = 1000 / MAX_FPS - elapsedTime / 1000000;
-            if (sleepTime < 0) {
-                sleepTime = 0;
-            }
-            try {
-                Thread.sleep(sleepTime);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            sleepToCapFps(elapsedTime);
+        }
+    }
+
+    private void sleepToCapFps(long elapsedTime) {
+        long sleepTime = 1000 / MAX_FPS - elapsedTime / 1000000;
+        if (sleepTime < 0) {
+            sleepTime = 0;
+        }
+        try {
+            Thread.sleep(sleepTime);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
