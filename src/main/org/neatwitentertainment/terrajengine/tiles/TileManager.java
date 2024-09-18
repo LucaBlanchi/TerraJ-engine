@@ -21,14 +21,15 @@ public class TileManager {
 
     public TileManager(Player player) {
         tiles = new Tile[16];
-        mapTileGrid = new int[MAX_WORLD_ROW][MAX_WORLD_COL];
+        loadTiles();
 
+        mapTileGrid = new int[MAX_WORLD_ROW][MAX_WORLD_COL];
         loadMap();
-        getTileImage();
+
         this.player = player;
     }
 
-    public void loadMap() {
+    private void loadMap() {
         InputStream inputStream = getClass().getResourceAsStream("/resources/static/maps/map.txt");
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
 
@@ -45,7 +46,7 @@ public class TileManager {
         }
     }
 
-    public void getTileImage() {
+    private void loadTiles() {
         try {
             tiles[0] = new Tile();
             tiles[0].setImage(ImageIO.read(getClass().getResourceAsStream("/resources/static/tiles/dirt.png")));
@@ -59,16 +60,16 @@ public class TileManager {
     }
 
     public void draw(Graphics2D graphics2D) {
-        for (int worldRow = 0; worldRow < MAX_WORLD_ROW; worldRow++) {
-            for (int worldCol = 0; worldCol < MAX_WORLD_COL; worldCol++) {
+        int cameraMargin = GamePanel.TILE_SIZE * 2;
 
-                int cameraMargin = GamePanel.TILE_SIZE * 2;
-                if (!(worldCol * GamePanel.TILE_SIZE > player.getX() - GamePanel.SCREEN_CENTER_X - cameraMargin
-                        && worldCol * GamePanel.TILE_SIZE < player.getX() - GamePanel.SCREEN_CENTER_X + GamePanel.WIDTH + cameraMargin
-                        && worldRow * GamePanel.TILE_SIZE > player.getY() - GamePanel.SCREEN_CENTER_Y - cameraMargin
-                        && worldRow * GamePanel.TILE_SIZE < player.getY() - GamePanel.SCREEN_CENTER_Y + GamePanel.HEIGHT + cameraMargin)) {
-                    continue;
-                }
+        int startCol = Math.max((player.getX() - GamePanel.SCREEN_CENTER_X - cameraMargin) / GamePanel.TILE_SIZE, 0);
+        int endCol = Math.min((player.getX() - GamePanel.SCREEN_CENTER_X + GamePanel.WIDTH + cameraMargin) / GamePanel.TILE_SIZE, MAX_WORLD_COL - 1);
+
+        int startRow = Math.max((player.getY() - GamePanel.SCREEN_CENTER_Y - cameraMargin) / GamePanel.TILE_SIZE, 0);
+        int endRow = Math.min((player.getY() - GamePanel.SCREEN_CENTER_Y + GamePanel.HEIGHT + cameraMargin) / GamePanel.TILE_SIZE, MAX_WORLD_ROW - 1);
+
+        for (int worldRow = startRow; worldRow <= endRow; worldRow++) {
+            for (int worldCol = startCol; worldCol <= endCol; worldCol++) {
 
                 int tileNum = mapTileGrid[worldRow][worldCol];
 
