@@ -16,7 +16,7 @@ public class Player extends Entity {
     public Player(KeyHandler keyHandler, GamePanel gamePanel) {
         this.keyHandler = keyHandler;
         setDefaultValues();
-        getPlayerImage();
+        loadSprites();
         solidBounds = new Rectangle(8, 16, 32, 32);
         this.gamePanel = gamePanel;
     }
@@ -28,7 +28,7 @@ public class Player extends Entity {
         direction = Direction.DOWN;
     }
 
-    public void getPlayerImage() {
+    public void loadSprites() {
         try {
             up1 = ImageIO.read(getClass().getResourceAsStream("/resources/static/sprites/sprite1.png"));
             up2 = ImageIO.read(getClass().getResourceAsStream("/resources/static/sprites/sprite2.png"));
@@ -94,37 +94,34 @@ public class Player extends Entity {
     }
 
     public void draw(Graphics2D g2d) {
-        BufferedImage image = null;
+        BufferedImage image = selectSprite();
+        g2d.drawImage(image, GamePanel.SCREEN_CENTER_X, GamePanel.SCREEN_CENTER_Y, GamePanel.TILE_SIZE, GamePanel.TILE_SIZE, null);
+    }
+
+    private BufferedImage selectSprite() {
         switch (direction) {
             case UP:
                 if (spriteNum == 1) {
-                    image = up1;
-                } else {
-                    image = up2;
+                    return up1;
                 }
-                break;
+                return up2;
             case DOWN:
                 if (spriteNum == 1) {
-                    image = down1;
-                } else {
-                    image = down2;
+                    return down1;
                 }
-                break;
+                return down2;
             case LEFT:
                 if (spriteNum == 1) {
-                    image = left1;
-                } else {
-                    image = left2;
+                    return left1;
                 }
-                break;
+                return left2;
             case RIGHT:
                 if (spriteNum == 1) {
-                    image = right1;
-                } else {
-                    image = right2;
+                    return right1;
                 }
-                break;
+                return right2;
+            default:
+                throw new IllegalStateException("Unexpected value: " + direction);
         }
-        g2d.drawImage(image, GamePanel.SCREEN_CENTER_X, GamePanel.SCREEN_CENTER_Y, GamePanel.TILE_SIZE, GamePanel.TILE_SIZE, null);
     }
 }
