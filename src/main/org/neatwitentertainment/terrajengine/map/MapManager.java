@@ -45,11 +45,15 @@ public class MapManager {
     private void loadBlocks() {
         try {
             blocks[0] = new Block();
-            blocks[0].setImage(ImageIO.read(getClass().getResourceAsStream("/static/blocks/dirt.png")));
+            blocks[0].setImage(ImageIO.read(getClass().getResourceAsStream("/static/blocks/air.png")));
 
             blocks[1] = new Block();
-            blocks[1].setImage(ImageIO.read(getClass().getResourceAsStream("/static/blocks/grass.png")));
+            blocks[1].setImage(ImageIO.read(getClass().getResourceAsStream("/static/blocks/dirt.png")));
             blocks[1].setSolid(true);
+
+            blocks[2] = new Block();
+            blocks[2].setImage(ImageIO.read(getClass().getResourceAsStream("/static/blocks/grass.png")));
+            blocks[2].setSolid(true);
         } catch (IOException e) {
             e.printStackTrace();
         }
