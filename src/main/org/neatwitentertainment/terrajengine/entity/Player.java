@@ -51,7 +51,7 @@ public class Player extends Entity {
         }
     }
 
-    public void update(MapManager mapManager, CollisionsChecker collisionsChecker) {
+    public void update(MapManager mapManager) {
 
         if (!keyHandler.isUpPressed()
                 && !keyHandler.isDownPressed()
@@ -66,19 +66,17 @@ public class Player extends Entity {
         isGoingLeft = keyHandler.isLeftPressed();
         isGoingRight = keyHandler.isRightPressed();
 
-        if (!collisionsChecker.isColliding(this, mapManager)) {
-            if (isGoingUp) {
-                y -= speed;
-            }
-            if (isGoingDown) {
-                y += speed;
-            }
-            if (isGoingLeft) {
-                x -= speed;
-            }
-            if (isGoingRight) {
-                x += speed;
-            }
+        if (isGoingUp && !CollisionsChecker.isCollidingUp(this, mapManager)) {
+            y -= speed;
+        }
+        if (isGoingDown && !CollisionsChecker.isCollidingDown(this, mapManager)) {
+            y += speed;
+        }
+        if (isGoingLeft && !CollisionsChecker.isCollidingLeft(this, mapManager)) {
+            x -= speed;
+        }
+        if (isGoingRight && !CollisionsChecker.isCollidingRight(this, mapManager)) {
+            x += speed;
         }
 
         spriteCounter++;

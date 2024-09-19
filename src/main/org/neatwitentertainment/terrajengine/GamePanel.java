@@ -66,7 +66,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void update() {
-        player.update(mapManager, collisionsChecker);
+        player.update(mapManager);
     }
 
     @Override
