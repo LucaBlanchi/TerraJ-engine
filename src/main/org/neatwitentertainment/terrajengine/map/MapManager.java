@@ -72,6 +72,9 @@ public class MapManager {
             for (int worldCol = startCol; worldCol <= endCol; worldCol++) {
 
                 int tileNum = mapGrid[worldRow][worldCol];
+                if (tileNum == 0) {
+                    continue;
+                }
 
                 int worldX = worldCol * GamePanel.TILE_SIZE;
                 int worldY = worldRow * GamePanel.TILE_SIZE;
