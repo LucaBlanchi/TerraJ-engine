@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class Player extends Entity {
 
-    private static final int GRAVITY = 7 * GamePanel.TILE_SIZE / 120;
+    private static final int GRAVITY = 10 * GamePanel.TILE_SIZE / 120;
 
     private BufferedImage sprite1;
     private BufferedImage sprite2;
@@ -107,7 +107,7 @@ public class Player extends Entity {
 
     private void jump(MapManager mapManager) {
         if (CollisionsChecker.isCollidingDown(this, mapManager)) {
-            jumpSpeed = 32 * GamePanel.TILE_SIZE / 120;
+            jumpSpeed = 35 * GamePanel.TILE_SIZE / 120;
         }
     }
 }
