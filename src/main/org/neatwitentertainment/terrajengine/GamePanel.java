@@ -5,6 +5,8 @@ import org.neatwitentertainment.terrajengine.map.MapManager;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 public class GamePanel extends JPanel implements Runnable {
 
@@ -21,9 +23,11 @@ public class GamePanel extends JPanel implements Runnable {
     private final transient KeyHandler keyHandler = new KeyHandler();
     private final transient Player player = new Player(keyHandler);
     private final transient MapManager mapManager = new MapManager();
-    private final transient CollisionsChecker collisionsChecker = new CollisionsChecker();
 
     private transient Thread gameThread;
+
+    private double scaleFactorX = 1.0;
+    private double scaleFactorY = 1.0;
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -31,6 +35,22 @@ public class GamePanel extends JPanel implements Runnable {
         this.setDoubleBuffered(true);
         this.setFocusable(true);
         this.addKeyListener(keyHandler);
+
+        this.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                handleResize();
+            }
+        });
+    }
+
+    private void handleResize() {
+        // Calculate new scaling factors based on the window size
+        int newWidth = this.getWidth();
+        int newHeight = this.getHeight();
+
+        scaleFactorX = (double) newWidth / WIDTH;
+        scaleFactorY = (double) newHeight / HEIGHT;
     }
 
     public void startGameThread() {
@@ -71,11 +91,14 @@ public class GamePanel extends JPanel implements Runnable {
 
     @Override
     public void paintComponent(Graphics g) {
-
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
+
+        g2d.scale(scaleFactorX, scaleFactorY);
+
         mapManager.draw(g2d, player.getX(), player.getY());
         player.draw(g2d);
+
         g2d.dispose();
     }
 }

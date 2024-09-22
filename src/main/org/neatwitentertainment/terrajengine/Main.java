@@ -18,9 +18,10 @@ public class Main {
         GamePanel gamePanel = new GamePanel();
         window.add(gamePanel);
 
-        window.setPreferredSize(new Dimension(GamePanel.WIDTH, GamePanel.HEIGHT));
+        window.setPreferredSize(new Dimension(1280, 720));
 
         window.pack();
+        window.setExtendedState(JFrame.MAXIMIZED_BOTH);
         window.setLocationRelativeTo(null);
         window.setVisible(true);
 

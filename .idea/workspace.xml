@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Rework collisions">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/blocks/air.png" afterDir="false" />
+    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Add air block">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/map/MapManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/map/MapManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/maps/map.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/maps/map.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +97,11 @@
       <workItem from="1726602677361" duration="8304000" />
       <workItem from="1726648021823" duration="3302000" />
       <workItem from="1726677049790" duration="5813000" />
-      <workItem from="1726733144374" duration="846000" />
+      <workItem from="1726733144374" duration="1186000" />
+      <workItem from="1726734385731" duration="1239000" />
+      <workItem from="1726737220906" duration="1279000" />
+      <workItem from="1726755016143" duration="888000" />
+      <workItem from="1726999401813" duration="1725000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1726610372645</created>
@@ -254,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1726733519647</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Add air block">
+      <created>1726734217516</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1726734217516</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,6 +288,7 @@
     <MESSAGE value="Rebrand tiles to 'blocks'" />
     <MESSAGE value="Prevent going out of bounds" />
     <MESSAGE value="Rework collisions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rework collisions" />
+    <MESSAGE value="Add air block" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add air block" />
   </component>
 </project>
