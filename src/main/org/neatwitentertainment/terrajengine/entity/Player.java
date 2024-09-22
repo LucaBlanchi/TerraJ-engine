@@ -17,6 +17,8 @@ public class Player extends Entity {
     private BufferedImage sprite1;
     private BufferedImage sprite2;
 
+    private int jumpSpeed = 0;
+
     private final KeyHandler keyHandler;
 
     public Player(KeyHandler keyHandler) {
@@ -52,15 +54,27 @@ public class Player extends Entity {
 
     public void update(MapManager mapManager) {
         isGoingUp = keyHandler.isUpPressed();
-        isGoingDown = true;
         isGoingLeft = keyHandler.isLeftPressed();
         isGoingRight = keyHandler.isRightPressed();
 
-        if (isGoingUp && !CollisionsChecker.isCollidingUp(this, mapManager)) {
-            y -= speed;
+        if (CollisionsChecker.isCollidingUp(this, mapManager)) {
+            jumpSpeed = 0;
         }
-        if (isGoingDown && !CollisionsChecker.isCollidingDown(this, mapManager)) {
-            y += GRAVITY;
+        int yDiff = jumpSpeed - GRAVITY;
+        if (yDiff < 0 && !CollisionsChecker.isCollidingDown(this, mapManager)) {
+            y -= yDiff;
+        }
+        if (yDiff > 0 && !CollisionsChecker.isCollidingUp(this, mapManager)) {
+            y -= yDiff;
+        }
+        if (jumpSpeed > 0) {
+            jumpSpeed -= 1;
+        } else {
+            jumpSpeed = 0;
+        }
+
+        if (isGoingUp && !CollisionsChecker.isCollidingUp(this, mapManager)) {
+            jump(mapManager);
         }
         if (isGoingLeft && !CollisionsChecker.isCollidingLeft(this, mapManager)) {
             x -= speed;
@@ -89,5 +103,11 @@ public class Player extends Entity {
 
     private BufferedImage selectSprite() {
         return spriteNum == 1 ? sprite1 : sprite2;
+    }
+
+    private void jump(MapManager mapManager) {
+        if (CollisionsChecker.isCollidingDown(this, mapManager)) {
+            jumpSpeed = 32 * GamePanel.TILE_SIZE / 120;
+        }
     }
 }

@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Implement full screen">
+    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Remove unused sprite system features">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/KeyHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/entity/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/entity/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/maps/map.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/maps/map.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +102,7 @@
       <workItem from="1726734385731" duration="1239000" />
       <workItem from="1726737220906" duration="1279000" />
       <workItem from="1726755016143" duration="888000" />
-      <workItem from="1726999401813" duration="3135000" />
+      <workItem from="1726999401813" duration="4918000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1726610372645</created>
@@ -279,7 +279,14 @@
       <option name="project" value="LOCAL" />
       <updated>1727035316650</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Remove unused sprite system features">
+      <created>1727035925322</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1727035925322</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,6 +313,7 @@
     <MESSAGE value="Add air block" />
     <MESSAGE value="Properly resize window" />
     <MESSAGE value="Implement full screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement full screen" />
+    <MESSAGE value="Remove unused sprite system features" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove unused sprite system features" />
   </component>
 </project>

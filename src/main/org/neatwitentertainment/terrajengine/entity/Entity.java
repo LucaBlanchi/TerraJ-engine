@@ -9,7 +9,6 @@ public class Entity {
     protected int speed;
 
     protected boolean isGoingUp;
-    protected boolean isGoingDown;
     protected boolean isGoingLeft;
     protected boolean isGoingRight;
 
