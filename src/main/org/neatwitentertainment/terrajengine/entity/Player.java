@@ -12,6 +12,11 @@ import java.io.IOException;
 
 public class Player extends Entity {
 
+    private static final int GRAVITY = 7 * GamePanel.TILE_SIZE / 120;
+
+    private BufferedImage sprite1;
+    private BufferedImage sprite2;
+
     private final KeyHandler keyHandler;
 
     public Player(KeyHandler keyHandler) {
@@ -38,31 +43,16 @@ public class Player extends Entity {
 
     public void loadSprites() {
         try {
-            up1 = ImageIO.read(getClass().getResourceAsStream("/resources/static/sprites/sprite1.png"));
-            up2 = ImageIO.read(getClass().getResourceAsStream("/resources/static/sprites/sprite2.png"));
-            down1 = ImageIO.read(getClass().getResourceAsStream("/resources/static/sprites/sprite1.png"));
-            down2 = ImageIO.read(getClass().getResourceAsStream("/resources/static/sprites/sprite2.png"));
-            left1 = ImageIO.read(getClass().getResourceAsStream("/resources/static/sprites/sprite1.png"));
-            left2 = ImageIO.read(getClass().getResourceAsStream("/resources/static/sprites/sprite2.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("/resources/static/sprites/sprite1.png"));
-            right2 = ImageIO.read(getClass().getResourceAsStream("/resources/static/sprites/sprite2.png"));
+            sprite1 = ImageIO.read(getClass().getResourceAsStream("/resources/static/sprites/sprite1.png"));
+            sprite2 = ImageIO.read(getClass().getResourceAsStream("/resources/static/sprites/sprite2.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public void update(MapManager mapManager) {
-
-        if (!keyHandler.isUpPressed()
-                && !keyHandler.isDownPressed()
-                && !keyHandler.isLeftPressed()
-                && !keyHandler.isRightPressed()) {
-            spriteCounter = 13;
-            return;
-        }
-
         isGoingUp = keyHandler.isUpPressed();
-        isGoingDown = keyHandler.isDownPressed();
+        isGoingDown = true;
         isGoingLeft = keyHandler.isLeftPressed();
         isGoingRight = keyHandler.isRightPressed();
 
@@ -70,7 +60,7 @@ public class Player extends Entity {
             y -= speed;
         }
         if (isGoingDown && !CollisionsChecker.isCollidingDown(this, mapManager)) {
-            y += speed;
+            y += GRAVITY;
         }
         if (isGoingLeft && !CollisionsChecker.isCollidingLeft(this, mapManager)) {
             x -= speed;
@@ -79,6 +69,12 @@ public class Player extends Entity {
             x += speed;
         }
 
+        if (!keyHandler.isUpPressed()
+                && !keyHandler.isLeftPressed()
+                && !keyHandler.isRightPressed()) {
+            spriteCounter = 13;
+            return;
+        }
         spriteCounter++;
         if (spriteCounter > 12) {
             spriteNum = (spriteNum == 1) ? 2 : 1;
@@ -92,30 +88,6 @@ public class Player extends Entity {
     }
 
     private BufferedImage selectSprite() {
-        if (isGoingUp) {
-            if (spriteNum == 1) {
-                return up1;
-            }
-            return up2;
-        }
-        if (isGoingDown) {
-            if (spriteNum == 1) {
-                return down1;
-            }
-            return down2;
-        }
-        if (isGoingLeft) {
-            if (spriteNum == 1) {
-                return left1;
-            }
-            return left2;
-        }
-        if (isGoingRight) {
-            if (spriteNum == 1) {
-                return right1;
-            }
-            return right2;
-        }
-        return down1;
+        return spriteNum == 1 ? sprite1 : sprite2;
     }
 }
