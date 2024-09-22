@@ -31,6 +31,14 @@ public class KeyHandler implements KeyListener {
         if (code == KeyEvent.VK_D) {
             rightPressed = true;
         }
+
+        if (code == KeyEvent.VK_ESCAPE) {
+            Main.exitFullScreen();
+        }
+
+        if (code == KeyEvent.VK_F11) {
+            Main.toggleFullScreen();
+        }
     }
 
     @Override

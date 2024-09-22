@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Add air block">
+    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Properly resize window">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/KeyHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/org/neatwitentertainment/terrajengine/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +102,7 @@
       <workItem from="1726734385731" duration="1239000" />
       <workItem from="1726737220906" duration="1279000" />
       <workItem from="1726755016143" duration="888000" />
-      <workItem from="1726999401813" duration="1725000" />
+      <workItem from="1726999401813" duration="2510000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1726610372645</created>
@@ -264,7 +265,14 @@
       <option name="project" value="LOCAL" />
       <updated>1726734217516</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Properly resize window">
+      <created>1727034607611</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1727034607611</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -289,6 +297,7 @@
     <MESSAGE value="Prevent going out of bounds" />
     <MESSAGE value="Rework collisions" />
     <MESSAGE value="Add air block" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add air block" />
+    <MESSAGE value="Properly resize window" />
+    <option name="LAST_COMMIT_MESSAGE" value="Properly resize window" />
   </component>
 </project>

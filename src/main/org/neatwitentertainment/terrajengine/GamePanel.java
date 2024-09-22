@@ -45,7 +45,6 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     private void handleResize() {
-        // Calculate new scaling factors based on the window size
         int newWidth = this.getWidth();
         int newHeight = this.getHeight();
 
