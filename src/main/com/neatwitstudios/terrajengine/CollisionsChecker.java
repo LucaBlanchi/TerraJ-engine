@@ -1,6 +1,7 @@
 package com.neatwitstudios.terrajengine;
 
 import com.neatwitstudios.terrajengine.entity.Player;
+import com.neatwitstudios.terrajengine.map.Block;
 import com.neatwitstudios.terrajengine.map.MapManager;
 
 public class CollisionsChecker {
@@ -10,9 +11,9 @@ public class CollisionsChecker {
         int playerRightWorldX = player.getX() + player.getSolidBounds().x + player.getSolidBounds().width;
         int playerUpWorldY = player.getY() + player.getSolidBounds().y;
 
-        int playerLeftCol = playerLeftWorldX / GamePanel.TILE_SIZE;
-        int playerRightCol = playerRightWorldX / GamePanel.TILE_SIZE;
-        int playerTopRow = (playerUpWorldY - player.getSpeed()) / GamePanel.TILE_SIZE;
+        int playerLeftCol = playerLeftWorldX / Block.SIZE;
+        int playerRightCol = playerRightWorldX / Block.SIZE;
+        int playerTopRow = (playerUpWorldY - player.getSpeed()) / Block.SIZE;
 
         return mapManager.isBlockSolid(playerTopRow, playerLeftCol) || mapManager.isBlockSolid(playerTopRow, playerRightCol);
     }
@@ -22,9 +23,9 @@ public class CollisionsChecker {
         int playerRightWorldX = player.getX() + player.getSolidBounds().x + player.getSolidBounds().width;
         int playerDownWorldY = player.getY() + player.getSolidBounds().y + player.getSolidBounds().height;
 
-        int playerLeftCol = playerLeftWorldX / GamePanel.TILE_SIZE;
-        int playerRightCol = playerRightWorldX / GamePanel.TILE_SIZE;
-        int playerBottomRow = (playerDownWorldY + player.getSpeed()) / GamePanel.TILE_SIZE;
+        int playerLeftCol = playerLeftWorldX / Block.SIZE;
+        int playerRightCol = playerRightWorldX / Block.SIZE;
+        int playerBottomRow = (playerDownWorldY + player.getSpeed()) / Block.SIZE;
 
         return mapManager.isBlockSolid(playerBottomRow, playerLeftCol) || mapManager.isBlockSolid(playerBottomRow, playerRightCol);
     }
@@ -34,9 +35,9 @@ public class CollisionsChecker {
         int playerUpWorldY = player.getY() + player.getSolidBounds().y;
         int playerDownWorldY = player.getY() + player.getSolidBounds().y + player.getSolidBounds().height;
 
-        int playerTopRow = playerUpWorldY / GamePanel.TILE_SIZE;
-        int playerBottomRow = playerDownWorldY / GamePanel.TILE_SIZE;
-        int playerLeftCol = (playerLeftWorldX - player.getSpeed()) / GamePanel.TILE_SIZE;
+        int playerTopRow = playerUpWorldY / Block.SIZE;
+        int playerBottomRow = playerDownWorldY / Block.SIZE;
+        int playerLeftCol = (playerLeftWorldX - player.getSpeed()) / Block.SIZE;
 
         return mapManager.isBlockSolid(playerTopRow, playerLeftCol) || mapManager.isBlockSolid(playerBottomRow, playerLeftCol);
     }
@@ -46,9 +47,9 @@ public class CollisionsChecker {
         int playerUpWorldY = player.getY() + player.getSolidBounds().y;
         int playerDownWorldY = player.getY() + player.getSolidBounds().y + player.getSolidBounds().height;
 
-        int playerTopRow = playerUpWorldY / GamePanel.TILE_SIZE;
-        int playerBottomRow = playerDownWorldY / GamePanel.TILE_SIZE;
-        int playerRightCol = (playerRightWorldX + player.getSpeed()) / GamePanel.TILE_SIZE;
+        int playerTopRow = playerUpWorldY / Block.SIZE;
+        int playerBottomRow = playerDownWorldY / Block.SIZE;
+        int playerRightCol = (playerRightWorldX + player.getSpeed()) / Block.SIZE;
 
         return mapManager.isBlockSolid(playerTopRow, playerRightCol) || mapManager.isBlockSolid(playerBottomRow, playerRightCol);
     }

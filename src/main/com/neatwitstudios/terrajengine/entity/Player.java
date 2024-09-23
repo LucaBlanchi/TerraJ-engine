@@ -1,5 +1,6 @@
 package com.neatwitstudios.terrajengine.entity;
 
+import com.neatwitstudios.terrajengine.map.Block;
 import com.neatwitstudios.terrajengine.map.MapManager;
 import com.neatwitstudios.terrajengine.CollisionsChecker;
 import com.neatwitstudios.terrajengine.GamePanel;
@@ -9,30 +10,26 @@ import java.awt.*;
 
 public class Player {
 
-    private int x;
-    private int y;
-    private final int speed;
-    private final Rectangle solidBounds;
+    private int x = 0;
+    private int y = 16 * Block.SIZE - 1;
+    private static final int SPEED = 3;
+    private final Rectangle solidBounds = new Rectangle(
+            Block.SIZE / 6,
+            Block.SIZE / 10,
+            Block.SIZE * 2/3,
+            Block.SIZE * 9 / 10
+    );
 
     private int spriteCounter = 0;
     private int spriteNum = 0;
 
-    private static final int GRAVITY = 10 * GamePanel.TILE_SIZE / 120;
+    private static final int GRAVITY = 2;
     private int ySpeed = 0;
 
     private final KeyHandler keyHandler;
 
     public Player(KeyHandler keyHandler) {
         this.keyHandler = keyHandler;
-        x = 0;
-        y = GamePanel.TILE_SIZE * 16 - 1;
-        speed = 10 * GamePanel.TILE_SIZE / 120;
-        solidBounds = new Rectangle(
-                GamePanel.TILE_SIZE / 6,
-                GamePanel.TILE_SIZE / 10,
-                GamePanel.TILE_SIZE * 2/3,
-                GamePanel.TILE_SIZE * 9 / 10
-        );
     }
 
     public void update(MapManager mapManager) {
@@ -60,13 +57,13 @@ public class Player {
         if (keyHandler.isUpPressed()
                 && !CollisionsChecker.isCollidingUp(this, mapManager)
                 && CollisionsChecker.isCollidingDown(this, mapManager)) {
-                this.ySpeed = 35 * GamePanel.TILE_SIZE / 120;
+                this.ySpeed = 14;
         }
         if (keyHandler.isLeftPressed() && !CollisionsChecker.isCollidingLeft(this, mapManager)) {
-            x -= speed;
+            x -= SPEED;
         }
         if (keyHandler.isRightPressed() && !CollisionsChecker.isCollidingRight(this, mapManager)) {
-            x += speed;
+            x += SPEED;
         }
     }
 
@@ -102,7 +99,7 @@ public class Player {
     }
 
     public int getSpeed() {
-        return speed;
+        return SPEED;
     }
 
     public Rectangle getSolidBounds() {

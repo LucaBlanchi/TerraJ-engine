@@ -59,27 +59,26 @@ public class MapManager {
         }
     }
 
-    public void draw(Graphics2D graphics2D, int cameraCenterX, int cameraCenterY) {
-        int cameraMargin = GamePanel.TILE_SIZE * 2;
+    public void draw(Graphics2D graphics2D, int cameraXPosition, int cameraYPosition) {
+        int startCol = Math.max((cameraXPosition - Block.SIZE * 10) / Block.SIZE, 0);
+        int endCol = Math.min((cameraXPosition + Block.SIZE * 10) / Block.SIZE, MAX_WORLD_COL - 1);
 
-        int startCol = Math.max((cameraCenterX - GamePanel.SCREEN_CENTER_X - cameraMargin) / GamePanel.TILE_SIZE, 0);
-        int endCol = Math.min((cameraCenterX - GamePanel.SCREEN_CENTER_X + GamePanel.WIDTH + cameraMargin) / GamePanel.TILE_SIZE, MAX_WORLD_COL - 1);
+        int startRow = Math.max((cameraYPosition - Block.SIZE * 6) / Block.SIZE, 0);
+        int endRow = Math.min((cameraYPosition + Block.SIZE * 6) / Block.SIZE, MAX_WORLD_ROW - 1);
 
-        int startRow = Math.max((cameraCenterY - GamePanel.SCREEN_CENTER_Y - cameraMargin) / GamePanel.TILE_SIZE, 0);
-        int endRow = Math.min((cameraCenterY - GamePanel.SCREEN_CENTER_Y + GamePanel.HEIGHT + cameraMargin) / GamePanel.TILE_SIZE, MAX_WORLD_ROW - 1);
+        for (int currentRow = startRow; currentRow <= endRow; currentRow++) {
+            for (int currentCol = startCol; currentCol <= endCol; currentCol++) {
 
-        for (int worldRow = startRow; worldRow <= endRow; worldRow++) {
-            for (int worldCol = startCol; worldCol <= endCol; worldCol++) {
-
-                int tileNum = mapGrid[worldRow][worldCol];
+                int tileNum = mapGrid[currentRow][currentCol];
                 if (tileNum == 0) {
                     continue;
                 }
 
-                int worldX = worldCol * GamePanel.TILE_SIZE;
-                int worldY = worldRow * GamePanel.TILE_SIZE;
-                int screenX = worldX - cameraCenterX + GamePanel.SCREEN_CENTER_X;
-                int screenY = worldY - cameraCenterY + GamePanel.SCREEN_CENTER_Y;
+                int blockXPosition = currentCol * Block.SIZE;
+                int blockYPosition = currentRow * Block.SIZE;
+
+                int screenX = GamePanel.SCREEN_CENTER_X + (blockXPosition - cameraXPosition) * GamePanel.TILE_SIZE / Block.SIZE;
+                int screenY = GamePanel.SCREEN_CENTER_Y + (blockYPosition - cameraYPosition) * GamePanel.TILE_SIZE / Block.SIZE;
 
                 graphics2D.drawImage(blocks[tileNum].getImage(), screenX, screenY, GamePanel.TILE_SIZE, GamePanel.TILE_SIZE, null);
             }

@@ -4,6 +4,8 @@ import java.awt.image.BufferedImage;
 
 public class Block {
 
+    public static final int SIZE = 32;
+
     private BufferedImage image;
     private boolean isSolid;
 
