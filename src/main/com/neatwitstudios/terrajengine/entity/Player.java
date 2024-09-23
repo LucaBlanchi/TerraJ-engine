@@ -56,10 +56,7 @@ public class Player {
     private void updateSprite() {
         if (!keyHandler.isUpPressed() && !keyHandler.isLeftPressed() && !keyHandler.isRightPressed()) {
             spriteCounter = 12;
-            return;
-        }
-        spriteCounter++;
-        if (spriteCounter > 12) {
+        } else if (++spriteCounter > 12) {
             spriteNum = (spriteNum + 1) % 2;
             spriteCounter = 0;
         }

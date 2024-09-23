@@ -12,16 +12,14 @@ import java.io.InputStreamReader;
 public class MapManager {
 
     private final Block[] blocks;
-    private final int[][] mapGrid;
-
-    private static final int MAX_WORLD_COL = 32;
-    private static final int MAX_WORLD_ROW = 18;
+    private int[][] mapGrid;
+    private int maxWorldCol;
+    private int maxWorldRow;
 
     public MapManager() {
         blocks = new Block[16];
         loadBlocks();
 
-        mapGrid = new int[MAX_WORLD_ROW][MAX_WORLD_COL];
         loadMap();
     }
 
@@ -30,13 +28,33 @@ public class MapManager {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
 
         try {
-            for (int i = 0; i < MAX_WORLD_ROW; i++) {
-                String line = bufferedReader.readLine();
+            String line;
+            int rowCount = 0;
+            int colCount = 0;
+
+            while ((line = bufferedReader.readLine()) != null) {
+                rowCount++;
                 String[] tokens = line.split(" ");
-                for (int j = 0; j < MAX_WORLD_COL; j++) {
-                    mapGrid[MAX_WORLD_ROW - 1 - i][j] = Integer.parseInt(tokens[j]);
+                colCount = Math.max(colCount, tokens.length);
+            }
+
+            maxWorldRow = rowCount;
+            maxWorldCol = colCount;
+
+            mapGrid = new int[maxWorldRow][maxWorldCol];
+
+            bufferedReader.close();
+            inputStream = getClass().getResourceAsStream("/resources/static/maps/map.txt");
+            bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+
+            for (int i = 0; i < maxWorldRow; i++) {
+                line = bufferedReader.readLine();
+                String[] tokens = line.split(" ");
+                for (int j = 0; j < tokens.length; j++) {
+                    mapGrid[maxWorldRow - 1 - i][j] = Integer.parseInt(tokens[j]);
                 }
             }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -61,10 +79,10 @@ public class MapManager {
 
     public void draw(Graphics2D graphics2D, int cameraXPosition, int cameraYPosition) {
         int startCol = Math.max((cameraXPosition - Block.SIZE * 10) / Block.SIZE, 0);
-        int endCol = Math.min((cameraXPosition + Block.SIZE * 10) / Block.SIZE, MAX_WORLD_COL - 1);
+        int endCol = Math.min((cameraXPosition + Block.SIZE * 10) / Block.SIZE, maxWorldCol - 1);
 
         int startRow = Math.max((cameraYPosition - Block.SIZE * 6) / Block.SIZE, 0);
-        int endRow = Math.min((cameraYPosition + Block.SIZE * 6) / Block.SIZE, MAX_WORLD_ROW - 1);
+        int endRow = Math.min((cameraYPosition + Block.SIZE * 6) / Block.SIZE, maxWorldRow - 1);
 
         for (int currentRow = startRow; currentRow <= endRow; currentRow++) {
             for (int currentCol = startCol; currentCol <= endCol; currentCol++) {
@@ -85,9 +103,8 @@ public class MapManager {
         }
     }
 
-
     public boolean isBlockSolid(int row, int col) {
-        if (row < 0 || row >= MAX_WORLD_ROW || col < 0 || col >= MAX_WORLD_COL) {
+        if (row < 0 || row >= maxWorldRow || col < 0 || col >= maxWorldCol) {
             return true;
         }
         return blocks[mapGrid[row][col]].isSolid();

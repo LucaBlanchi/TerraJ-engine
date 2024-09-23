@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Make positive y mean up" />
+    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Dynamically compute max rows and cols">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/maps/map.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/maps/map.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -103,7 +106,18 @@
       <workItem from="1727094966131" duration="146000" />
       <workItem from="1727097318350" duration="366000" />
       <workItem from="1727112640992" duration="8898000" />
-      <workItem from="1727121591505" duration="12844000" />
+      <workItem from="1727121591505" duration="13432000" />
+      <workItem from="1727163921242" duration="118000" />
+      <workItem from="1727164092024" duration="42000" />
+      <workItem from="1727166080982" duration="344000" />
+      <workItem from="1727170403388" duration="648000" />
+      <workItem from="1727172991868" duration="51000" />
+      <workItem from="1727174022304" duration="453000" />
+      <workItem from="1727174673758" duration="253000" />
+      <workItem from="1727174952742" duration="549000" />
+      <workItem from="1727181021126" duration="512000" />
+      <workItem from="1727183949516" duration="257000" />
+      <workItem from="1727184605876" duration="27000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1726610372645</created>
@@ -399,15 +413,41 @@
       <option name="project" value="LOCAL" />
       <updated>1727134868406</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Enhance collision logic">
+      <created>1727135128115</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1727135128115</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Dynamically compute max rows and cols">
+      <created>1727135339317</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1727135339317</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Dynamically compute max rows and cols">
+      <created>1727183988157</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1727183988157</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Dynamically compute max rows and cols">
+      <created>1727184186209</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1727184186209</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Clean TileManager class" />
-    <MESSAGE value="Clean CollisionsChecker class" />
     <MESSAGE value="Clean dependencies" />
     <MESSAGE value="Extract sleepToCapFps method" />
     <MESSAGE value="Refactor TileManager" />
@@ -431,6 +471,8 @@
     <MESSAGE value="Rework collisions" />
     <MESSAGE value="Clean Player code" />
     <MESSAGE value="Make positive y mean up" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make positive y mean up" />
+    <MESSAGE value="Enhance collision logic" />
+    <MESSAGE value="Dynamically compute max rows and cols" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dynamically compute max rows and cols" />
   </component>
 </project>

@@ -19,8 +19,8 @@ public class SpritesManager {
                 PLAYER, new BufferedImage[2]
         );
         try {
-        map.get(PLAYER)[0] = ImageIO.read(Objects.requireNonNull(SpritesManager.class.getResourceAsStream("/static/sprites/playerWalk1.png")));
-        map.get(PLAYER)[1] = ImageIO.read(Objects.requireNonNull(SpritesManager.class.getResourceAsStream("/static/sprites/playerWalk2.png")));
+            map.get(PLAYER)[0] = ImageIO.read(Objects.requireNonNull(SpritesManager.class.getResourceAsStream("/static/sprites/playerWalk1.png")));
+            map.get(PLAYER)[1] = ImageIO.read(Objects.requireNonNull(SpritesManager.class.getResourceAsStream("/static/sprites/playerWalk2.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }
