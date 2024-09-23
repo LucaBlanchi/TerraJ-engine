@@ -12,7 +12,7 @@ public class Player {
 
     private int x = 0;
     private int y = 16 * Block.SIZE - 1;
-    private static final int SPEED = 3;
+    private static final int SPEED = 4;
     private final Rectangle solidBounds = new Rectangle(
             Block.SIZE / 6,
             Block.SIZE / 10,
@@ -23,8 +23,8 @@ public class Player {
     private int spriteCounter = 0;
     private int spriteNum = 0;
 
-    private static final int GRAVITY = 2;
-    private int ySpeed = 0;
+    private int xDiff = 0;
+    private int yDiff = 0;
 
     private final KeyHandler keyHandler;
 
@@ -38,33 +38,27 @@ public class Player {
     }
 
     private void updatePositionAndSpeed(MapManager mapManager) {
-        if (CollisionsChecker.isCollidingUp(this, mapManager)) {
-            ySpeed = 0;
-        }
-        int yDiff = this.ySpeed - GRAVITY;
-        if (yDiff < 0 && !CollisionsChecker.isCollidingDown(this, mapManager)) {
-            y -= yDiff;
-        }
-        if (yDiff > 0 && !CollisionsChecker.isCollidingUp(this, mapManager)) {
-            y -= yDiff;
-        }
-        if (this.ySpeed > 0) {
-            this.ySpeed -= 1;
-        } else {
-            this.ySpeed = 0;
-        }
-
         if (keyHandler.isUpPressed()
                 && !CollisionsChecker.isCollidingUp(this, mapManager)
                 && CollisionsChecker.isCollidingDown(this, mapManager)) {
-                this.ySpeed = 14;
+            this.yDiff = -13;
         }
-        if (keyHandler.isLeftPressed() && !CollisionsChecker.isCollidingLeft(this, mapManager)) {
-            x -= SPEED;
+        yDiff++;
+        if (yDiff > 3) {
+            yDiff = 3;
         }
-        if (keyHandler.isRightPressed() && !CollisionsChecker.isCollidingRight(this, mapManager)) {
-            x += SPEED;
+        CollisionsChecker.adjustYDiffAvoidCollision(this, mapManager);
+        y += yDiff;
+
+        xDiff = 0;
+        if (keyHandler.isLeftPressed()) {
+            xDiff -= SPEED;
         }
+        if (keyHandler.isRightPressed()) {
+            xDiff += SPEED;
+        }
+        CollisionsChecker.adjustXDiffAvoidCollision(this, mapManager);
+        x += xDiff;
     }
 
     private void updateSprite() {
@@ -104,5 +98,21 @@ public class Player {
 
     public Rectangle getSolidBounds() {
         return solidBounds;
+    }
+
+    public int getXDiff() {
+        return xDiff;
+    }
+
+    public void setXDiff(int xDiff) {
+        this.xDiff = xDiff;
+    }
+
+    public int getYDiff() {
+        return yDiff;
+    }
+
+    public void setYDiff(int yDiff) {
+        this.yDiff = yDiff;
     }
 }
