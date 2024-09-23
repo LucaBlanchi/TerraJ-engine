@@ -1,9 +1,9 @@
-package org.neatwitentertainment.terrajengine.entity;
+package com.neatwitstudios.terrajengine.entity;
 
-import org.neatwitentertainment.terrajengine.CollisionsChecker;
-import org.neatwitentertainment.terrajengine.GamePanel;
-import org.neatwitentertainment.terrajengine.KeyHandler;
-import org.neatwitentertainment.terrajengine.map.MapManager;
+import com.neatwitstudios.terrajengine.map.MapManager;
+import com.neatwitstudios.terrajengine.CollisionsChecker;
+import com.neatwitstudios.terrajengine.GamePanel;
+import com.neatwitstudios.terrajengine.KeyHandler;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

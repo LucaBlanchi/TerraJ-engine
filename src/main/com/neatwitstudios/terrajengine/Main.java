@@ -1,4 +1,4 @@
-package org.neatwitentertainment.terrajengine;
+package com.neatwitstudios.terrajengine;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,7 +1,7 @@
-package org.neatwitentertainment.terrajengine;
+package com.neatwitstudios.terrajengine;
 
-import org.neatwitentertainment.terrajengine.entity.Player;
-import org.neatwitentertainment.terrajengine.map.MapManager;
+import com.neatwitstudios.terrajengine.entity.Player;
+import com.neatwitstudios.terrajengine.map.MapManager;
 
 import javax.swing.*;
 import java.awt.*;

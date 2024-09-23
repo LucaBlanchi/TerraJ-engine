@@ -1,7 +1,7 @@
-package org.neatwitentertainment.terrajengine;
+package com.neatwitstudios.terrajengine;
 
-import org.neatwitentertainment.terrajengine.entity.Entity;
-import org.neatwitentertainment.terrajengine.map.MapManager;
+import com.neatwitstudios.terrajengine.entity.Entity;
+import com.neatwitstudios.terrajengine.map.MapManager;
 
 public class CollisionsChecker {
 

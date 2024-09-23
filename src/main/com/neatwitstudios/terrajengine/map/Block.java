@@ -1,4 +1,4 @@
-package org.neatwitentertainment.terrajengine.map;
+package com.neatwitstudios.terrajengine.map;
 
 import java.awt.image.BufferedImage;
 

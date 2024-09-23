@@ -1,4 +1,4 @@
-package org.neatwitentertainment.terrajengine;
+package com.neatwitstudios.terrajengine;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;

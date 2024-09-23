@@ -1,6 +1,6 @@
-package org.neatwitentertainment.terrajengine.map;
+package com.neatwitstudios.terrajengine.map;
 
-import org.neatwitentertainment.terrajengine.GamePanel;
+import com.neatwitstudios.terrajengine.GamePanel;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

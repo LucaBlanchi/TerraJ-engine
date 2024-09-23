@@ -1,4 +1,4 @@
-package org.neatwitentertainment.terrajengine.entity;
+package com.neatwitstudios.terrajengine.entity;
 
 import java.awt.*;
 
