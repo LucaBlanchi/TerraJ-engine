@@ -34,7 +34,7 @@ public class MapManager {
                 String line = bufferedReader.readLine();
                 String[] tokens = line.split(" ");
                 for (int j = 0; j < MAX_WORLD_COL; j++) {
-                    mapGrid[i][j] = Integer.parseInt(tokens[j]);
+                    mapGrid[MAX_WORLD_ROW - 1 - i][j] = Integer.parseInt(tokens[j]);
                 }
             }
         } catch (IOException e) {
@@ -78,12 +78,13 @@ public class MapManager {
                 int blockYPosition = currentRow * Block.SIZE;
 
                 int screenX = GamePanel.SCREEN_CENTER_X + (blockXPosition - cameraXPosition) * GamePanel.TILE_SIZE / Block.SIZE;
-                int screenY = GamePanel.SCREEN_CENTER_Y + (blockYPosition - cameraYPosition) * GamePanel.TILE_SIZE / Block.SIZE;
+                int screenY = GamePanel.SCREEN_CENTER_Y - (blockYPosition - cameraYPosition) * GamePanel.TILE_SIZE / Block.SIZE;
 
                 graphics2D.drawImage(blocks[tileNum].getImage(), screenX, screenY, GamePanel.TILE_SIZE, GamePanel.TILE_SIZE, null);
             }
         }
     }
+
 
     public boolean isBlockSolid(int row, int col) {
         if (row < 0 || row >= MAX_WORLD_ROW || col < 0 || col >= MAX_WORLD_COL) {

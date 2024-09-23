@@ -11,18 +11,18 @@ import java.awt.*;
 public class Player {
 
     private int x = 0;
-    private int y = 16 * Block.SIZE - 1;
+    private int y = Block.SIZE + 1;
 
-    private static final int SPEED = Block.SIZE * 7 / 64;
-    private static final int JUMP_SPEED = Block.SIZE * 13 / 32;
+    private static final int SPEED = Block.SIZE * 7/64;
+    private static final int JUMP_SPEED = Block.SIZE * 13/32;
     private static final int GRAVITY = Block.SIZE / 32;
-    private static final int MAX_FALL_SPEED = Block.SIZE * 3 / 32;
+    private static final int MAX_FALL_SPEED = Block.SIZE * 3/32;
 
     private final Rectangle solidBounds = new Rectangle(
             Block.SIZE / 6,
-            Block.SIZE / 10,
+            0,
             Block.SIZE * 2/3,
-            Block.SIZE * 9 / 10
+            Block.SIZE * 9/10
     );
 
     private int spriteCounter = 0;
@@ -44,10 +44,10 @@ public class Player {
 
     private void updatePositionAndSpeed(MapManager mapManager) {
         if (keyHandler.isUpPressed() && CollisionsChecker.isCollidingDown(this, mapManager)) {
-            this.yDiff = -JUMP_SPEED;
+            this.yDiff = JUMP_SPEED;
         }
-        yDiff = Math.min(yDiff + GRAVITY, MAX_FALL_SPEED);
-        y += CollisionsChecker.getAdjustedYDiffAvoidCollision(this, mapManager);
+        yDiff = Math.max(yDiff - GRAVITY, -MAX_FALL_SPEED);
+        y += CollisionsChecker.getAdjustedYDiffAvoidCollisionResettingOnHeadBump(this, mapManager);
 
         xDiff = SPEED * (keyHandler.isRightPressed() ? 1 : 0) - SPEED * (keyHandler.isLeftPressed() ? 1 : 0);
         x += CollisionsChecker.getAdjustedXDiffAvoidCollision(this, mapManager);
@@ -84,10 +84,6 @@ public class Player {
         return y;
     }
 
-    public int getSpeed() {
-        return SPEED;
-    }
-
     public Rectangle getSolidBounds() {
         return solidBounds;
     }
@@ -98,5 +94,9 @@ public class Player {
 
     public int getYDiff() {
         return yDiff;
+    }
+
+    public void setYDiff(int yDiff) {
+        this.yDiff = yDiff;
     }
 }
