@@ -12,7 +12,12 @@ public class Player {
 
     private int x = 0;
     private int y = 16 * Block.SIZE - 1;
-    private static final int SPEED = 4;
+
+    private static final int SPEED = Block.SIZE * 7 / 64;
+    private static final int JUMP_SPEED = Block.SIZE * 13 / 32;
+    private static final int GRAVITY = Block.SIZE / 32;
+    private static final int MAX_FALL_SPEED = Block.SIZE * 3 / 32;
+
     private final Rectangle solidBounds = new Rectangle(
             Block.SIZE / 6,
             Block.SIZE / 10,
@@ -38,27 +43,14 @@ public class Player {
     }
 
     private void updatePositionAndSpeed(MapManager mapManager) {
-        if (keyHandler.isUpPressed()
-                && !CollisionsChecker.isCollidingUp(this, mapManager)
-                && CollisionsChecker.isCollidingDown(this, mapManager)) {
-            this.yDiff = -13;
+        if (keyHandler.isUpPressed() && CollisionsChecker.isCollidingDown(this, mapManager)) {
+            this.yDiff = -JUMP_SPEED;
         }
-        yDiff++;
-        if (yDiff > 3) {
-            yDiff = 3;
-        }
-        CollisionsChecker.adjustYDiffAvoidCollision(this, mapManager);
-        y += yDiff;
+        yDiff = Math.min(yDiff + GRAVITY, MAX_FALL_SPEED);
+        y += CollisionsChecker.getAdjustedYDiffAvoidCollision(this, mapManager);
 
-        xDiff = 0;
-        if (keyHandler.isLeftPressed()) {
-            xDiff -= SPEED;
-        }
-        if (keyHandler.isRightPressed()) {
-            xDiff += SPEED;
-        }
-        CollisionsChecker.adjustXDiffAvoidCollision(this, mapManager);
-        x += xDiff;
+        xDiff = SPEED * (keyHandler.isRightPressed() ? 1 : 0) - SPEED * (keyHandler.isLeftPressed() ? 1 : 0);
+        x += CollisionsChecker.getAdjustedXDiffAvoidCollision(this, mapManager);
     }
 
     private void updateSprite() {
@@ -104,15 +96,7 @@ public class Player {
         return xDiff;
     }
 
-    public void setXDiff(int xDiff) {
-        this.xDiff = xDiff;
-    }
-
     public int getYDiff() {
         return yDiff;
-    }
-
-    public void setYDiff(int yDiff) {
-        this.yDiff = yDiff;
     }
 }

@@ -6,22 +6,10 @@ import com.neatwitstudios.terrajengine.map.MapManager;
 
 public class CollisionsChecker {
 
-    public static boolean isCollidingUp(Player player, MapManager mapManager) {
-        int playerLeftWorldX = player.getX() + player.getSolidBounds().x;
-        int playerRightWorldX = player.getX() + player.getSolidBounds().x + player.getSolidBounds().width;
-        int playerUpWorldY = player.getY() + player.getSolidBounds().y;
-
-        int playerLeftCol = playerLeftWorldX / Block.SIZE;
-        int playerRightCol = playerRightWorldX / Block.SIZE;
-        int playerTopRow = (playerUpWorldY - player.getSpeed()) / Block.SIZE;
-
-        return mapManager.isBlockSolid(playerTopRow, playerLeftCol) || mapManager.isBlockSolid(playerTopRow, playerRightCol);
-    }
-
     public static boolean isCollidingDown(Player player, MapManager mapManager) {
         int playerLeftWorldX = player.getX() + player.getSolidBounds().x;
         int playerRightWorldX = player.getX() + player.getSolidBounds().x + player.getSolidBounds().width;
-        int playerDownWorldY = player.getY() + player.getSolidBounds().y + player.getSolidBounds().height;
+        int playerDownWorldY = player.getY() + player.getYDiff() + player.getSolidBounds().y + player.getSolidBounds().height;
 
         int playerLeftCol = playerLeftWorldX / Block.SIZE;
         int playerRightCol = playerRightWorldX / Block.SIZE;
@@ -30,7 +18,7 @@ public class CollisionsChecker {
         return mapManager.isBlockSolid(playerBottomRow, playerLeftCol) || mapManager.isBlockSolid(playerBottomRow, playerRightCol);
     }
 
-    public static void adjustXDiffAvoidCollision(Player player, MapManager mapManager) {
+    public static int getAdjustedXDiffAvoidCollision(Player player, MapManager mapManager) {
         int projectedRightX = player.getX() + player.getXDiff() + player.getSolidBounds().x + player.getSolidBounds().width;
         int projectedLeftX = player.getX() + player.getXDiff() + player.getSolidBounds().x;
         int projectedTopY = player.getY() + player.getSolidBounds().y;
@@ -43,14 +31,15 @@ public class CollisionsChecker {
 
         if (player.getXDiff() > 0
                 && (mapManager.isBlockSolid(playerTopRow, playerRightCol) || mapManager.isBlockSolid(playerBottomRow, playerRightCol))) {
-            player.setXDiff(0);
+            return 0;
         } else if (player.getXDiff() < 0
                 && (mapManager.isBlockSolid(playerTopRow, playerLeftCol) || mapManager.isBlockSolid(playerBottomRow, playerLeftCol))) {
-            player.setXDiff(0);
+            return 0;
         }
+        return player.getXDiff();
     }
 
-    public static void adjustYDiffAvoidCollision(Player player, MapManager mapManager) {
+    public static int getAdjustedYDiffAvoidCollision(Player player, MapManager mapManager) {
         int projectedRightX = player.getX() + player.getSolidBounds().x + player.getSolidBounds().width;
         int projectedLeftX = player.getX() + player.getSolidBounds().x;
         int projectedTopY = player.getY() + player.getYDiff() + player.getSolidBounds().y;
@@ -63,10 +52,11 @@ public class CollisionsChecker {
 
         if (player.getYDiff() > 0
                 && (mapManager.isBlockSolid(playerBottomRow, playerLeftCol) || mapManager.isBlockSolid(playerBottomRow, playerRightCol))) {
-            player.setYDiff(0);
+            return 0;
         } else if (player.getYDiff() < 0
                 && (mapManager.isBlockSolid(playerTopRow, playerLeftCol) || mapManager.isBlockSolid(playerTopRow, playerRightCol))) {
-            player.setYDiff(0);
+            return 0;
         }
+        return player.getYDiff();
     }
 }

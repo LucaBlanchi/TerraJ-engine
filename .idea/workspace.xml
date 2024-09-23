@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Use world coordinates instead of screen coordinates">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/CollisionsChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/CollisionsChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" afterDir="false" />
-    </list>
+    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Clean Player code" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -107,7 +103,7 @@
       <workItem from="1727094966131" duration="146000" />
       <workItem from="1727097318350" duration="366000" />
       <workItem from="1727112640992" duration="8898000" />
-      <workItem from="1727121591505" duration="9192000" />
+      <workItem from="1727121591505" duration="10240000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1726610372645</created>
@@ -361,14 +357,34 @@
       <option name="project" value="LOCAL" />
       <updated>1727128312632</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Rework collisions">
+      <created>1727131231453</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1727131231453</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Clean Player code">
+      <created>1727131913117</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1727131913117</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Clean Player code">
+      <created>1727132241086</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1727132241086</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Introduce direction enum" />
     <MESSAGE value="Clean Player class" />
     <MESSAGE value="Clean TileManager class" />
     <MESSAGE value="Clean CollisionsChecker class" />
@@ -380,7 +396,6 @@
     <MESSAGE value="Add icon" />
     <MESSAGE value="Rebrand tiles to 'blocks'" />
     <MESSAGE value="Prevent going out of bounds" />
-    <MESSAGE value="Rework collisions" />
     <MESSAGE value="Add air block" />
     <MESSAGE value="Properly resize window" />
     <MESSAGE value="Implement full screen" />
@@ -393,6 +408,8 @@
     <MESSAGE value="Simplify code removing Entity" />
     <MESSAGE value="Simplify Player code" />
     <MESSAGE value="Use world coordinates instead of screen coordinates" />
-    <option name="LAST_COMMIT_MESSAGE" value="Use world coordinates instead of screen coordinates" />
+    <MESSAGE value="Rework collisions" />
+    <MESSAGE value="Clean Player code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Clean Player code" />
   </component>
 </project>
