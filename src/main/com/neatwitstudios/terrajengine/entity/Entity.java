@@ -8,10 +8,6 @@ public class Entity {
     protected int y;
     protected int speed;
 
-    protected boolean isGoingUp;
-    protected boolean isGoingLeft;
-    protected boolean isGoingRight;
-
     protected int spriteCounter = 0;
     protected int spriteNum = 1;
 

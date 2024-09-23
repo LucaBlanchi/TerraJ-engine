@@ -17,7 +17,8 @@ public class Player extends Entity {
     private BufferedImage sprite1;
     private BufferedImage sprite2;
 
-    private int jumpSpeed = 0;
+    private int yDiff = 0;
+    private int xDiff = 0;
 
     private final KeyHandler keyHandler;
 
@@ -29,17 +30,17 @@ public class Player extends Entity {
     }
 
     public void setDefaultValues() {
-        x = GamePanel.TILE_SIZE * 16;
-        y = GamePanel.TILE_SIZE * 9;
+        x = 0;
+        y = GamePanel.TILE_SIZE * 16 - 1;
         speed = 10 * GamePanel.TILE_SIZE / 120;
     }
 
     public void setSolidBounds() {
         solidBounds = new Rectangle(
                 GamePanel.TILE_SIZE / 6,
-                GamePanel.TILE_SIZE / 3,
+                GamePanel.TILE_SIZE / 10,
                 GamePanel.TILE_SIZE * 2/3,
-                GamePanel.TILE_SIZE * 2/3
+                GamePanel.TILE_SIZE * 9 / 10
         );
     }
 
@@ -53,36 +54,42 @@ public class Player extends Entity {
     }
 
     public void update(MapManager mapManager) {
-        isGoingUp = keyHandler.isUpPressed();
-        isGoingLeft = keyHandler.isLeftPressed();
-        isGoingRight = keyHandler.isRightPressed();
-
         if (CollisionsChecker.isCollidingUp(this, mapManager)) {
-            jumpSpeed = 0;
+            yDiff = 0;
         }
-        int yDiff = jumpSpeed - GRAVITY;
+        int yDiff = this.yDiff - GRAVITY;
         if (yDiff < 0 && !CollisionsChecker.isCollidingDown(this, mapManager)) {
             y -= yDiff;
         }
         if (yDiff > 0 && !CollisionsChecker.isCollidingUp(this, mapManager)) {
             y -= yDiff;
         }
-        if (jumpSpeed > 0) {
-            jumpSpeed -= 1;
+        if (this.yDiff > 0) {
+            this.yDiff -= 1;
         } else {
-            jumpSpeed = 0;
+            this.yDiff = 0;
         }
 
-        if (isGoingUp && !CollisionsChecker.isCollidingUp(this, mapManager)) {
+        if (keyHandler.isUpPressed() && !CollisionsChecker.isCollidingUp(this, mapManager)) {
             jump(mapManager);
         }
-        if (isGoingLeft && !CollisionsChecker.isCollidingLeft(this, mapManager)) {
+        if (keyHandler.isLeftPressed() && !CollisionsChecker.isCollidingLeft(this, mapManager)) {
             x -= speed;
         }
-        if (isGoingRight && !CollisionsChecker.isCollidingRight(this, mapManager)) {
+        if (keyHandler.isRightPressed() && !CollisionsChecker.isCollidingRight(this, mapManager)) {
             x += speed;
         }
 
+        updateSpriteNum();
+    }
+
+    private void jump(MapManager mapManager) {
+        if (CollisionsChecker.isCollidingDown(this, mapManager)) {
+            yDiff = 35 * GamePanel.TILE_SIZE / 120;
+        }
+    }
+
+    private void updateSpriteNum() {
         if (!keyHandler.isUpPressed()
                 && !keyHandler.isLeftPressed()
                 && !keyHandler.isRightPressed()) {
@@ -103,11 +110,5 @@ public class Player extends Entity {
 
     private BufferedImage selectSprite() {
         return spriteNum == 1 ? sprite1 : sprite2;
-    }
-
-    private void jump(MapManager mapManager) {
-        if (CollisionsChecker.isCollidingDown(this, mapManager)) {
-            jumpSpeed = 35 * GamePanel.TILE_SIZE / 120;
-        }
     }
 }
