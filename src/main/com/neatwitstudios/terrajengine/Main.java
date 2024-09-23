@@ -14,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
 
         window = new JFrame();
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         window.setTitle("TerraJ Engine");
 
         ImageIcon icon = new ImageIcon(Main.class.getResource("/resources/static/icon.png"));

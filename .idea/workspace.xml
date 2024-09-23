@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Adjust player code">
+    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Simplify Player code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/CollisionsChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/CollisionsChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/KeyHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/SpritesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/SpritesManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +16,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -108,7 +105,7 @@
       <workItem from="1727039292116" duration="1226000" />
       <workItem from="1727094966131" duration="146000" />
       <workItem from="1727097318350" duration="366000" />
-      <workItem from="1727112640992" duration="4345000" />
+      <workItem from="1727112640992" duration="6639000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1726610372645</created>
@@ -327,15 +324,27 @@
       <option name="project" value="LOCAL" />
       <updated>1727113752612</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Simplify code removing Entity">
+      <created>1727117038027</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1727117038027</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Simplify Player code">
+      <created>1727119148732</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1727119148732</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Clean up dependencies" />
-    <MESSAGE value="Clean up names" />
     <MESSAGE value="Clean code" />
     <MESSAGE value="Introduce direction enum" />
     <MESSAGE value="Clean Player class" />
@@ -359,6 +368,8 @@
     <MESSAGE value="Adjust gravity" />
     <MESSAGE value="Rename package" />
     <MESSAGE value="Adjust player code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjust player code" />
+    <MESSAGE value="Simplify code removing Entity" />
+    <MESSAGE value="Simplify Player code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Simplify Player code" />
   </component>
 </project>
