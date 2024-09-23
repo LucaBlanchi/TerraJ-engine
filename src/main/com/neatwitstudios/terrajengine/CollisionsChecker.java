@@ -1,55 +1,55 @@
 package com.neatwitstudios.terrajengine;
 
-import com.neatwitstudios.terrajengine.entity.Entity;
+import com.neatwitstudios.terrajengine.entity.Player;
 import com.neatwitstudios.terrajengine.map.MapManager;
 
 public class CollisionsChecker {
 
-    public static boolean isCollidingUp(Entity entity, MapManager mapManager) {
-        int entityLeftWorldX = entity.getX() + entity.getSolidBounds().x;
-        int entityRightWorldX = entity.getX() + entity.getSolidBounds().x + entity.getSolidBounds().width;
-        int entityUpWorldY = entity.getY() + entity.getSolidBounds().y;
+    public static boolean isCollidingUp(Player player, MapManager mapManager) {
+        int playerLeftWorldX = player.getX() + player.getSolidBounds().x;
+        int playerRightWorldX = player.getX() + player.getSolidBounds().x + player.getSolidBounds().width;
+        int playerUpWorldY = player.getY() + player.getSolidBounds().y;
 
-        int entityLeftCol = entityLeftWorldX / GamePanel.TILE_SIZE;
-        int entityRightCol = entityRightWorldX / GamePanel.TILE_SIZE;
-        int entityTopRow = (entityUpWorldY - entity.getSpeed()) / GamePanel.TILE_SIZE;
+        int playerLeftCol = playerLeftWorldX / GamePanel.TILE_SIZE;
+        int playerRightCol = playerRightWorldX / GamePanel.TILE_SIZE;
+        int playerTopRow = (playerUpWorldY - player.getSpeed()) / GamePanel.TILE_SIZE;
 
-        return mapManager.isBlockSolid(entityTopRow, entityLeftCol) || mapManager.isBlockSolid(entityTopRow, entityRightCol);
+        return mapManager.isBlockSolid(playerTopRow, playerLeftCol) || mapManager.isBlockSolid(playerTopRow, playerRightCol);
     }
 
-    public static boolean isCollidingDown(Entity entity, MapManager mapManager) {
-        int entityLeftWorldX = entity.getX() + entity.getSolidBounds().x;
-        int entityRightWorldX = entity.getX() + entity.getSolidBounds().x + entity.getSolidBounds().width;
-        int entityDownWorldY = entity.getY() + entity.getSolidBounds().y + entity.getSolidBounds().height;
+    public static boolean isCollidingDown(Player player, MapManager mapManager) {
+        int playerLeftWorldX = player.getX() + player.getSolidBounds().x;
+        int playerRightWorldX = player.getX() + player.getSolidBounds().x + player.getSolidBounds().width;
+        int playerDownWorldY = player.getY() + player.getSolidBounds().y + player.getSolidBounds().height;
 
-        int entityLeftCol = entityLeftWorldX / GamePanel.TILE_SIZE;
-        int entityRightCol = entityRightWorldX / GamePanel.TILE_SIZE;
-        int entityBottomRow = (entityDownWorldY + entity.getSpeed()) / GamePanel.TILE_SIZE;
+        int playerLeftCol = playerLeftWorldX / GamePanel.TILE_SIZE;
+        int playerRightCol = playerRightWorldX / GamePanel.TILE_SIZE;
+        int playerBottomRow = (playerDownWorldY + player.getSpeed()) / GamePanel.TILE_SIZE;
 
-        return mapManager.isBlockSolid(entityBottomRow, entityLeftCol) || mapManager.isBlockSolid(entityBottomRow, entityRightCol);
+        return mapManager.isBlockSolid(playerBottomRow, playerLeftCol) || mapManager.isBlockSolid(playerBottomRow, playerRightCol);
     }
 
-    public static boolean isCollidingLeft(Entity entity, MapManager mapManager) {
-        int entityLeftWorldX = entity.getX() + entity.getSolidBounds().x;
-        int entityUpWorldY = entity.getY() + entity.getSolidBounds().y;
-        int entityDownWorldY = entity.getY() + entity.getSolidBounds().y + entity.getSolidBounds().height;
+    public static boolean isCollidingLeft(Player player, MapManager mapManager) {
+        int playerLeftWorldX = player.getX() + player.getSolidBounds().x;
+        int playerUpWorldY = player.getY() + player.getSolidBounds().y;
+        int playerDownWorldY = player.getY() + player.getSolidBounds().y + player.getSolidBounds().height;
 
-        int entityTopRow = entityUpWorldY / GamePanel.TILE_SIZE;
-        int entityBottomRow = entityDownWorldY / GamePanel.TILE_SIZE;
-        int entityLeftCol = (entityLeftWorldX - entity.getSpeed()) / GamePanel.TILE_SIZE;
+        int playerTopRow = playerUpWorldY / GamePanel.TILE_SIZE;
+        int playerBottomRow = playerDownWorldY / GamePanel.TILE_SIZE;
+        int playerLeftCol = (playerLeftWorldX - player.getSpeed()) / GamePanel.TILE_SIZE;
 
-        return mapManager.isBlockSolid(entityTopRow, entityLeftCol) || mapManager.isBlockSolid(entityBottomRow, entityLeftCol);
+        return mapManager.isBlockSolid(playerTopRow, playerLeftCol) || mapManager.isBlockSolid(playerBottomRow, playerLeftCol);
     }
 
-    public static boolean isCollidingRight(Entity entity, MapManager mapManager) {
-        int entityRightWorldX = entity.getX() + entity.getSolidBounds().x + entity.getSolidBounds().width;
-        int entityUpWorldY = entity.getY() + entity.getSolidBounds().y;
-        int entityDownWorldY = entity.getY() + entity.getSolidBounds().y + entity.getSolidBounds().height;
+    public static boolean isCollidingRight(Player player, MapManager mapManager) {
+        int playerRightWorldX = player.getX() + player.getSolidBounds().x + player.getSolidBounds().width;
+        int playerUpWorldY = player.getY() + player.getSolidBounds().y;
+        int playerDownWorldY = player.getY() + player.getSolidBounds().y + player.getSolidBounds().height;
 
-        int entityTopRow = entityUpWorldY / GamePanel.TILE_SIZE;
-        int entityBottomRow = entityDownWorldY / GamePanel.TILE_SIZE;
-        int entityRightCol = (entityRightWorldX + entity.getSpeed()) / GamePanel.TILE_SIZE;
+        int playerTopRow = playerUpWorldY / GamePanel.TILE_SIZE;
+        int playerBottomRow = playerDownWorldY / GamePanel.TILE_SIZE;
+        int playerRightCol = (playerRightWorldX + player.getSpeed()) / GamePanel.TILE_SIZE;
 
-        return mapManager.isBlockSolid(entityTopRow, entityRightCol) || mapManager.isBlockSolid(entityBottomRow, entityRightCol);
+        return mapManager.isBlockSolid(playerTopRow, playerRightCol) || mapManager.isBlockSolid(playerBottomRow, playerRightCol);
     }
 }

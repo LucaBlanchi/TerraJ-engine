@@ -10,10 +10,17 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class Player extends Entity {
+public class Player {
+
+    private int x;
+    private int y;
+    private int speed;
+    private Rectangle solidBounds;
 
     private static final int GRAVITY = 10 * GamePanel.TILE_SIZE / 120;
 
+    private int spriteCounter = 0;
+    private int spriteNum = 1;
     private BufferedImage sprite1;
     private BufferedImage sprite2;
 
@@ -110,5 +117,21 @@ public class Player extends Entity {
 
     private BufferedImage selectSprite() {
         return spriteNum == 1 ? sprite1 : sprite2;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public Rectangle getSolidBounds() {
+        return solidBounds;
     }
 }

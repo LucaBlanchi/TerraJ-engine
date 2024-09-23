@@ -8,6 +8,9 @@ public class Main {
     private static JFrame window;
     private static boolean isFullScreen = false;
 
+    private static final int STANDARD_WIDTH = Toolkit.getDefaultToolkit().getScreenSize().width * 2 / 3;
+    private static final int STANDARD_HEIGHT = Toolkit.getDefaultToolkit().getScreenSize().height * 2 / 3;
+
     public static void main(String[] args) {
 
         window = new JFrame();
@@ -37,7 +40,7 @@ public class Main {
             gd.setFullScreenWindow(null);
             window.dispose();
             window.setUndecorated(false);
-            window.setSize(1280, 720);
+            window.setSize(STANDARD_WIDTH, STANDARD_HEIGHT);
             window.setLocationRelativeTo(null);
             window.setVisible(true);
         }

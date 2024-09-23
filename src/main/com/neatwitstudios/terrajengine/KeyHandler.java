@@ -6,6 +6,7 @@ import java.awt.event.KeyListener;
 public class KeyHandler implements KeyListener {
 
     private boolean upPressed;
+    private boolean downPressed;
     private boolean leftPressed;
     private boolean rightPressed;
 
@@ -18,8 +19,12 @@ public class KeyHandler implements KeyListener {
     public void keyPressed(KeyEvent e) {
 
         int code = e.getKeyCode();
+
         if (code == KeyEvent.VK_W) {
             upPressed = true;
+        }
+        if (code == KeyEvent.VK_S) {
+            downPressed = true;
         }
         if (code == KeyEvent.VK_A) {
             leftPressed = true;
@@ -31,7 +36,6 @@ public class KeyHandler implements KeyListener {
         if (code == KeyEvent.VK_ESCAPE) {
             Main.exitFullScreen();
         }
-
         if (code == KeyEvent.VK_F11) {
             Main.toggleFullScreen();
         }
@@ -44,6 +48,9 @@ public class KeyHandler implements KeyListener {
         if (code == KeyEvent.VK_W) {
             upPressed = false;
         }
+        if (code == KeyEvent.VK_S) {
+            downPressed = false;
+        }
         if (code == KeyEvent.VK_A) {
             leftPressed = false;
         }
@@ -54,6 +61,10 @@ public class KeyHandler implements KeyListener {
 
     public boolean isUpPressed() {
         return upPressed;
+    }
+
+    public boolean isDownPressed() {
+        return downPressed;
     }
 
     public boolean isLeftPressed() {
