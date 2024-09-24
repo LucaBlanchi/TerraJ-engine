@@ -1,6 +1,7 @@
 package com.neatwitstudios.terrajengine;
 
 import com.neatwitstudios.terrajengine.entity.Player;
+import com.neatwitstudios.terrajengine.map.Block;
 import com.neatwitstudios.terrajengine.map.BlockMapManager;
 
 import javax.swing.*;
@@ -23,6 +24,8 @@ public class GamePanel extends JPanel implements Runnable {
     private final transient KeyHandler keyHandler = new KeyHandler();
     private final transient Player player = new Player(keyHandler);
     private final transient BlockMapManager blockMapManager = new BlockMapManager();
+
+    private final Camera camera = new Camera(Block.SIZE * 16, Block.SIZE * 9);
 
     private transient Thread gameThread;
 
@@ -96,8 +99,10 @@ public class GamePanel extends JPanel implements Runnable {
 
         g2d.scale(scaleFactorX, scaleFactorY);
 
-        blockMapManager.draw(g2d, player.getX(), player.getY());
-        player.draw(g2d);
+        camera.setCenterX(player.getX());
+        camera.setCenterY(player.getY());
+        blockMapManager.draw(g2d, camera);
+        player.draw(g2d, camera);
 
         g2d.dispose();
     }

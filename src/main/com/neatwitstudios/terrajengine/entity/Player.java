@@ -1,11 +1,8 @@
 package com.neatwitstudios.terrajengine.entity;
 
-import com.neatwitstudios.terrajengine.SoundManager;
+import com.neatwitstudios.terrajengine.*;
 import com.neatwitstudios.terrajengine.map.Block;
 import com.neatwitstudios.terrajengine.map.BlockMapManager;
-import com.neatwitstudios.terrajengine.CollisionsChecker;
-import com.neatwitstudios.terrajengine.GamePanel;
-import com.neatwitstudios.terrajengine.KeyHandler;
 
 import java.awt.*;
 
@@ -69,11 +66,14 @@ public class Player {
         }
     }
 
-    public void draw(Graphics2D g2d) {
+    public void draw(Graphics2D g2d, Camera camera) {
+        int playerScreenX = GamePanel.SCREEN_CENTER_X - (camera.getCenterX() - x) * GamePanel.TILE_SIZE / Block.SIZE;
+        int playerScreenY = GamePanel.SCREEN_CENTER_Y + (camera.getCenterY() - y) * GamePanel.TILE_SIZE / Block.SIZE;
+
         g2d.drawImage(
                 SpritesManager.getSprites("player")[spriteNum],
-                GamePanel.SCREEN_CENTER_X,
-                GamePanel.SCREEN_CENTER_Y,
+                playerScreenX,
+                playerScreenY,
                 GamePanel.TILE_SIZE,
                 GamePanel.TILE_SIZE,
                 null

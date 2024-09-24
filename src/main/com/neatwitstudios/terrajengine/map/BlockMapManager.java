@@ -1,5 +1,6 @@
 package com.neatwitstudios.terrajengine.map;
 
+import com.neatwitstudios.terrajengine.Camera;
 import com.neatwitstudios.terrajengine.GamePanel;
 
 import javax.imageio.ImageIO;
@@ -77,12 +78,15 @@ public class BlockMapManager {
         }
     }
 
-    public void draw(Graphics2D graphics2D, int cameraXPosition, int cameraYPosition) {
-        int startCol = Math.max((cameraXPosition - Block.SIZE * 10) / Block.SIZE, 0);
-        int endCol = Math.min((cameraXPosition + Block.SIZE * 10) / Block.SIZE, maxWorldCol - 1);
+    public void draw(Graphics2D graphics2D, Camera camera) {
+        int cameraXPosition = camera.getCenterX();
+        int cameraYPosition = camera.getCenterY();
 
-        int startRow = Math.max((cameraYPosition - Block.SIZE * 6) / Block.SIZE, 0);
-        int endRow = Math.min((cameraYPosition + Block.SIZE * 6) / Block.SIZE, maxWorldRow - 1);
+        int startCol = Math.max((cameraXPosition - camera.getWidth() / 2) / Block.SIZE - 1, 0);
+        int endCol = Math.min((cameraXPosition + camera.getWidth() / 2) / Block.SIZE + 1, maxWorldCol - 1);
+
+        int startRow = Math.max((cameraYPosition - camera.getHeight() / 2) / Block.SIZE - 1, 0);
+        int endRow = Math.min((cameraYPosition + camera.getHeight() / 2) / Block.SIZE + 1, maxWorldRow - 1);
 
         for (int currentRow = startRow; currentRow <= endRow; currentRow++) {
             for (int currentCol = startCol; currentCol <= endCol; currentCol++) {
