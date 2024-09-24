@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Add sound">
-      <change afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/Camera.java" afterDir="false" />
+    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Add camera">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/map/BlockMapManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/map/BlockMapManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,13 +119,7 @@
       <workItem from="1727183949516" duration="257000" />
       <workItem from="1727184605876" duration="246000" />
       <workItem from="1727198904657" duration="3676000" />
-    </task>
-    <task id="LOCAL-00001" summary="Initial commit">
-      <created>1726610372645</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1726610372645</updated>
+      <workItem from="1727210219689" duration="47000" />
     </task>
     <task id="LOCAL-00002" summary="Initial commit">
       <created>1726612480586</created>
@@ -466,14 +457,20 @@
       <option name="project" value="LOCAL" />
       <updated>1727208710089</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Add camera">
+      <created>1727209593560</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1727209593560</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Extract sleepToCapFps method" />
     <MESSAGE value="Refactor TileManager" />
     <MESSAGE value="Allow for diagonal movement again" />
     <MESSAGE value="Make game fullscreen" />
@@ -498,6 +495,7 @@
     <MESSAGE value="Enhance collision logic" />
     <MESSAGE value="Dynamically compute max rows and cols" />
     <MESSAGE value="Add sound" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add sound" />
+    <MESSAGE value="Add camera" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add camera" />
   </component>
 </project>

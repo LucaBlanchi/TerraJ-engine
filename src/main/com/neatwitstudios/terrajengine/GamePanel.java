@@ -21,6 +21,8 @@ public class GamePanel extends JPanel implements Runnable {
 
     private static final int MAX_FPS = 60;
 
+    private static final boolean START_WITH_MUSIC = false;
+
     private final transient KeyHandler keyHandler = new KeyHandler();
     private final transient Player player = new Player(keyHandler);
     private final transient BlockMapManager blockMapManager = new BlockMapManager();
@@ -45,7 +47,9 @@ public class GamePanel extends JPanel implements Runnable {
                 handleResize();
             }
         });
-        SoundManager.playMusic(0);
+        if (START_WITH_MUSIC) {
+            SoundManager.playMusic(0);
+        }
     }
 
     private void handleResize() {

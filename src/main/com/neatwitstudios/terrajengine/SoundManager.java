@@ -56,6 +56,8 @@ public class SoundManager {
                 clips[i].start();
                 clips[i].loop(Clip.LOOP_CONTINUOUSLY);
             }
+        } else {
+            playMusic(i);
         }
     }
 
