@@ -39,6 +39,10 @@ public class KeyHandler implements KeyListener {
         if (code == KeyEvent.VK_F11) {
             Main.toggleFullScreen();
         }
+
+        if (code == KeyEvent.VK_M) {
+            SoundManager.toggleMusic(0);
+        }
     }
 
     @Override

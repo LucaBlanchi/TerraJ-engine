@@ -1,7 +1,7 @@
 package com.neatwitstudios.terrajengine;
 
 import com.neatwitstudios.terrajengine.entity.Player;
-import com.neatwitstudios.terrajengine.map.MapManager;
+import com.neatwitstudios.terrajengine.map.BlockMapManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,7 +22,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     private final transient KeyHandler keyHandler = new KeyHandler();
     private final transient Player player = new Player(keyHandler);
-    private final transient MapManager mapManager = new MapManager();
+    private final transient BlockMapManager blockMapManager = new BlockMapManager();
 
     private transient Thread gameThread;
 
@@ -42,6 +42,7 @@ public class GamePanel extends JPanel implements Runnable {
                 handleResize();
             }
         });
+        SoundManager.playMusic(0);
     }
 
     private void handleResize() {
@@ -85,7 +86,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void update() {
-        player.update(mapManager);
+        player.update(blockMapManager);
     }
 
     @Override
@@ -95,7 +96,7 @@ public class GamePanel extends JPanel implements Runnable {
 
         g2d.scale(scaleFactorX, scaleFactorY);
 
-        mapManager.draw(g2d, player.getX(), player.getY());
+        blockMapManager.draw(g2d, player.getX(), player.getY());
         player.draw(g2d);
 
         g2d.dispose();

@@ -1,7 +1,8 @@
 package com.neatwitstudios.terrajengine.entity;
 
+import com.neatwitstudios.terrajengine.SoundManager;
 import com.neatwitstudios.terrajengine.map.Block;
-import com.neatwitstudios.terrajengine.map.MapManager;
+import com.neatwitstudios.terrajengine.map.BlockMapManager;
 import com.neatwitstudios.terrajengine.CollisionsChecker;
 import com.neatwitstudios.terrajengine.GamePanel;
 import com.neatwitstudios.terrajengine.KeyHandler;
@@ -37,20 +38,26 @@ public class Player {
         this.keyHandler = keyHandler;
     }
 
-    public void update(MapManager mapManager) {
-        updatePositionAndSpeed(mapManager);
+    public void update(BlockMapManager blockMapManager) {
+        updatePositionAndSpeed(blockMapManager);
         updateSprite();
     }
 
-    private void updatePositionAndSpeed(MapManager mapManager) {
-        if (keyHandler.isUpPressed() && CollisionsChecker.isCollidingDown(this, mapManager)) {
+    private void updatePositionAndSpeed(BlockMapManager blockMapManager) {
+        boolean isJumping = false;
+        if (keyHandler.isUpPressed() && CollisionsChecker.isCollidingDown(this, blockMapManager)) {
             this.yDiff = JUMP_SPEED;
+            isJumping = true;
         }
         yDiff = Math.max(yDiff - GRAVITY, -MAX_FALL_SPEED);
-        y += CollisionsChecker.getAdjustedYDiffAvoidCollisionResettingOnHeadBump(this, mapManager);
+        int newYDiff = CollisionsChecker.getAdjustedYDiffAvoidCollisionResettingOnHeadBump(this, blockMapManager);
+        y += newYDiff;
+        if (isJumping && newYDiff != 0) {
+            SoundManager.playSE(1);
+        }
 
         xDiff = SPEED * (keyHandler.isRightPressed() ? 1 : 0) - SPEED * (keyHandler.isLeftPressed() ? 1 : 0);
-        x += CollisionsChecker.getAdjustedXDiffAvoidCollision(this, mapManager);
+        x += CollisionsChecker.getAdjustedXDiffAvoidCollision(this, blockMapManager);
     }
 
     private void updateSprite() {

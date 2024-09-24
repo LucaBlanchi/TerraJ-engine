@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Dynamically compute max rows and cols">
+    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Add sound">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/maps/map.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/maps/map.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/KeyHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/SoundManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/SoundManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,11 +61,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\sound" />
       <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\blocks" />
       <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static" />
       <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\maps" />
       <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\tiles" />
-      <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -117,7 +118,8 @@
       <workItem from="1727174952742" duration="549000" />
       <workItem from="1727181021126" duration="512000" />
       <workItem from="1727183949516" duration="257000" />
-      <workItem from="1727184605876" duration="27000" />
+      <workItem from="1727184605876" duration="246000" />
+      <workItem from="1727198904657" duration="3676000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1726610372645</created>
@@ -441,14 +443,27 @@
       <option name="project" value="LOCAL" />
       <updated>1727184186209</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Dynamically compute max rows and cols">
+      <created>1727184848384</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1727184848384</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Add sound">
+      <created>1727206944858</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1727206944858</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Clean dependencies" />
     <MESSAGE value="Extract sleepToCapFps method" />
     <MESSAGE value="Refactor TileManager" />
     <MESSAGE value="Allow for diagonal movement again" />
@@ -473,6 +488,7 @@
     <MESSAGE value="Make positive y mean up" />
     <MESSAGE value="Enhance collision logic" />
     <MESSAGE value="Dynamically compute max rows and cols" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dynamically compute max rows and cols" />
+    <MESSAGE value="Add sound" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add sound" />
   </component>
 </project>

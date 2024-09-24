@@ -9,14 +9,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class MapManager {
+public class BlockMapManager {
 
     private final Block[] blocks;
     private int[][] mapGrid;
     private int maxWorldCol;
     private int maxWorldRow;
 
-    public MapManager() {
+    public BlockMapManager() {
         blocks = new Block[16];
         loadBlocks();
 
