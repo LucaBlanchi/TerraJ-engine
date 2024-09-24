@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Add camera">
+    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Start with music off">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" afterDir="false" />
     </list>
@@ -45,7 +45,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -119,14 +119,13 @@
       <workItem from="1727183949516" duration="257000" />
       <workItem from="1727184605876" duration="246000" />
       <workItem from="1727198904657" duration="3676000" />
-      <workItem from="1727210219689" duration="47000" />
-    </task>
-    <task id="LOCAL-00002" summary="Initial commit">
-      <created>1726612480586</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1726612480586</updated>
+      <workItem from="1727210219689" duration="437000" />
+      <workItem from="1727254180210" duration="289000" />
+      <workItem from="1727255284290" duration="273000" />
+      <workItem from="1727258785569" duration="15000" />
+      <workItem from="1727362785719" duration="636000" />
+      <workItem from="1727367408163" duration="271000" />
+      <workItem from="1727379922431" duration="415000" />
     </task>
     <task id="LOCAL-00003" summary="Initial commit">
       <created>1726612864980</created>
@@ -464,14 +463,20 @@
       <option name="project" value="LOCAL" />
       <updated>1727209593560</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Start with music off">
+      <created>1727210544178</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1727210544179</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactor TileManager" />
     <MESSAGE value="Allow for diagonal movement again" />
     <MESSAGE value="Make game fullscreen" />
     <MESSAGE value="Add icon" />
@@ -496,6 +501,7 @@
     <MESSAGE value="Dynamically compute max rows and cols" />
     <MESSAGE value="Add sound" />
     <MESSAGE value="Add camera" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add camera" />
+    <MESSAGE value="Start with music off" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start with music off" />
   </component>
 </project>

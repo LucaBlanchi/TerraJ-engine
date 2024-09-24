@@ -20,7 +20,6 @@ public class BlockMapManager {
     public BlockMapManager() {
         blocks = new Block[16];
         loadBlocks();
-
         loadMap();
     }
 
