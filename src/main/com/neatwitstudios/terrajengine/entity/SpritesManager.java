@@ -16,11 +16,13 @@ public class SpritesManager {
 
     private static Map<String, BufferedImage[]> init() {
         Map<String, BufferedImage[]> map = Map.of(
-                PLAYER, new BufferedImage[2]
+                PLAYER, new BufferedImage[16]
         );
         try {
             map.get(PLAYER)[0] = ImageIO.read(Objects.requireNonNull(SpritesManager.class.getResourceAsStream("/static/sprites/playerWalk1.png")));
             map.get(PLAYER)[1] = ImageIO.read(Objects.requireNonNull(SpritesManager.class.getResourceAsStream("/static/sprites/playerWalk2.png")));
+            map.get(PLAYER)[2] = ImageIO.read(Objects.requireNonNull(SpritesManager.class.getResourceAsStream("/static/sprites/playerAttack1.png")));
+            map.get(PLAYER)[3] = ImageIO.read(Objects.requireNonNull(SpritesManager.class.getResourceAsStream("/static/sprites/playerAttack2.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -14,9 +14,10 @@ public class SoundManager {
     }
 
     public static URL[] init() {
-        URL[] soundURL = new URL[2];
+        URL[] soundURL = new URL[16];
         soundURL[0] = SoundManager.class.getResource("/resources/static/sound/music.wav");
         soundURL[1] = SoundManager.class.getResource("/resources/static/sound/sound.wav");
+        soundURL[2] = SoundManager.class.getResource("/resources/static/sound/swing.wav");
         return soundURL;
     }
 

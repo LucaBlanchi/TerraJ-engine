@@ -30,6 +30,11 @@ public class Player {
     private int xDiff = 0;
     private int yDiff = 0;
 
+    private boolean isFacingRight = true;
+    private boolean isAttacking = false;
+    private int attackCounter = 0;
+    private boolean endAttackSprite = false;
+
     private final KeyHandler keyHandler;
 
     public Player(KeyHandler keyHandler) {
@@ -37,6 +42,17 @@ public class Player {
     }
 
     public void update(BlockMapManager blockMapManager) {
+        if (keyHandler.isKPressed()) {
+            isAttacking = true;
+            if (attackCounter == 0) {
+                SoundManager.playSE(2);
+            }
+        }
+        if (isAttacking && ++attackCounter > 24) {
+            isAttacking = false;
+            attackCounter = 0;
+            endAttackSprite = true;
+        }
         updatePositionAndSpeed(blockMapManager);
         updateSprite();
     }
@@ -60,10 +76,24 @@ public class Player {
         }
 
         xDiff = SPEED * (keyHandler.isRightPressed() ? 1 : 0) - SPEED * (keyHandler.isLeftPressed() ? 1 : 0);
+        if (xDiff > 0) {
+            isFacingRight = true;
+        } else if (xDiff < 0) {
+            isFacingRight = false;
+        }
         x += BlockCollisionsChecker.getAdjustedXDiffAvoidCollision(this, blockMapManager);
     }
 
     private void updateSprite() {
+        if (isAttacking) {
+            spriteNum = isFacingRight ? 2 : 3;
+            return;
+        }
+        if (endAttackSprite) {
+            spriteNum = isFacingRight ? 0 : 1;
+            endAttackSprite = false;
+            return;
+        }
         if (!keyHandler.isUpPressed() && !keyHandler.isLeftPressed() && !keyHandler.isRightPressed()) {
             spriteCounter = 12;
         } else if (++spriteCounter > 12) {

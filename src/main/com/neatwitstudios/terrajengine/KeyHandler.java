@@ -9,6 +9,7 @@ public class KeyHandler implements KeyListener {
     private boolean downPressed;
     private boolean leftPressed;
     private boolean rightPressed;
+    private boolean isKPressed;
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -31,6 +32,9 @@ public class KeyHandler implements KeyListener {
         }
         if (code == KeyEvent.VK_D) {
             rightPressed = true;
+        }
+        if (code == KeyEvent.VK_K) {
+            isKPressed = true;
         }
 
         if (code == KeyEvent.VK_ESCAPE) {
@@ -61,6 +65,9 @@ public class KeyHandler implements KeyListener {
         if (code == KeyEvent.VK_D) {
             rightPressed = false;
         }
+        if (code == KeyEvent.VK_K) {
+            isKPressed = false;
+        }
     }
 
     public boolean isUpPressed() {
@@ -77,5 +84,9 @@ public class KeyHandler implements KeyListener {
 
     public boolean isRightPressed() {
         return rightPressed;
+    }
+
+    public boolean isKPressed() {
+        return isKPressed;
     }
 }
