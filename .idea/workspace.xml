@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Start with music off">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" afterDir="false" />
-    </list>
+    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Fix gravity" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,28 +122,8 @@
       <workItem from="1727258785569" duration="15000" />
       <workItem from="1727362785719" duration="636000" />
       <workItem from="1727367408163" duration="271000" />
-      <workItem from="1727379922431" duration="415000" />
-    </task>
-    <task id="LOCAL-00003" summary="Initial commit">
-      <created>1726612864980</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1726612864980</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Clean code">
-      <created>1726648847192</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1726648847192</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Clean up dependencies">
-      <created>1726649180463</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1726649180463</updated>
+      <workItem from="1727379922431" duration="4613000" />
+      <workItem from="1727396355808" duration="874000" />
     </task>
     <task id="LOCAL-00006" summary="Clean up dependencies">
       <created>1726650050952</created>
@@ -470,14 +447,34 @@
       <option name="project" value="LOCAL" />
       <updated>1727210544179</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Start with music off">
+      <created>1727380582562</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1727380582563</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Fix gravity">
+      <created>1727397118473</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1727397118473</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Fix gravity">
+      <created>1727397132899</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1727397132899</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Allow for diagonal movement again" />
     <MESSAGE value="Make game fullscreen" />
     <MESSAGE value="Add icon" />
     <MESSAGE value="Rebrand tiles to 'blocks'" />
@@ -502,6 +499,7 @@
     <MESSAGE value="Add sound" />
     <MESSAGE value="Add camera" />
     <MESSAGE value="Start with music off" />
-    <option name="LAST_COMMIT_MESSAGE" value="Start with music off" />
+    <MESSAGE value="Fix gravity" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix gravity" />
   </component>
 </project>

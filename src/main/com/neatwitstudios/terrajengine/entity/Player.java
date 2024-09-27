@@ -3,6 +3,7 @@ package com.neatwitstudios.terrajengine.entity;
 import com.neatwitstudios.terrajengine.*;
 import com.neatwitstudios.terrajengine.map.Block;
 import com.neatwitstudios.terrajengine.map.BlockMapManager;
+import com.neatwitstudios.terrajengine.map.BlockCollisionsChecker;
 
 import java.awt.*;
 
@@ -12,8 +13,8 @@ public class Player {
     private int y = Block.SIZE + 1;
 
     private static final int SPEED = Block.SIZE * 7/64;
-    private static final int JUMP_SPEED = Block.SIZE * 13/32;
-    private static final int GRAVITY = Block.SIZE / 32;
+    private static final int JUMP_SPEED = Block.SIZE * 5 / 16;
+    private static final int GRAVITY = Block.SIZE / 64;
     private static final int MAX_FALL_SPEED = Block.SIZE * 3/32;
 
     private final Rectangle solidBounds = new Rectangle(
@@ -42,19 +43,24 @@ public class Player {
 
     private void updatePositionAndSpeed(BlockMapManager blockMapManager) {
         boolean isJumping = false;
-        if (keyHandler.isUpPressed() && CollisionsChecker.isCollidingDown(this, blockMapManager)) {
+        boolean isStandingOnGround = BlockCollisionsChecker.isStandingOnGround(this, blockMapManager);
+        if (keyHandler.isUpPressed() && isStandingOnGround) {
             this.yDiff = JUMP_SPEED;
             isJumping = true;
         }
-        yDiff = Math.max(yDiff - GRAVITY, -MAX_FALL_SPEED);
-        int newYDiff = CollisionsChecker.getAdjustedYDiffAvoidCollisionResettingOnHeadBump(this, blockMapManager);
+        if (!isJumping && isStandingOnGround) {
+            yDiff = 0;
+        } else {
+            yDiff = Math.max(yDiff - GRAVITY, -MAX_FALL_SPEED);
+        }
+        int newYDiff = BlockCollisionsChecker.getAdjustedYDiffAvoidCollisionResettingOnHeadBump(this, blockMapManager);
         y += newYDiff;
         if (isJumping && newYDiff != 0) {
             SoundManager.playSE(1);
         }
 
         xDiff = SPEED * (keyHandler.isRightPressed() ? 1 : 0) - SPEED * (keyHandler.isLeftPressed() ? 1 : 0);
-        x += CollisionsChecker.getAdjustedXDiffAvoidCollision(this, blockMapManager);
+        x += BlockCollisionsChecker.getAdjustedXDiffAvoidCollision(this, blockMapManager);
     }
 
     private void updateSprite() {

@@ -1,19 +1,17 @@
-package com.neatwitstudios.terrajengine;
+package com.neatwitstudios.terrajengine.map;
 
 import com.neatwitstudios.terrajengine.entity.Player;
-import com.neatwitstudios.terrajengine.map.Block;
-import com.neatwitstudios.terrajengine.map.BlockMapManager;
 
-public class CollisionsChecker {
+public class BlockCollisionsChecker {
 
-    public static boolean isCollidingDown(Player player, BlockMapManager blockMapManager) {
+    public static boolean isStandingOnGround(Player player, BlockMapManager blockMapManager) {
         int leftX = player.getX() + player.getSolidBounds().x;
         int rightX = player.getX() + player.getSolidBounds().x + player.getSolidBounds().width;
-        int projectedBottomY = player.getY() + player.getYDiff() + player.getSolidBounds().y;
+        int justUnderBottomY = player.getY() - 1 + player.getSolidBounds().y;
 
         int playerLeftCol = leftX / Block.SIZE;
         int playerRightCol = rightX / Block.SIZE;
-        int playerBottomRow = (projectedBottomY) / Block.SIZE;
+        int playerBottomRow = (justUnderBottomY) / Block.SIZE;
 
         return blockMapManager.isBlockSolid(playerBottomRow, playerLeftCol) || blockMapManager.isBlockSolid(playerBottomRow, playerRightCol);
     }
