@@ -3,11 +3,15 @@ package com.neatwitstudios.terrajengine.entity;
 import com.neatwitstudios.terrajengine.Camera;
 import com.neatwitstudios.terrajengine.GamePanel;
 import com.neatwitstudios.terrajengine.map.Block;
+import com.neatwitstudios.terrajengine.map.BlockCollisionsChecker;
 import com.neatwitstudios.terrajengine.map.BlockMapManager;
 
 import java.awt.*;
 
 public class Enemy extends Entity {
+
+    private static final int GRAVITY = Block.SIZE / 64;
+    private static final int MAX_FALL_SPEED = Block.SIZE * 3/32;
 
     public Enemy(int x, int y) {
         this.x = x;
@@ -24,7 +28,14 @@ public class Enemy extends Entity {
 
     @Override
     public void update(BlockMapManager blockMapManager) {
-
+        boolean isStandingOnGround = BlockCollisionsChecker.isStandingOnGround(this, blockMapManager);
+        if (isStandingOnGround) {
+            ySpeed = 0;
+        } else {
+            ySpeed = Math.max(ySpeed - GRAVITY, -MAX_FALL_SPEED);
+        }
+        int newYSpeed = BlockCollisionsChecker.getAdjustedYDiffAvoidCollisionResettingOnHeadBump(this, blockMapManager);
+        y += newYSpeed;
     }
 
     @Override

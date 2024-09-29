@@ -67,9 +67,9 @@ public class Player extends Entity {
         } else {
             ySpeed = Math.max(ySpeed - GRAVITY, -MAX_FALL_SPEED);
         }
-        int newYDiff = BlockCollisionsChecker.getAdjustedYDiffAvoidCollisionResettingOnHeadBump(this, blockMapManager);
-        y += newYDiff;
-        if (isJumping && newYDiff != 0) {
+        int newYSpeed = BlockCollisionsChecker.getAdjustedYDiffAvoidCollisionResettingOnHeadBump(this, blockMapManager);
+        y += newYSpeed;
+        if (isJumping && newYSpeed != 0) {
             SoundManager.playSE(1);
         }
 

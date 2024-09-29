@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Add attack animation">
-      <change afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Enemy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/EnemyManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Entity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/sprites/enemy.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" afterDir="false" />
+    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Add an enemy (does nothing for now)">
+      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Enemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/SpritesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/SpritesManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/map/BlockCollisionsChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/map/BlockCollisionsChecker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,11 +60,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\enemyRight" />
       <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\sprites" />
       <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\sound" />
       <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\blocks" />
       <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static" />
-      <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\maps" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -134,14 +127,7 @@
       <workItem from="1727367408163" duration="271000" />
       <workItem from="1727379922431" duration="4613000" />
       <workItem from="1727396355808" duration="2717000" />
-      <workItem from="1727626025650" duration="1974000" />
-    </task>
-    <task id="LOCAL-00008" summary="Clean code">
-      <created>1726651093780</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1726651093780</updated>
+      <workItem from="1727626025650" duration="2354000" />
     </task>
     <task id="LOCAL-00009" summary="Introduce direction enum">
       <created>1726651350167</created>
@@ -479,14 +465,20 @@
       <option name="project" value="LOCAL" />
       <updated>1727399063082</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Add an enemy (does nothing for now)">
+      <created>1727628243639</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1727628243639</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add icon" />
     <MESSAGE value="Rebrand tiles to 'blocks'" />
     <MESSAGE value="Prevent going out of bounds" />
     <MESSAGE value="Add air block" />
@@ -511,6 +503,7 @@
     <MESSAGE value="Start with music off" />
     <MESSAGE value="Fix gravity" />
     <MESSAGE value="Add attack animation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add attack animation" />
+    <MESSAGE value="Add an enemy (does nothing for now)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add an enemy (does nothing for now)" />
   </component>
 </project>
