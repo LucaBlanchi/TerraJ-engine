@@ -1,0 +1,44 @@
+package com.neatwitstudios.terrajengine.entity;
+
+import com.neatwitstudios.terrajengine.Camera;
+import com.neatwitstudios.terrajengine.map.BlockMapManager;
+
+import java.awt.*;
+
+public abstract class Entity {
+
+    protected int x;
+    protected int y;
+    protected int xSpeed;
+    protected int ySpeed;
+
+    protected Rectangle solidBounds;
+
+    public abstract void update(BlockMapManager blockMapManager);
+
+    public abstract void draw(Graphics2D g2d, Camera camera);
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public int getXSpeed() {
+        return xSpeed;
+    }
+
+    public int getYSpeed() {
+        return ySpeed;
+    }
+
+    public void setYSpeed(int yDiff) {
+        this.ySpeed = yDiff;
+    }
+
+    public Rectangle getSolidBounds() {
+        return solidBounds;
+    }
+}

@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Fix gravity">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/sound/swing.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/sprites/playerAttack1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/sprites/playerAttack2.png" afterDir="false" />
+    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Add attack animation">
+      <change afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Enemy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/EnemyManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Entity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/sprites/enemy.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/KeyHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/SoundManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/SoundManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/SpritesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/SpritesManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/map/BlockCollisionsChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/map/BlockCollisionsChecker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,8 +67,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\sound" />
       <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\sprites" />
+      <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\sound" />
       <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\blocks" />
       <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static" />
       <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\maps" />
@@ -132,14 +133,8 @@
       <workItem from="1727362785719" duration="636000" />
       <workItem from="1727367408163" duration="271000" />
       <workItem from="1727379922431" duration="4613000" />
-      <workItem from="1727396355808" duration="2531000" />
-    </task>
-    <task id="LOCAL-00007" summary="Clean up names">
-      <created>1726650506964</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1726650506964</updated>
+      <workItem from="1727396355808" duration="2717000" />
+      <workItem from="1727626025650" duration="1974000" />
     </task>
     <task id="LOCAL-00008" summary="Clean code">
       <created>1726651093780</created>
@@ -477,14 +472,20 @@
       <option name="project" value="LOCAL" />
       <updated>1727397304486</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="Add attack animation">
+      <created>1727399063082</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1727399063082</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Make game fullscreen" />
     <MESSAGE value="Add icon" />
     <MESSAGE value="Rebrand tiles to 'blocks'" />
     <MESSAGE value="Prevent going out of bounds" />
@@ -509,6 +510,7 @@
     <MESSAGE value="Add camera" />
     <MESSAGE value="Start with music off" />
     <MESSAGE value="Fix gravity" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix gravity" />
+    <MESSAGE value="Add attack animation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add attack animation" />
   </component>
 </project>

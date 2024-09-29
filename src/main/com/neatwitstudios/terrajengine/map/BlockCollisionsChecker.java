@@ -1,13 +1,13 @@
 package com.neatwitstudios.terrajengine.map;
 
-import com.neatwitstudios.terrajengine.entity.Player;
+import com.neatwitstudios.terrajengine.entity.Entity;
 
 public class BlockCollisionsChecker {
 
-    public static boolean isStandingOnGround(Player player, BlockMapManager blockMapManager) {
-        int leftX = player.getX() + player.getSolidBounds().x;
-        int rightX = player.getX() + player.getSolidBounds().x + player.getSolidBounds().width;
-        int justUnderBottomY = player.getY() - 1 + player.getSolidBounds().y;
+    public static boolean isStandingOnGround(Entity entity, BlockMapManager blockMapManager) {
+        int leftX = entity.getX() + entity.getSolidBounds().x;
+        int rightX = entity.getX() + entity.getSolidBounds().x + entity.getSolidBounds().width;
+        int justUnderBottomY = entity.getY() - 1 + entity.getSolidBounds().y;
 
         int playerLeftCol = leftX / Block.SIZE;
         int playerRightCol = rightX / Block.SIZE;
@@ -16,60 +16,60 @@ public class BlockCollisionsChecker {
         return blockMapManager.isBlockSolid(playerBottomRow, playerLeftCol) || blockMapManager.isBlockSolid(playerBottomRow, playerRightCol);
     }
 
-    public static int getAdjustedXDiffAvoidCollision(Player player, BlockMapManager blockMapManager) {
-        int projectedRightX = player.getX() + player.getXDiff() + player.getSolidBounds().x + player.getSolidBounds().width;
-        int projectedLeftX = player.getX() + player.getXDiff() + player.getSolidBounds().x;
-        int topY = player.getY() + player.getSolidBounds().y + player.getSolidBounds().height;
-        int bottomY = player.getY() + player.getSolidBounds().y;
+    public static int getAdjustedXDiffAvoidCollision(Entity entity, BlockMapManager blockMapManager) {
+        int projectedRightX = entity.getX() + entity.getXSpeed() + entity.getSolidBounds().x + entity.getSolidBounds().width;
+        int projectedLeftX = entity.getX() + entity.getXSpeed() + entity.getSolidBounds().x;
+        int topY = entity.getY() + entity.getSolidBounds().y + entity.getSolidBounds().height;
+        int bottomY = entity.getY() + entity.getSolidBounds().y;
 
         int playerTopRow = topY / Block.SIZE;
         int playerBottomRow = bottomY / Block.SIZE;
         int playerRightCol = projectedRightX / Block.SIZE;
         int playerLeftCol = projectedLeftX / Block.SIZE;
 
-        if (player.getXDiff() > 0) {
+        if (entity.getXSpeed() > 0) {
             if (blockMapManager.isBlockSolid(playerTopRow, playerRightCol) || blockMapManager.isBlockSolid(playerBottomRow, playerRightCol)) {
                 int nearestBlockLeftEdge = (playerRightCol * Block.SIZE);
-                int maxMoveRight = nearestBlockLeftEdge - (player.getX() + player.getSolidBounds().x + player.getSolidBounds().width) - 1;
-                return Math.min(player.getXDiff(), maxMoveRight);
+                int maxMoveRight = nearestBlockLeftEdge - (entity.getX() + entity.getSolidBounds().x + entity.getSolidBounds().width) - 1;
+                return Math.min(entity.getXSpeed(), maxMoveRight);
             }
-        } else if (player.getXDiff() < 0) {
+        } else if (entity.getXSpeed() < 0) {
             if (blockMapManager.isBlockSolid(playerTopRow, playerLeftCol) || blockMapManager.isBlockSolid(playerBottomRow, playerLeftCol)) {
                 int nearestBlockRightEdge = (playerLeftCol * Block.SIZE) + Block.SIZE;
-                int maxMoveLeft = nearestBlockRightEdge - (player.getX() + player.getSolidBounds().x) + 1;
-                return Math.max(player.getXDiff(), maxMoveLeft);
+                int maxMoveLeft = nearestBlockRightEdge - (entity.getX() + entity.getSolidBounds().x) + 1;
+                return Math.max(entity.getXSpeed(), maxMoveLeft);
             }
         }
 
-        return player.getXDiff();
+        return entity.getXSpeed();
     }
 
-    public static int getAdjustedYDiffAvoidCollisionResettingOnHeadBump(Player player, BlockMapManager blockMapManager) {
-        int rightX = player.getX() + player.getSolidBounds().x + player.getSolidBounds().width;
-        int leftX = player.getX() + player.getSolidBounds().x;
-        int projectedTopY = player.getY() + player.getYDiff() + player.getSolidBounds().y;
-        int projectedBottomY = player.getY() + player.getYDiff() + player.getSolidBounds().y + player.getSolidBounds().height;
+    public static int getAdjustedYDiffAvoidCollisionResettingOnHeadBump(Entity entity, BlockMapManager blockMapManager) {
+        int rightX = entity.getX() + entity.getSolidBounds().x + entity.getSolidBounds().width;
+        int leftX = entity.getX() + entity.getSolidBounds().x;
+        int projectedTopY = entity.getY() + entity.getYSpeed() + entity.getSolidBounds().y;
+        int projectedBottomY = entity.getY() + entity.getYSpeed() + entity.getSolidBounds().y + entity.getSolidBounds().height;
 
         int playerTopRow = projectedTopY / Block.SIZE;
         int playerBottomRow = projectedBottomY / Block.SIZE;
         int playerRightCol = rightX / Block.SIZE;
         int playerLeftCol = leftX / Block.SIZE;
 
-        if (player.getYDiff() < 0) {
+        if (entity.getYSpeed() < 0) {
             if (blockMapManager.isBlockSolid(playerTopRow, playerLeftCol) || blockMapManager.isBlockSolid(playerTopRow, playerRightCol)) {
                 int nearestBlockBottomEdge = (playerTopRow * Block.SIZE) + Block.SIZE;
-                int maxMoveUp = nearestBlockBottomEdge - (player.getY() + player.getSolidBounds().y);
-                return Math.max(player.getYDiff(), maxMoveUp);
+                int maxMoveUp = nearestBlockBottomEdge - (entity.getY() + entity.getSolidBounds().y);
+                return Math.max(entity.getYSpeed(), maxMoveUp);
             }
-        } else if (player.getYDiff() > 0) {
+        } else if (entity.getYSpeed() > 0) {
             if (blockMapManager.isBlockSolid(playerBottomRow, playerLeftCol) || blockMapManager.isBlockSolid(playerBottomRow, playerRightCol)) {
                 int nearestBlockTopEdge = (playerBottomRow * Block.SIZE);
-                int maxMoveDown = nearestBlockTopEdge - (player.getY() + player.getSolidBounds().y + player.getSolidBounds().height) - 1;
-                player.setYDiff(0);
-                return Math.min(player.getYDiff(), maxMoveDown);
+                int maxMoveDown = nearestBlockTopEdge - (entity.getY() + entity.getSolidBounds().y + entity.getSolidBounds().height) - 1;
+                entity.setYSpeed(0);
+                return Math.min(entity.getYSpeed(), maxMoveDown);
             }
         }
-        return player.getYDiff();
+        return entity.getYSpeed();
     }
 
 }
