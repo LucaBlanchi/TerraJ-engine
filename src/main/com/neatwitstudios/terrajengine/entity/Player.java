@@ -27,8 +27,7 @@ public class Player extends Entity {
     private final AttackManager attackManager;
 
     public Player(KeyHandler keyHandler, AttackManager attackManager) {
-        x = 0;
-        y = Block.SIZE + 1;
+        initializePlayerByLevel(0);
         xSpeed = 0;
         ySpeed = 0;
         solidBounds = new Rectangle(
@@ -37,9 +36,24 @@ public class Player extends Entity {
                 Block.SIZE * 2/3,
                 Block.SIZE * 9/10
         );
-        health = 100;
         this.keyHandler = keyHandler;
         this.attackManager = attackManager;
+    }
+
+    public void initializePlayerByLevel(int level) {
+        health = 100;
+        switch (level) {
+            case 0:
+                x = 0;
+                y = Block.SIZE + 1;
+                break;
+            case 1:
+                x = Block.SIZE * 3;
+                y = Block.SIZE * 8 + 1;
+                break;
+            default:
+                break;
+        }
     }
 
     @Override

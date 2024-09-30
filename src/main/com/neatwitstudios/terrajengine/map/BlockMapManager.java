@@ -20,11 +20,24 @@ public class BlockMapManager {
     public BlockMapManager() {
         blocks = new Block[16];
         loadBlocks();
-        loadMap();
+        loadMap(0);
     }
 
-    private void loadMap() {
-        InputStream inputStream = getClass().getResourceAsStream("/resources/static/maps/map.txt");
+    public void loadMap(int level) {
+        String mapPath;
+        switch (level) {
+            case 0:
+                mapPath = "/resources/static/maps/map.txt";
+                break;
+            case 1:
+                mapPath = "/resources/static/maps/map1.txt";
+                break;
+            default:
+                mapPath = "/resources/static/maps/map.txt";
+                break;
+        }
+
+        InputStream inputStream = getClass().getResourceAsStream(mapPath);
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
 
         try {
@@ -44,7 +57,7 @@ public class BlockMapManager {
             mapGrid = new int[maxWorldRow][maxWorldCol];
 
             bufferedReader.close();
-            inputStream = getClass().getResourceAsStream("/resources/static/maps/map.txt");
+            inputStream = getClass().getResourceAsStream(mapPath);
             bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
 
             for (int i = 0; i < maxWorldRow; i++) {

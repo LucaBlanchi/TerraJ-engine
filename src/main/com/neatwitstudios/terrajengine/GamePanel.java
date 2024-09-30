@@ -38,6 +38,8 @@ public class GamePanel extends JPanel implements Runnable {
     private double scaleFactorX = 1.0;
     private double scaleFactorY = 1.0;
 
+    private int loadedLevel = 0;
+
     public GamePanel() {
         this.setPreferredSize(new Dimension(WIDTH, HEIGHT));
         this.setBackground(Color.WHITE);
@@ -52,7 +54,7 @@ public class GamePanel extends JPanel implements Runnable {
             }
         });
 
-        loadLevel();
+        loadLevel(0);
 
         if (START_WITH_MUSIC) {
             SoundManager.playMusic(0);
@@ -87,6 +89,19 @@ public class GamePanel extends JPanel implements Runnable {
         }
     }
 
+    public void loadLevel(int level) {
+        attackManager = new AttackManager();
+        player = new Player(keyHandler, attackManager);
+        enemyManager = new EnemyManager(player, attackManager);
+        blockMapManager = new BlockMapManager();
+
+        player.initializePlayerByLevel(level);
+        enemyManager.loadEnemies(level);
+        blockMapManager.loadMap(level);
+        camera.setCenterX(player.getX());
+        camera.setCenterY(player.getY());
+    }
+
     private void sleepToCapFps(long elapsedTime) {
         long sleepTime = 1000 / MAX_FPS - elapsedTime / 1000000;
         if (sleepTime < 0) {
@@ -102,11 +117,15 @@ public class GamePanel extends JPanel implements Runnable {
     public void update() {
         enemyManager.updateEnemies(blockMapManager);
         player.update(blockMapManager);
-        if (player.getHealth() <= 0) {
-            loadLevel();
+        if (keyHandler.is0Pressed()) {
+            loadedLevel = 0;
+            loadLevel(0);
+        } else if (keyHandler.is1Pressed()) {
+            loadedLevel = 1;
+            loadLevel(1);
         }
-        if (keyHandler.isRPressed()) {
-            loadLevel();
+        if (player.getHealth() <= 0 || keyHandler.isRPressed()) {
+            loadLevel(loadedLevel);
         }
     }
 
@@ -124,12 +143,5 @@ public class GamePanel extends JPanel implements Runnable {
         player.draw(g2d, camera);
 
         g2d.dispose();
-    }
-
-    public void loadLevel() {
-        attackManager = new AttackManager();
-        player = new Player(keyHandler, attackManager);
-        enemyManager = new EnemyManager(player, attackManager);
-        blockMapManager = new BlockMapManager();
     }
 }
