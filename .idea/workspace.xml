@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Make the enemy fall">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/sprites/enemyRight.png" afterDir="false" />
+    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Make the enemy follow the player when close">
+      <change afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Attack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/AttackManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Enemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/EnemyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/EnemyManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/SpritesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/SpritesManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +29,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -134,14 +137,9 @@
       <workItem from="1727626025650" duration="3856000" />
       <workItem from="1727682099573" duration="549000" />
       <workItem from="1727682772786" duration="511000" />
-      <workItem from="1727686058176" duration="1189000" />
-    </task>
-    <task id="LOCAL-00010" summary="Clean Player class">
-      <created>1726682733765</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1726682733765</updated>
+      <workItem from="1727686058176" duration="2190000" />
+      <workItem from="1727699843775" duration="4452000" />
+      <workItem from="1727704587919" duration="256000" />
     </task>
     <task id="LOCAL-00011" summary="Clean TileManager class">
       <created>1726682990223</created>
@@ -479,14 +477,20 @@
       <option name="project" value="LOCAL" />
       <updated>1727628496341</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Make the enemy follow the player when close">
+      <created>1727687279415</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1727687279416</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Prevent going out of bounds" />
     <MESSAGE value="Add air block" />
     <MESSAGE value="Properly resize window" />
     <MESSAGE value="Implement full screen" />
@@ -511,6 +515,7 @@
     <MESSAGE value="Add attack animation" />
     <MESSAGE value="Add an enemy (does nothing for now)" />
     <MESSAGE value="Make the enemy fall" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make the enemy fall" />
+    <MESSAGE value="Make the enemy follow the player when close" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make the enemy follow the player when close" />
   </component>
 </project>

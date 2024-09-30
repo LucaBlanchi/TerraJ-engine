@@ -30,6 +30,7 @@ public class Enemy extends Entity {
                 Block.SIZE * 2/3,
                 Block.SIZE * 9/10
         );
+        this.health = 100;
     }
 
     @Override

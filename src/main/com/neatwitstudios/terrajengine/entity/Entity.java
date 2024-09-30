@@ -14,6 +14,8 @@ public abstract class Entity {
 
     protected Rectangle solidBounds;
 
+    protected int health;
+
     public abstract void update(BlockMapManager blockMapManager);
 
     public abstract void draw(Graphics2D g2d, Camera camera);
@@ -40,5 +42,13 @@ public abstract class Entity {
 
     public Rectangle getSolidBounds() {
         return solidBounds;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void takeDamage(int damage) {
+        health -= damage;
     }
 }

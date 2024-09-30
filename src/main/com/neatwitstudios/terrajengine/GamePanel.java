@@ -1,5 +1,6 @@
 package com.neatwitstudios.terrajengine;
 
+import com.neatwitstudios.terrajengine.entity.AttackManager;
 import com.neatwitstudios.terrajengine.entity.EnemyManager;
 import com.neatwitstudios.terrajengine.entity.Player;
 import com.neatwitstudios.terrajengine.map.Block;
@@ -25,8 +26,9 @@ public class GamePanel extends JPanel implements Runnable {
     private static final boolean START_WITH_MUSIC = false;
 
     private final transient KeyHandler keyHandler = new KeyHandler();
-    private final transient Player player = new Player(keyHandler);
-    private final transient EnemyManager enemyManager = new EnemyManager(player);
+    private final transient AttackManager attackManager = new AttackManager();
+    private final transient Player player = new Player(keyHandler, attackManager);
+    private final transient EnemyManager enemyManager = new EnemyManager(player, attackManager);
     private final transient BlockMapManager blockMapManager = new BlockMapManager();
 
     private final transient Camera camera = new Camera(Block.SIZE * 16, Block.SIZE * 9);

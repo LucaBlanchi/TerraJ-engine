@@ -23,8 +23,9 @@ public class Player extends Entity {
     private boolean endAttackSprite = false;
 
     private final KeyHandler keyHandler;
+    private final AttackManager attackManager;
 
-    public Player(KeyHandler keyHandler) {
+    public Player(KeyHandler keyHandler, AttackManager attackManager) {
         x = 0;
         y = Block.SIZE + 1;
         xSpeed = 0;
@@ -36,6 +37,7 @@ public class Player extends Entity {
                 Block.SIZE * 9/10
         );
         this.keyHandler = keyHandler;
+        this.attackManager = attackManager;
     }
 
     @Override
@@ -43,6 +45,20 @@ public class Player extends Entity {
         if (keyHandler.isKPressed()) {
             isAttacking = true;
             if (attackCounter == 0) {
+                Attack attack = new Attack(
+                        new Rectangle(
+                                isFacingRight
+                                        ? x + solidBounds.width / 2 + Block.SIZE / 2
+                                        : x + solidBounds.width / 2 - Block.SIZE / 2,
+                                y,
+                                Block.SIZE / 2,
+                                Block.SIZE
+                        ),
+                        40,
+                        12,
+                        this
+                );
+                attackManager.submitAttack(attack);
                 SoundManager.playSE(2);
             }
         }
