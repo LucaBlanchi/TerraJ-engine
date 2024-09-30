@@ -26,10 +26,10 @@ public class GamePanel extends JPanel implements Runnable {
     private static final boolean START_WITH_MUSIC = false;
 
     private final transient KeyHandler keyHandler = new KeyHandler();
-    private final transient AttackManager attackManager = new AttackManager();
-    private final transient Player player = new Player(keyHandler, attackManager);
-    private final transient EnemyManager enemyManager = new EnemyManager(player, attackManager);
-    private final transient BlockMapManager blockMapManager = new BlockMapManager();
+    private transient AttackManager attackManager = new AttackManager();
+    private transient Player player = new Player(keyHandler, attackManager);
+    private transient EnemyManager enemyManager = new EnemyManager(player, attackManager);
+    private transient BlockMapManager blockMapManager = new BlockMapManager();
 
     private final transient Camera camera = new Camera(Block.SIZE * 16, Block.SIZE * 9);
 
@@ -51,6 +51,9 @@ public class GamePanel extends JPanel implements Runnable {
                 handleResize();
             }
         });
+
+        loadLevel();
+
         if (START_WITH_MUSIC) {
             SoundManager.playMusic(0);
         }
@@ -100,7 +103,10 @@ public class GamePanel extends JPanel implements Runnable {
         enemyManager.updateEnemies(blockMapManager);
         player.update(blockMapManager);
         if (player.getHealth() <= 0) {
-            player.dye();
+            loadLevel();
+        }
+        if (keyHandler.isRPressed()) {
+            loadLevel();
         }
     }
 
@@ -118,5 +124,12 @@ public class GamePanel extends JPanel implements Runnable {
         player.draw(g2d, camera);
 
         g2d.dispose();
+    }
+
+    public void loadLevel() {
+        attackManager = new AttackManager();
+        player = new Player(keyHandler, attackManager);
+        enemyManager = new EnemyManager(player, attackManager);
+        blockMapManager = new BlockMapManager();
     }
 }

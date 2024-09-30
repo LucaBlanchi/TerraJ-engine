@@ -10,6 +10,7 @@ public class KeyHandler implements KeyListener {
     private boolean leftPressed;
     private boolean rightPressed;
     private boolean isKPressed;
+    private boolean isRPressed;
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -47,6 +48,10 @@ public class KeyHandler implements KeyListener {
         if (code == KeyEvent.VK_M) {
             SoundManager.toggleMusic(0);
         }
+
+        if (code == KeyEvent.VK_R) {
+            isRPressed = true;
+        }
     }
 
     @Override
@@ -68,6 +73,9 @@ public class KeyHandler implements KeyListener {
         if (code == KeyEvent.VK_K) {
             isKPressed = false;
         }
+        if (code == KeyEvent.VK_R) {
+            isRPressed = false;
+        }
     }
 
     public boolean isUpPressed() {
@@ -88,5 +96,9 @@ public class KeyHandler implements KeyListener {
 
     public boolean isKPressed() {
         return isKPressed;
+    }
+
+    public boolean isRPressed() {
+        return isRPressed;
     }
 }

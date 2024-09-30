@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Add draft implementation of attacks and mob damage">
+    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Make enemies attack the player, which respawns if dead">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/EnemyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/EnemyManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/KeyHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -140,14 +138,9 @@
       <workItem from="1727704587919" duration="597000" />
       <workItem from="1727705197598" duration="12000" />
       <workItem from="1727705987814" duration="962000" />
-      <workItem from="1727707002109" duration="49000" />
-    </task>
-    <task id="LOCAL-00012" summary="Clean CollisionsChecker class">
-      <created>1726683422442</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1726683422442</updated>
+      <workItem from="1727707002109" duration="508000" />
+      <workItem from="1727713237770" duration="303000" />
+      <workItem from="1727727174528" duration="828000" />
     </task>
     <task id="LOCAL-00013" summary="Clean dependencies">
       <created>1726683857621</created>
@@ -485,14 +478,20 @@
       <option name="project" value="LOCAL" />
       <updated>1727705159824</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="Make enemies attack the player, which respawns if dead">
+      <created>1727707134453</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1727707134454</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Properly resize window" />
     <MESSAGE value="Implement full screen" />
     <MESSAGE value="Remove unused sprite system features" />
     <MESSAGE value="Roughly implement jump" />
@@ -517,6 +516,7 @@
     <MESSAGE value="Make the enemy fall" />
     <MESSAGE value="Make the enemy follow the player when close" />
     <MESSAGE value="Add draft implementation of attacks and mob damage" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add draft implementation of attacks and mob damage" />
+    <MESSAGE value="Make enemies attack the player, which respawns if dead" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make enemies attack the player, which respawns if dead" />
   </component>
 </project>

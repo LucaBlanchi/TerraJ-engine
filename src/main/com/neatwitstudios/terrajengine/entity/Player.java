@@ -137,10 +137,4 @@ public class Player extends Entity {
                 null
         );
     }
-
-    public void dye() {
-        health = 100;
-        x = 0;
-        y = Block.SIZE + 1;
-    }
 }
