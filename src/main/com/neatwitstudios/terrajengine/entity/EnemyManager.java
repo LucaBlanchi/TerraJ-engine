@@ -10,15 +10,13 @@ import java.util.List;
 
 public class EnemyManager {
 
-    private final Enemy testEnemy1;
-    private final Enemy testEnemy2;
     private final List<Entity> enemies = new ArrayList<>();
 
     private final AttackManager attackManager;
 
     public EnemyManager(Player player, AttackManager attackManager) {
-        testEnemy1 = new Enemy(Block.SIZE * 18, Block.SIZE * 3 + 1, player);
-        testEnemy2 = new Enemy(Block.SIZE * 8, Block.SIZE + 1, player);
+        Enemy testEnemy1 = new Enemy(Block.SIZE * 18, Block.SIZE * 3 + 1, player, attackManager);
+        Enemy testEnemy2 = new Enemy(Block.SIZE * 8, Block.SIZE + 1, player, attackManager);
         enemies.add(testEnemy1);
         enemies.add(testEnemy2);
 

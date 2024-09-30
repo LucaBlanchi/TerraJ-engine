@@ -99,6 +99,9 @@ public class GamePanel extends JPanel implements Runnable {
     public void update() {
         enemyManager.updateEnemies(blockMapManager);
         player.update(blockMapManager);
+        if (player.getHealth() <= 0) {
+            player.dye();
+        }
     }
 
     @Override

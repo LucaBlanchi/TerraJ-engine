@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Make the enemy follow the player when close">
-      <change afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Attack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/AttackManager.java" afterDir="false" />
+    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Add draft implementation of attacks and mob damage">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Enemy.java" afterDir="false" />
@@ -139,14 +137,10 @@
       <workItem from="1727682772786" duration="511000" />
       <workItem from="1727686058176" duration="2190000" />
       <workItem from="1727699843775" duration="4452000" />
-      <workItem from="1727704587919" duration="256000" />
-    </task>
-    <task id="LOCAL-00011" summary="Clean TileManager class">
-      <created>1726682990223</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1726682990223</updated>
+      <workItem from="1727704587919" duration="597000" />
+      <workItem from="1727705197598" duration="12000" />
+      <workItem from="1727705987814" duration="962000" />
+      <workItem from="1727707002109" duration="49000" />
     </task>
     <task id="LOCAL-00012" summary="Clean CollisionsChecker class">
       <created>1726683422442</created>
@@ -484,14 +478,20 @@
       <option name="project" value="LOCAL" />
       <updated>1727687279416</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="Add draft implementation of attacks and mob damage">
+      <created>1727705159824</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1727705159824</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add air block" />
     <MESSAGE value="Properly resize window" />
     <MESSAGE value="Implement full screen" />
     <MESSAGE value="Remove unused sprite system features" />
@@ -516,6 +516,7 @@
     <MESSAGE value="Add an enemy (does nothing for now)" />
     <MESSAGE value="Make the enemy fall" />
     <MESSAGE value="Make the enemy follow the player when close" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make the enemy follow the player when close" />
+    <MESSAGE value="Add draft implementation of attacks and mob damage" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add draft implementation of attacks and mob damage" />
   </component>
 </project>

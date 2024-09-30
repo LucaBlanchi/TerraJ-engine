@@ -6,6 +6,7 @@ import com.neatwitstudios.terrajengine.map.BlockMapManager;
 import com.neatwitstudios.terrajengine.map.BlockCollisionsChecker;
 
 import java.awt.*;
+import java.util.List;
 
 public class Player extends Entity {
 
@@ -36,12 +37,20 @@ public class Player extends Entity {
                 Block.SIZE * 2/3,
                 Block.SIZE * 9/10
         );
+        health = 100;
         this.keyHandler = keyHandler;
         this.attackManager = attackManager;
     }
 
     @Override
     public void update(BlockMapManager blockMapManager) {
+        attackManager.damageEntities(List.of(this));
+        handleAttacking();
+        updatePositionAndSpeed(blockMapManager);
+        updateSprite();
+    }
+
+    private void handleAttacking() {
         if (keyHandler.isKPressed()) {
             isAttacking = true;
             if (attackCounter == 0) {
@@ -67,8 +76,6 @@ public class Player extends Entity {
             attackCounter = 0;
             endAttackSprite = true;
         }
-        updatePositionAndSpeed(blockMapManager);
-        updateSprite();
     }
 
     private void updatePositionAndSpeed(BlockMapManager blockMapManager) {
@@ -129,5 +136,11 @@ public class Player extends Entity {
                 GamePanel.TILE_SIZE,
                 null
         );
+    }
+
+    public void dye() {
+        health = 100;
+        x = 0;
+        y = Block.SIZE + 1;
     }
 }

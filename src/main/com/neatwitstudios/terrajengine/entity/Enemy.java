@@ -15,11 +15,15 @@ public class Enemy extends Entity {
     private static final int MAX_FALL_SPEED = Block.SIZE * 3/32;
 
     private int spriteNum = 0;
+    private int attackCoolDown = 0;
 
     private final Player player;
+    private final AttackManager attackManager;
 
-    public Enemy(int x, int y, Player player) {
+    public Enemy(int x, int y, Player player, AttackManager attackManager) {
         this.player = player;
+        this.attackManager = attackManager;
+
         this.x = x;
         this.y = y;
         this.xSpeed = 0;
@@ -35,8 +39,29 @@ public class Enemy extends Entity {
 
     @Override
     public void update(BlockMapManager blockMapManager) {
+        handleAttacking();
         updatePositionAndSpeed(blockMapManager);
         updateSprite();
+    }
+
+    private void handleAttacking() {
+        if (Math.abs(player.getX() - x) < Block.SIZE / 3 && Math.abs(player.getY() - y) < Block.SIZE / 3 && attackCoolDown == 0) {
+            attackManager.submitAttack(new Attack(
+                    new Rectangle(
+                            x + solidBounds.width / 2,
+                            y + solidBounds.height / 2,
+                            Block.SIZE / 2,
+                            Block.SIZE / 2
+                    ),
+                    30,
+                    12,
+                    this
+            ));
+            attackCoolDown = 60;
+        }
+        if (attackCoolDown > 0) {
+            attackCoolDown--;
+        }
     }
 
     private void updatePositionAndSpeed(BlockMapManager blockMapManager) {
