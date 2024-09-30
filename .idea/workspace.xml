@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Add an enemy (does nothing for now)">
+    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Make the enemy fall">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/sprites/enemyRight.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/EnemyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/EnemyManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/SpritesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/SpritesManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,8 +64,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\enemyRight" />
       <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\sprites" />
+      <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\enemyRight" />
       <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\sound" />
       <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\blocks" />
       <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static" />
@@ -127,14 +131,10 @@
       <workItem from="1727367408163" duration="271000" />
       <workItem from="1727379922431" duration="4613000" />
       <workItem from="1727396355808" duration="2717000" />
-      <workItem from="1727626025650" duration="2354000" />
-    </task>
-    <task id="LOCAL-00009" summary="Introduce direction enum">
-      <created>1726651350167</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1726651350167</updated>
+      <workItem from="1727626025650" duration="3856000" />
+      <workItem from="1727682099573" duration="549000" />
+      <workItem from="1727682772786" duration="511000" />
+      <workItem from="1727686058176" duration="1189000" />
     </task>
     <task id="LOCAL-00010" summary="Clean Player class">
       <created>1726682733765</created>
@@ -472,14 +472,20 @@
       <option name="project" value="LOCAL" />
       <updated>1727628243639</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Make the enemy fall">
+      <created>1727628496341</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1727628496341</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Rebrand tiles to 'blocks'" />
     <MESSAGE value="Prevent going out of bounds" />
     <MESSAGE value="Add air block" />
     <MESSAGE value="Properly resize window" />
@@ -504,6 +510,7 @@
     <MESSAGE value="Fix gravity" />
     <MESSAGE value="Add attack animation" />
     <MESSAGE value="Add an enemy (does nothing for now)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add an enemy (does nothing for now)" />
+    <MESSAGE value="Make the enemy fall" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make the enemy fall" />
   </component>
 </project>

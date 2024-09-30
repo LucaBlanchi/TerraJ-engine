@@ -8,7 +8,11 @@ import java.awt.*;
 
 public class EnemyManager {
 
-    private Enemy testEnemy = new Enemy(Block.SIZE * 5, Block.SIZE * 3 + 1);
+    private final Enemy testEnemy;
+
+    public EnemyManager(Player player) {
+        testEnemy = new Enemy(Block.SIZE * 18, Block.SIZE * 3 + 1, player);
+    }
 
     public void updateEnemies(BlockMapManager blockMapManager) {
         testEnemy.update(blockMapManager);

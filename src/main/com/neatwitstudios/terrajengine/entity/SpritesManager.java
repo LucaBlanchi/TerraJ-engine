@@ -27,6 +27,7 @@ public class SpritesManager {
             map.get(PLAYER)[3] = ImageIO.read(Objects.requireNonNull(SpritesManager.class.getResourceAsStream("/static/sprites/playerAttack2.png")));
 
             map.get(ENEMY)[0] = ImageIO.read(Objects.requireNonNull(SpritesManager.class.getResourceAsStream("/static/sprites/enemyLeft.png")));
+            map.get(ENEMY)[1] = ImageIO.read(Objects.requireNonNull(SpritesManager.class.getResourceAsStream("/static/sprites/enemyRight.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }

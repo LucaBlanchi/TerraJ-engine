@@ -26,10 +26,10 @@ public class GamePanel extends JPanel implements Runnable {
 
     private final transient KeyHandler keyHandler = new KeyHandler();
     private final transient Player player = new Player(keyHandler);
-    private final transient EnemyManager enemyManager = new EnemyManager();
+    private final transient EnemyManager enemyManager = new EnemyManager(player);
     private final transient BlockMapManager blockMapManager = new BlockMapManager();
 
-    private final Camera camera = new Camera(Block.SIZE * 16, Block.SIZE * 9);
+    private final transient Camera camera = new Camera(Block.SIZE * 16, Block.SIZE * 9);
 
     private transient Thread gameThread;
 
