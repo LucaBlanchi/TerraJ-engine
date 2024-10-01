@@ -25,16 +25,16 @@ public class EnemyManager {
     public void loadEnemies(int level) {
         enemies.clear();
         switch (level) {
-            case 0:
+            case 0 -> {
                 enemies.add(new Enemy(Block.SIZE * 18, Block.SIZE * 3 + 1, player, attackManager));
                 enemies.add(new Enemy(Block.SIZE * 8, Block.SIZE + 1, player, attackManager));
-                break;
-            case 1:
+            }
+            case 1 -> {
                 enemies.add(new Enemy(Block.SIZE * 2, Block.SIZE + 1, player, attackManager));
                 enemies.add(new Enemy(Block.SIZE * 23, Block.SIZE * 7 + 1, player, attackManager));
-                break;
-            default:
-                break;
+            }
+            default -> {
+            }
         }
     }
 

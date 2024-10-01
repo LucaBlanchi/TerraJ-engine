@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Restart with R and on death">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/maps/map1.txt" afterDir="false" />
+    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Allow multiple levels">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/KeyHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Attack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Attack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/AttackManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/AttackManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/EnemyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/EnemyManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/map/BlockMapManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/map/BlockMapManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/map/BlockCollisionsChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/map/BlockCollisionsChecker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,14 +142,8 @@
       <workItem from="1727705987814" duration="962000" />
       <workItem from="1727707002109" duration="508000" />
       <workItem from="1727713237770" duration="303000" />
-      <workItem from="1727727174528" duration="4194000" />
-    </task>
-    <task id="LOCAL-00014" summary="Extract sleepToCapFps method">
-      <created>1726697162703</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1726697162703</updated>
+      <workItem from="1727727174528" duration="4371000" />
+      <workItem from="1727766014752" duration="648000" />
     </task>
     <task id="LOCAL-00015" summary="Refactor TileManager">
       <created>1726697612663</created>
@@ -488,14 +481,20 @@
       <option name="project" value="LOCAL" />
       <updated>1727728015762</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="Allow multiple levels">
+      <created>1727733528273</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1727733528273</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Remove unused sprite system features" />
     <MESSAGE value="Roughly implement jump" />
     <MESSAGE value="Don't render air" />
     <MESSAGE value="Adjust gravity" />
@@ -520,6 +519,7 @@
     <MESSAGE value="Add draft implementation of attacks and mob damage" />
     <MESSAGE value="Make enemies attack the player, which respawns if dead" />
     <MESSAGE value="Restart with R and on death" />
-    <option name="LAST_COMMIT_MESSAGE" value="Restart with R and on death" />
+    <MESSAGE value="Allow multiple levels" />
+    <option name="LAST_COMMIT_MESSAGE" value="Allow multiple levels" />
   </component>
 </project>

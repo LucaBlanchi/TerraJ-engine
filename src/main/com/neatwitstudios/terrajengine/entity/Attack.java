@@ -1,20 +1,16 @@
 package com.neatwitstudios.terrajengine.entity;
 
-import com.neatwitstudios.terrajengine.Camera;
-import com.neatwitstudios.terrajengine.GamePanel;
-import com.neatwitstudios.terrajengine.map.Block;
-
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Attack {
 
-    private Rectangle hitBox;
-    private int damage;
+    private final Rectangle hitBox;
+    private final int damage;
     private int duration;
-    private Entity owner;
-    private List<Entity> damagedEntities = new ArrayList<>();
+    private final Entity owner;
+    private final List<Entity> damagedEntities = new ArrayList<>();
 
     public Attack(Rectangle hitBox, int damage, int duration, Entity owner) {
         this.hitBox = hitBox;

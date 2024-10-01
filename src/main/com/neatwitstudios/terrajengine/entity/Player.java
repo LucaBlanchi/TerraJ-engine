@@ -43,16 +43,16 @@ public class Player extends Entity {
     public void initializePlayerByLevel(int level) {
         health = 100;
         switch (level) {
-            case 0:
+            case 0 -> {
                 x = 0;
                 y = Block.SIZE + 1;
-                break;
-            case 1:
+            }
+            case 1 -> {
                 x = Block.SIZE * 3;
                 y = Block.SIZE * 8 + 1;
-                break;
-            default:
-                break;
+            }
+            default -> {
+            }
         }
     }
 

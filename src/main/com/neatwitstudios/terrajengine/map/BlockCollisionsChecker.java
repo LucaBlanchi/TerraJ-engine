@@ -4,6 +4,9 @@ import com.neatwitstudios.terrajengine.entity.Entity;
 
 public class BlockCollisionsChecker {
 
+    private BlockCollisionsChecker() {
+    }
+
     public static boolean isStandingOnGround(Entity entity, BlockMapManager blockMapManager) {
         int leftX = entity.getX() + entity.getSolidBounds().x;
         int rightX = entity.getX() + entity.getSolidBounds().x + entity.getSolidBounds().width;

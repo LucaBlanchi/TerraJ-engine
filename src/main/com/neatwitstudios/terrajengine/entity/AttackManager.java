@@ -1,7 +1,5 @@
 package com.neatwitstudios.terrajengine.entity;
 
-import com.neatwitstudios.terrajengine.Camera;
-
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
