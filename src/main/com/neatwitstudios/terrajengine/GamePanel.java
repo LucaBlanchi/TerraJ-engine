@@ -27,7 +27,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     private final transient KeyHandler keyHandler = new KeyHandler();
     private transient AttackManager attackManager = new AttackManager();
-    private transient Player player = new Player(keyHandler, attackManager);
+    private transient Player player = new Player(keyHandler, attackManager, 0);
     private transient EnemyManager enemyManager = new EnemyManager(player, attackManager);
     private transient BlockMapManager blockMapManager = new BlockMapManager();
 
@@ -91,11 +91,10 @@ public class GamePanel extends JPanel implements Runnable {
 
     public void loadLevel(int level) {
         attackManager = new AttackManager();
-        player = new Player(keyHandler, attackManager);
+        player = new Player(keyHandler, attackManager, level);
         enemyManager = new EnemyManager(player, attackManager);
         blockMapManager = new BlockMapManager();
 
-        player.initializePlayerByLevel(level);
         enemyManager.loadEnemies(level);
         blockMapManager.loadMap(level);
         camera.setCenterX(player.getX());
@@ -124,7 +123,10 @@ public class GamePanel extends JPanel implements Runnable {
             loadedLevel = 1;
             loadLevel(1);
         }
-        if (player.getHealth() <= 0 || keyHandler.isRPressed()) {
+        if (player.getHealth() <= 0) {
+            loadLevel(0);
+        }
+        if (keyHandler.isRPressed()) {
             loadLevel(loadedLevel);
         }
     }

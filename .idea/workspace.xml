@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Allow multiple levels">
+    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Clean some code">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Attack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Attack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/AttackManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/AttackManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/EnemyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/EnemyManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/map/BlockCollisionsChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/map/BlockCollisionsChecker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,14 +141,9 @@
       <workItem from="1727707002109" duration="508000" />
       <workItem from="1727713237770" duration="303000" />
       <workItem from="1727727174528" duration="4371000" />
-      <workItem from="1727766014752" duration="648000" />
-    </task>
-    <task id="LOCAL-00015" summary="Refactor TileManager">
-      <created>1726697612663</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1726697612663</updated>
+      <workItem from="1727766014752" duration="745000" />
+      <workItem from="1727766812737" duration="189000" />
+      <workItem from="1727990843132" duration="2656000" />
     </task>
     <task id="LOCAL-00016" summary="Allow for diagonal movement again">
       <created>1726698412167</created>
@@ -488,14 +481,20 @@
       <option name="project" value="LOCAL" />
       <updated>1727733528273</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="Clean some code">
+      <created>1727766727826</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1727766727828</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Roughly implement jump" />
     <MESSAGE value="Don't render air" />
     <MESSAGE value="Adjust gravity" />
     <MESSAGE value="Rename package" />
@@ -520,6 +519,18 @@
     <MESSAGE value="Make enemies attack the player, which respawns if dead" />
     <MESSAGE value="Restart with R and on death" />
     <MESSAGE value="Allow multiple levels" />
-    <option name="LAST_COMMIT_MESSAGE" value="Allow multiple levels" />
+    <MESSAGE value="Clean some code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Clean some code" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/map/BlockMapManager.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
