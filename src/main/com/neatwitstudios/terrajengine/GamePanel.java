@@ -14,11 +14,11 @@ import java.awt.event.ComponentEvent;
 
 public class GamePanel extends JPanel implements Runnable {
 
-    public static final Dimension SCREEN_SIZE = Toolkit.getDefaultToolkit().getScreenSize();
-    public static final int WIDTH = (int) SCREEN_SIZE.getWidth();
-    public static final int HEIGHT = (int) SCREEN_SIZE.getHeight();
+    public static final int WIDTH = 1280;
+    public static final int HEIGHT = 720;
 
-    public static final int TILE_SIZE = WIDTH / 16;
+    public static final int BLOCKS_PER_ROW = 32;
+    public static final int TILE_SIZE = WIDTH / BLOCKS_PER_ROW;
     public static final int SCREEN_CENTER_X = WIDTH / 2 - TILE_SIZE / 2;
     public static final int SCREEN_CENTER_Y = HEIGHT / 2 - TILE_SIZE / 2;
 
@@ -33,7 +33,7 @@ public class GamePanel extends JPanel implements Runnable {
     private BlockMapManager blockMapManager = new BlockMapManager(0);
     private ItemsManager itemsManager = new ItemsManager(this, 0);
 
-    private final transient Camera camera = new Camera(Block.SIZE * 16, Block.SIZE * 9);
+    private final transient Camera camera = new Camera(Block.SIZE * BLOCKS_PER_ROW, Block.SIZE * BLOCKS_PER_ROW * HEIGHT / WIDTH);
 
     private transient Thread gameThread;
 

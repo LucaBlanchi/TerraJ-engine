@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Somehow fix visual bug when switching levels">
-      <change afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/items/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/items/ItemsManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/items/NextLevelFlag.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/sprites/flag.png" afterDir="false" />
+    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Add collectable items">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/KeyHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/EnemyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/EnemyManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/map/BlockMapManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/map/BlockMapManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,14 +142,7 @@
       <workItem from="1727766014752" duration="745000" />
       <workItem from="1727766812737" duration="189000" />
       <workItem from="1727990843132" duration="5088000" />
-      <workItem from="1728068111762" duration="1508000" />
-    </task>
-    <task id="LOCAL-00017" summary="Make game fullscreen">
-      <created>1726699117609</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1726699117609</updated>
+      <workItem from="1728068111762" duration="2122000" />
     </task>
     <task id="LOCAL-00018" summary="Make game fullscreen">
       <created>1726700024956</created>
@@ -494,14 +480,20 @@
       <option name="project" value="LOCAL" />
       <updated>1727994453193</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="Add collectable items">
+      <created>1728069745016</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1728069745016</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adjust gravity" />
     <MESSAGE value="Rename package" />
     <MESSAGE value="Adjust player code" />
     <MESSAGE value="Simplify code removing Entity" />
@@ -526,6 +518,7 @@
     <MESSAGE value="Allow multiple levels" />
     <MESSAGE value="Clean some code" />
     <MESSAGE value="Somehow fix visual bug when switching levels" />
-    <option name="LAST_COMMIT_MESSAGE" value="Somehow fix visual bug when switching levels" />
+    <MESSAGE value="Add collectable items" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add collectable items" />
   </component>
 </project>
