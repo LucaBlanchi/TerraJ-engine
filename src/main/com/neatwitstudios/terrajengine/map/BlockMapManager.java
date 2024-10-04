@@ -1,6 +1,6 @@
 package com.neatwitstudios.terrajengine.map;
 
-import com.neatwitstudios.terrajengine.Camera;
+import com.neatwitstudios.terrajengine.camera.Camera;
 import com.neatwitstudios.terrajengine.GamePanel;
 
 import javax.imageio.ImageIO;

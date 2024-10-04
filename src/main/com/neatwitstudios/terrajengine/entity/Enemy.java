@@ -1,6 +1,6 @@
 package com.neatwitstudios.terrajengine.entity;
 
-import com.neatwitstudios.terrajengine.Camera;
+import com.neatwitstudios.terrajengine.camera.Camera;
 import com.neatwitstudios.terrajengine.GamePanel;
 import com.neatwitstudios.terrajengine.map.Block;
 import com.neatwitstudios.terrajengine.map.CollisionsChecker;

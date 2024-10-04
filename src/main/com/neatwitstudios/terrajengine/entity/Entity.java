@@ -1,6 +1,6 @@
 package com.neatwitstudios.terrajengine.entity;
 
-import com.neatwitstudios.terrajengine.Camera;
+import com.neatwitstudios.terrajengine.camera.Camera;
 
 import java.awt.*;
 

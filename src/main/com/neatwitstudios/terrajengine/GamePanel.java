@@ -1,5 +1,6 @@
 package com.neatwitstudios.terrajengine;
 
+import com.neatwitstudios.terrajengine.camera.CameraOnEntity;
 import com.neatwitstudios.terrajengine.entity.AttackManager;
 import com.neatwitstudios.terrajengine.entity.EnemyManager;
 import com.neatwitstudios.terrajengine.entity.Player;
@@ -34,7 +35,7 @@ public class GamePanel extends JPanel implements Runnable {
     private final Player player = new Player(keyHandler, attackManager, blockCollisionsChecker);
     private final EnemyManager enemyManager = new EnemyManager(player, attackManager, blockCollisionsChecker);
     private ItemsManager itemsManager = new ItemsManager(this, 0);
-    private final transient Camera camera = new Camera(Block.SIZE * BLOCKS_PER_ROW, Block.SIZE * BLOCKS_PER_ROW * HEIGHT / WIDTH);
+    private final transient CameraOnEntity camera = new CameraOnEntity(player, Block.SIZE * BLOCKS_PER_ROW, Block.SIZE * BLOCKS_PER_ROW * HEIGHT / WIDTH);
 
     private transient Thread gameThread;
 
@@ -98,9 +99,6 @@ public class GamePanel extends JPanel implements Runnable {
         player.initializePlayerByMapId(level);
         enemyManager.loadEnemies(level);
 
-        camera.setCenterX(player.getX());
-        camera.setCenterY(player.getY());
-
         loadedLevel = level;
     }
 
@@ -140,8 +138,6 @@ public class GamePanel extends JPanel implements Runnable {
 
         g2d.scale(scaleFactorX, scaleFactorY);
 
-        camera.setCenterX(player.getX());
-        camera.setCenterY(player.getY());
         blockMapManager.draw(g2d, camera);
         enemyManager.drawEnemies(g2d, camera);
         itemsManager.drawItems(g2d, camera);

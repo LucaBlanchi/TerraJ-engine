@@ -1,7 +1,7 @@
 package com.neatwitstudios.terrajengine.items;
 
-import com.neatwitstudios.terrajengine.Camera;
 import com.neatwitstudios.terrajengine.GamePanel;
+import com.neatwitstudios.terrajengine.camera.Camera;
 import com.neatwitstudios.terrajengine.entity.Player;
 import com.neatwitstudios.terrajengine.map.Block;
 
