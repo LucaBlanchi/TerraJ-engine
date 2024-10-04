@@ -7,7 +7,7 @@ import com.neatwitstudios.terrajengine.map.CollisionsChecker;
 
 import java.awt.*;
 
-public class Enemy extends Entity {
+public class ExampleEnemy extends Entity {
 
     private static final int SPEED = Block.SIZE * 3/64;
     private static final int GRAVITY = Block.SIZE / 64;
@@ -20,7 +20,7 @@ public class Enemy extends Entity {
     private final AttackManager attackManager;
     private final CollisionsChecker collisionsChecker;
 
-    public Enemy(int x, int y, Player player, AttackManager attackManager, CollisionsChecker collisionsChecker) {
+    public ExampleEnemy(int x, int y, Player player, AttackManager attackManager, CollisionsChecker collisionsChecker) {
         this.player = player;
         this.attackManager = attackManager;
         this.collisionsChecker = collisionsChecker;

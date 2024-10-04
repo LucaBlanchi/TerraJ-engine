@@ -34,10 +34,10 @@ public class GamePanel extends JPanel implements Runnable {
     private final BlockCollisionsChecker blockCollisionsChecker = new BlockCollisionsChecker(blockMapManager);
     private final Player player = new Player(keyHandler, attackManager, blockCollisionsChecker);
     private final EnemyManager enemyManager = new EnemyManager(player, attackManager, blockCollisionsChecker);
-    private ItemsManager itemsManager = new ItemsManager(this, 0);
-    private final transient CameraOnEntity camera = new CameraOnEntity(player, Block.SIZE * BLOCKS_PER_ROW, Block.SIZE * BLOCKS_PER_ROW * HEIGHT / WIDTH);
+    private final ItemsManager itemsManager = new ItemsManager(this);
+    private final CameraOnEntity camera = new CameraOnEntity(player, Block.SIZE * BLOCKS_PER_ROW, Block.SIZE * BLOCKS_PER_ROW * HEIGHT / WIDTH);
 
-    private transient Thread gameThread;
+    private Thread gameThread;
 
     private double scaleFactorX = 1.0;
     private double scaleFactorY = 1.0;
@@ -93,13 +93,13 @@ public class GamePanel extends JPanel implements Runnable {
         }
     }
 
-    private void loadLevel(int level) {
-        blockMapManager.loadMap(level);
-        itemsManager = new ItemsManager(this, level);
-        player.initializePlayerByMapId(level);
-        enemyManager.loadEnemies(level);
+    private void loadLevel(int mapId) {
+        blockMapManager.loadMap(mapId);
+        itemsManager.loadItems(mapId);
+        player.initializePlayerByMapId(mapId);
+        enemyManager.loadEnemies(mapId);
 
-        loadedLevel = level;
+        loadedLevel = mapId;
     }
 
     public void loadNextLevel() {

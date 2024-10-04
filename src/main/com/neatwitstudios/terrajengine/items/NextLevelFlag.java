@@ -22,11 +22,12 @@ public class NextLevelFlag extends Item {
         }
     }
 
-    @Override
-    public void checkCollision(GamePanel gamePanel, Player player) {
-        if (!bounds.contains(player.getX(), player.getY())) return;
-        pickedUp = false;
-        gamePanel.loadNextLevel();
+    public String getEffectOnCollision(Player player) {
+        if (!bounds.contains(player.getX(), player.getY())) {
+            return null;
+        }
+        pickedUp = true;
+        return "nextLevel";
     }
 
     @Override

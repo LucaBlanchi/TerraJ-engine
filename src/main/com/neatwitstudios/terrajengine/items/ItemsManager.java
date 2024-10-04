@@ -15,12 +15,12 @@ public class ItemsManager {
 
     private final List<Item> items = new ArrayList<>();
 
-    public ItemsManager(GamePanel gamePanel, int mapId) {
+    public ItemsManager(GamePanel gamePanel) {
         this.gamePanel = gamePanel;
-        loadItems(mapId);
+        loadItems(0);
     }
 
-    private void loadItems(int mapId) {
+    public void loadItems(int mapId) {
         items.clear();
         switch (mapId) {
             case 0 -> items.add(new NextLevelFlag(new Rectangle(
@@ -38,10 +38,21 @@ public class ItemsManager {
     }
 
     public void checkCollisions(Player player) {
+        List<String> effects = new ArrayList<>();
         for (Item item : items) {
-            item.checkCollision(gamePanel, player);
+            String effect = item.getEffectOnCollision(player);
+            if (effect != null) {
+                effects.add(effect);
+            }
         }
         items.removeIf(Item::isPickedUp);
+        for (String effect : effects) {
+            switch (effect) {
+                case "nextLevel" -> gamePanel.loadNextLevel();
+                default -> {
+                }
+            }
+        }
     }
 
     public void drawItems(Graphics2D g2d, Camera camera) {

@@ -28,12 +28,12 @@ public class EnemyManager {
         enemies.clear();
         switch (mapId) {
             case 0 -> {
-                enemies.add(new Enemy(Block.SIZE * 18, Block.SIZE * 3 + 1, player, attackManager, collisionsChecker));
-                enemies.add(new Enemy(Block.SIZE * 8, Block.SIZE + 1, player, attackManager, collisionsChecker));
+                enemies.add(new ExampleEnemy(Block.SIZE * 18, Block.SIZE * 3 + 1, player, attackManager, collisionsChecker));
+                enemies.add(new ExampleEnemy(Block.SIZE * 8, Block.SIZE + 1, player, attackManager, collisionsChecker));
             }
             case 1 -> {
-                enemies.add(new Enemy(Block.SIZE * 2, Block.SIZE + 1, player, attackManager, collisionsChecker));
-                enemies.add(new Enemy(Block.SIZE * 23, Block.SIZE * 7 + 1, player, attackManager, collisionsChecker));
+                enemies.add(new ExampleEnemy(Block.SIZE * 2, Block.SIZE + 1, player, attackManager, collisionsChecker));
+                enemies.add(new ExampleEnemy(Block.SIZE * 23, Block.SIZE * 7 + 1, player, attackManager, collisionsChecker));
             }
             default -> {
             }

@@ -1,7 +1,6 @@
 package com.neatwitstudios.terrajengine.items;
 
 import com.neatwitstudios.terrajengine.camera.Camera;
-import com.neatwitstudios.terrajengine.GamePanel;
 import com.neatwitstudios.terrajengine.entity.Player;
 
 import java.awt.*;
@@ -13,9 +12,7 @@ public abstract class Item {
     protected boolean pickedUp = false;
     protected Rectangle bounds;
 
-    protected Item() {}
-
-    public abstract void checkCollision(GamePanel gamePanel, Player player);
+    public abstract String getEffectOnCollision(Player player);
 
     public abstract void draw(Graphics2D g2d, Camera camera);
 
