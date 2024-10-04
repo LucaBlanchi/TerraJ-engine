@@ -27,6 +27,7 @@ public class GamePanel extends JPanel implements Runnable {
     private static final int MAX_FPS = 60;
 
     private static final boolean START_WITH_MUSIC = false;
+    private static boolean debugMode = false;
 
     private final KeyHandler keyHandler = new KeyHandler();
     private final AttackManager attackManager = new AttackManager();
@@ -143,6 +144,21 @@ public class GamePanel extends JPanel implements Runnable {
         itemsManager.drawItems(g2d, camera);
         player.draw(g2d, camera);
 
+        if (debugMode) {
+            drawDebugFeatures(g2d);
+        }
+
         g2d.dispose();
+    }
+
+    private void drawDebugFeatures(Graphics2D g2d) {
+        player.drawDebugFeatures(g2d, camera);
+        enemyManager.drawDebugFeatures(g2d, camera);
+        itemsManager.drawDebugFeatures(g2d, camera);
+        attackManager.drawDebugFeatures(g2d, camera);
+    }
+
+    public static void toggleDebugMode() {
+        debugMode = !debugMode;
     }
 }

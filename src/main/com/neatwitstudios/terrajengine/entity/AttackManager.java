@@ -1,5 +1,7 @@
 package com.neatwitstudios.terrajengine.entity;
 
+import com.neatwitstudios.terrajengine.camera.Camera;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +34,12 @@ public class AttackManager {
                     attack.addDamagedEntity(entity);
                 }
             }
+        }
+    }
+
+    public void drawDebugFeatures(Graphics2D g2d, Camera camera) {
+        for (Attack attack : attacks) {
+            attack.drawDebugFeatures(g2d, camera);
         }
     }
 

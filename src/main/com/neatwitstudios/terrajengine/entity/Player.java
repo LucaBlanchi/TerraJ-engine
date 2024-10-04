@@ -154,4 +154,31 @@ public class Player extends Entity {
                 null
         );
     }
+
+    @Override
+    public void drawDebugFeatures(Graphics2D g2d, Camera camera) {
+        int playerScreenX = GamePanel.SCREEN_CENTER_X - (camera.getCenterX() - x) * GamePanel.TILE_SIZE / Block.SIZE;
+        int playerScreenY = GamePanel.SCREEN_CENTER_Y + (camera.getCenterY() - y) * GamePanel.TILE_SIZE / Block.SIZE;
+
+        g2d.setColor(Color.RED);
+        g2d.drawRect(
+                playerScreenX + solidBounds.x * GamePanel.TILE_SIZE / Block.SIZE,
+                playerScreenY + solidBounds.y * GamePanel.TILE_SIZE / Block.SIZE,
+                solidBounds.width * GamePanel.TILE_SIZE / Block.SIZE,
+                solidBounds.height * GamePanel.TILE_SIZE / Block.SIZE
+        );
+        g2d.drawString("Life: " + health, playerScreenX, playerScreenY);
+
+        g2d.setColor(Color.GREEN);
+        g2d.drawRect(playerScreenX, playerScreenY, 10, 10);
+
+        g2d.setColor(Color.BLUE);
+        Rectangle spriteRect = new Rectangle(
+                playerScreenX,
+                playerScreenY,
+                GamePanel.TILE_SIZE,
+                GamePanel.TILE_SIZE
+        );
+        g2d.drawRect(spriteRect.x, spriteRect.y, spriteRect.width, spriteRect.height);
+    }
 }

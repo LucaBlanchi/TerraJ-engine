@@ -60,4 +60,10 @@ public class ItemsManager {
             item.draw(g2d, camera);
         }
     }
+
+    public void drawDebugFeatures(Graphics2D g2d, Camera camera) {
+        for (Item item : items) {
+            item.drawDebugFeatures(g2d, camera);
+        }
+    }
 }

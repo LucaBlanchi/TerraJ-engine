@@ -45,6 +45,10 @@ public class KeyHandler implements KeyListener {
             Main.toggleFullScreen();
         }
 
+        if (code == KeyEvent.VK_F3) {
+            GamePanel.toggleDebugMode();
+        }
+
         if (code == KeyEvent.VK_M) {
             SoundManager.toggleMusic(0);
         }

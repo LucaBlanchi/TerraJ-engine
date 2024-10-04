@@ -54,4 +54,10 @@ public class EnemyManager {
             enemy.draw(g2d, camera);
         }
     }
+
+    public void drawDebugFeatures(Graphics2D g2d, Camera camera) {
+        for (Entity enemy : enemies) {
+            enemy.drawDebugFeatures(g2d, camera);
+        }
+    }
 }

@@ -16,6 +16,8 @@ public abstract class Item {
 
     public abstract void draw(Graphics2D g2d, Camera camera);
 
+    public abstract void drawDebugFeatures(Graphics2D g2d, Camera camera);
+
     public boolean isPickedUp() {
         return pickedUp;
     }

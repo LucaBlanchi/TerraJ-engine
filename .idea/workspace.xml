@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Refactor items" />
+    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Add debug mode (F3), showing hitboxes">
+      <change afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/CoordConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/ExampleEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/ExampleEnemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/items/NextLevelFlag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/items/NextLevelFlag.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -140,35 +146,7 @@
       <workItem from="1727766014752" duration="745000" />
       <workItem from="1727766812737" duration="189000" />
       <workItem from="1727990843132" duration="5088000" />
-      <workItem from="1728068111762" duration="10565000" />
-    </task>
-    <task id="LOCAL-00028" summary="Don't render air">
-      <created>1727038671493</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1727038671493</updated>
-    </task>
-    <task id="LOCAL-00029" summary="Adjust gravity">
-      <created>1727038767022</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1727038767022</updated>
-    </task>
-    <task id="LOCAL-00030" summary="Rename package">
-      <created>1727113107806</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1727113107806</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Adjust player code">
-      <created>1727113752612</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1727113752612</updated>
+      <workItem from="1728068111762" duration="20227000" />
     </task>
     <task id="LOCAL-00032" summary="Simplify code removing Entity">
       <created>1727117038027</created>
@@ -485,15 +463,41 @@
       <option name="project" value="LOCAL" />
       <updated>1728080767831</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="Refactor items">
+      <created>1728081029883</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1728081029883</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Add debug mode (F3), showing hitboxes">
+      <created>1728083823883</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1728083823883</updated>
+    </task>
+    <task id="LOCAL-00079" summary="Add debug mode (F3), showing hitboxes">
+      <created>1728084330025</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1728084330025</updated>
+    </task>
+    <task id="LOCAL-00080" summary="Add debug mode (F3), showing hitboxes">
+      <created>1728119835127</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1728119835127</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Clean Player code" />
-    <MESSAGE value="Make positive y mean up" />
     <MESSAGE value="Enhance collision logic" />
     <MESSAGE value="Dynamically compute max rows and cols" />
     <MESSAGE value="Add sound" />
@@ -517,6 +521,8 @@
     <MESSAGE value="Abstract CollisionsChecker and Entity away from blocks" />
     <MESSAGE value="Abstract Camera" />
     <MESSAGE value="Refactor items" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor items" />
+    <MESSAGE value="Add debug mode (F3), showing hitboxes and health" />
+    <MESSAGE value="Add debug mode (F3), showing hitboxes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add debug mode (F3), showing hitboxes" />
   </component>
 </project>

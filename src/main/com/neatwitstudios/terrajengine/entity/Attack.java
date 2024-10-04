@@ -1,5 +1,9 @@
 package com.neatwitstudios.terrajengine.entity;
 
+import com.neatwitstudios.terrajengine.GamePanel;
+import com.neatwitstudios.terrajengine.camera.Camera;
+import com.neatwitstudios.terrajengine.map.Block;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,5 +49,18 @@ public class Attack {
 
     public Entity getOwner() {
         return owner;
+    }
+
+    public void drawDebugFeatures(Graphics2D g2d, Camera camera) {
+        int screenX = GamePanel.SCREEN_CENTER_X - (camera.getCenterX() - hitBox.x) * GamePanel.TILE_SIZE / Block.SIZE;
+        int screenY = GamePanel.SCREEN_CENTER_Y + (camera.getCenterY() - hitBox.y) * GamePanel.TILE_SIZE / Block.SIZE;
+
+        g2d.setColor(Color.RED);
+        g2d.drawRect(
+                screenX,
+                screenY,
+                hitBox.width * GamePanel.TILE_SIZE / Block.SIZE,
+                hitBox.height * GamePanel.TILE_SIZE / Block.SIZE
+        );
     }
 }
