@@ -3,6 +3,7 @@ package com.neatwitstudios.terrajengine;
 import com.neatwitstudios.terrajengine.entity.AttackManager;
 import com.neatwitstudios.terrajengine.entity.EnemyManager;
 import com.neatwitstudios.terrajengine.entity.Player;
+import com.neatwitstudios.terrajengine.items.ItemsManager;
 import com.neatwitstudios.terrajengine.map.Block;
 import com.neatwitstudios.terrajengine.map.BlockMapManager;
 
@@ -25,11 +26,12 @@ public class GamePanel extends JPanel implements Runnable {
 
     private static final boolean START_WITH_MUSIC = false;
 
-    private final transient KeyHandler keyHandler = new KeyHandler();
-    private transient AttackManager attackManager = new AttackManager();
-    private transient Player player = new Player(keyHandler, attackManager, 0);
-    private transient EnemyManager enemyManager = new EnemyManager(player, attackManager);
-    private transient BlockMapManager blockMapManager = new BlockMapManager();
+    private final KeyHandler keyHandler = new KeyHandler();
+    private AttackManager attackManager = new AttackManager();
+    private Player player = new Player(keyHandler, attackManager, 0);
+    private EnemyManager enemyManager = new EnemyManager(player, attackManager, 0);
+    private BlockMapManager blockMapManager = new BlockMapManager(0);
+    private ItemsManager itemsManager = new ItemsManager(this, 0);
 
     private final transient Camera camera = new Camera(Block.SIZE * 16, Block.SIZE * 9);
 
@@ -89,16 +91,22 @@ public class GamePanel extends JPanel implements Runnable {
         }
     }
 
-    public void loadLevel(int level) {
+    private void loadLevel(int level) {
         attackManager = new AttackManager();
         player = new Player(keyHandler, attackManager, level);
-        enemyManager = new EnemyManager(player, attackManager);
-        blockMapManager = new BlockMapManager();
+        enemyManager = new EnemyManager(player, attackManager, level);
+        blockMapManager = new BlockMapManager(level);
+        itemsManager = new ItemsManager(this, level);
 
-        enemyManager.loadEnemies(level);
-        blockMapManager.loadMap(level);
         camera.setCenterX(player.getX());
         camera.setCenterY(player.getY());
+
+        loadedLevel = level;
+    }
+
+    public void loadNextLevel() {
+        loadedLevel++;
+        loadLevel(loadedLevel);
     }
 
     private void sleepToCapFps(long elapsedTime) {
@@ -116,13 +124,7 @@ public class GamePanel extends JPanel implements Runnable {
     public void update() {
         enemyManager.updateEnemies(blockMapManager);
         player.update(blockMapManager);
-        if (keyHandler.is0Pressed()) {
-            loadedLevel = 0;
-            loadLevel(0);
-        } else if (keyHandler.is1Pressed()) {
-            loadedLevel = 1;
-            loadLevel(1);
-        }
+        itemsManager.checkCollisions(player);
         if (player.getHealth() <= 0) {
             loadLevel(0);
         }
@@ -142,6 +144,7 @@ public class GamePanel extends JPanel implements Runnable {
         camera.setCenterY(player.getY());
         blockMapManager.draw(g2d, camera);
         enemyManager.drawEnemies(g2d, camera);
+        itemsManager.drawItems(g2d, camera);
         player.draw(g2d, camera);
 
         g2d.dispose();

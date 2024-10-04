@@ -12,9 +12,6 @@ public class KeyHandler implements KeyListener {
     private boolean isKPressed;
     private boolean isRPressed;
 
-    private boolean is0Pressed;
-    private boolean is1Pressed;
-
     @Override
     public void keyTyped(KeyEvent e) {
 
@@ -55,13 +52,6 @@ public class KeyHandler implements KeyListener {
         if (code == KeyEvent.VK_R) {
             isRPressed = true;
         }
-
-        if (code == KeyEvent.VK_0) {
-            is0Pressed = true;
-        }
-        if (code == KeyEvent.VK_1) {
-            is1Pressed = true;
-        }
     }
 
     @Override
@@ -85,13 +75,6 @@ public class KeyHandler implements KeyListener {
         }
         if (code == KeyEvent.VK_R) {
             isRPressed = false;
-        }
-
-        if (code == KeyEvent.VK_0) {
-            is0Pressed = false;
-        }
-        if (code == KeyEvent.VK_1) {
-            is1Pressed = false;
         }
     }
 
@@ -117,13 +100,5 @@ public class KeyHandler implements KeyListener {
 
     public boolean isRPressed() {
         return isRPressed;
-    }
-
-    public boolean is0Pressed() {
-        return is0Pressed;
-    }
-
-    public boolean is1Pressed() {
-        return is1Pressed;
     }
 }

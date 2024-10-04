@@ -17,25 +17,18 @@ public class BlockMapManager {
     private int maxWorldCol;
     private int maxWorldRow;
 
-    public BlockMapManager() {
+    public BlockMapManager(int level) {
         blocks = new Block[16];
         loadBlocks();
-        loadMap(0);
+        loadMap(level);
     }
 
-    public void loadMap(int level) {
-        String mapPath;
-        switch (level) {
-            case 0:
-                mapPath = "/resources/static/maps/map.txt";
-                break;
-            case 1:
-                mapPath = "/resources/static/maps/map1.txt";
-                break;
-            default:
-                mapPath = "/resources/static/maps/map.txt";
-                break;
-        }
+    private void loadMap(int level) {
+        String mapPath = switch (level) {
+            case 0 -> "/resources/static/maps/map.txt";
+            case 1 -> "/resources/static/maps/map1.txt";
+            default -> "/resources/static/maps/map.txt";
+        };
 
         InputStream inputStream = getClass().getResourceAsStream(mapPath);
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));

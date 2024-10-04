@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Clean some code">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Somehow fix visual bug when switching levels">
+      <change afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/items/Item.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/items/ItemsManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/items/NextLevelFlag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/sprites/flag.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/KeyHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/EnemyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/EnemyManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/map/BlockMapManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/map/BlockMapManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,14 +148,8 @@
       <workItem from="1727727174528" duration="4371000" />
       <workItem from="1727766014752" duration="745000" />
       <workItem from="1727766812737" duration="189000" />
-      <workItem from="1727990843132" duration="2656000" />
-    </task>
-    <task id="LOCAL-00016" summary="Allow for diagonal movement again">
-      <created>1726698412167</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1726698412167</updated>
+      <workItem from="1727990843132" duration="5088000" />
+      <workItem from="1728068111762" duration="1508000" />
     </task>
     <task id="LOCAL-00017" summary="Make game fullscreen">
       <created>1726699117609</created>
@@ -488,14 +487,20 @@
       <option name="project" value="LOCAL" />
       <updated>1727766727828</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="Somehow fix visual bug when switching levels">
+      <created>1727994453193</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1727994453193</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Don't render air" />
     <MESSAGE value="Adjust gravity" />
     <MESSAGE value="Rename package" />
     <MESSAGE value="Adjust player code" />
@@ -520,17 +525,7 @@
     <MESSAGE value="Restart with R and on death" />
     <MESSAGE value="Allow multiple levels" />
     <MESSAGE value="Clean some code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clean some code" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/map/BlockMapManager.java</url>
-          <line>93</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Somehow fix visual bug when switching levels" />
+    <option name="LAST_COMMIT_MESSAGE" value="Somehow fix visual bug when switching levels" />
   </component>
 </project>

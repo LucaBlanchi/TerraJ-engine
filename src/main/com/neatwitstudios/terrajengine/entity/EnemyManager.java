@@ -15,14 +15,14 @@ public class EnemyManager {
     private final Player player;
     private final AttackManager attackManager;
 
-    public EnemyManager(Player player, AttackManager attackManager) {
+    public EnemyManager(Player player, AttackManager attackManager, int level) {
         this.player = player;
         this.attackManager = attackManager;
 
-        loadEnemies(0);
+        loadEnemies(level);
     }
 
-    public void loadEnemies(int level) {
+    private void loadEnemies(int level) {
         enemies.clear();
         switch (level) {
             case 0 -> {
