@@ -2,8 +2,7 @@ package com.neatwitstudios.terrajengine.entity;
 
 import com.neatwitstudios.terrajengine.*;
 import com.neatwitstudios.terrajengine.map.Block;
-import com.neatwitstudios.terrajengine.map.BlockMapManager;
-import com.neatwitstudios.terrajengine.map.BlockCollisionsChecker;
+import com.neatwitstudios.terrajengine.map.CollisionsChecker;
 
 import java.awt.*;
 import java.util.List;
@@ -25,9 +24,9 @@ public class Player extends Entity {
 
     private final KeyHandler keyHandler;
     private final AttackManager attackManager;
-    private final BlockCollisionsChecker blockCollisionsChecker;
+    private final CollisionsChecker collisionsChecker;
 
-    public Player(KeyHandler keyHandler, AttackManager attackManager, BlockCollisionsChecker blockCollisionsChecker) {
+    public Player(KeyHandler keyHandler, AttackManager attackManager, CollisionsChecker collisionsChecker) {
         initializePlayerByMapId(0);
         solidBounds = new Rectangle(
                 Block.SIZE / 6,
@@ -38,7 +37,7 @@ public class Player extends Entity {
 
         this.keyHandler = keyHandler;
         this.attackManager = attackManager;
-        this.blockCollisionsChecker = blockCollisionsChecker;
+        this.collisionsChecker = collisionsChecker;
     }
 
     public void initializePlayerByMapId(int mapId) {
@@ -60,7 +59,7 @@ public class Player extends Entity {
     }
 
     @Override
-    public void update(BlockMapManager blockMapManager) {
+    public void update() {
         attackManager.damageEntities(List.of(this));
         handleAttacking();
         updatePositionAndSpeed();
@@ -97,7 +96,7 @@ public class Player extends Entity {
 
     private void updatePositionAndSpeed() {
         boolean isJumping = false;
-        boolean isStandingOnGround = blockCollisionsChecker.isStandingOnGround(this);
+        boolean isStandingOnGround = collisionsChecker.isStandingOnGround(this);
         if (keyHandler.isUpPressed() && isStandingOnGround) {
             this.ySpeed = JUMP_SPEED;
             isJumping = true;
@@ -107,7 +106,7 @@ public class Player extends Entity {
         } else {
             ySpeed = Math.max(ySpeed - GRAVITY, -MAX_FALL_SPEED);
         }
-        int newYSpeed = blockCollisionsChecker.getAdjustedYDiffAvoidCollisionResettingOnHeadBump(this);
+        int newYSpeed = collisionsChecker.getAdjustedYSpeedToAvoidCollision(this);
         y += newYSpeed;
         if (isJumping && newYSpeed != 0) {
             SoundManager.playSE(1);
@@ -119,7 +118,7 @@ public class Player extends Entity {
         } else if (xSpeed < 0) {
             isFacingRight = false;
         }
-        x += blockCollisionsChecker.getAdjustedXDiffAvoidCollision(this);
+        x += collisionsChecker.getAdjustedXSpeedToAvoidCollisions(this);
     }
 
     private void updateSprite() {

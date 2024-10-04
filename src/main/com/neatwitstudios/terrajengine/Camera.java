@@ -6,9 +6,6 @@ public class Camera {
     private int width;
     private int height;
 
-    public Camera() {
-    }
-
     public Camera(int width, int height) {
         this.width = width;
         this.height = height;

@@ -1,7 +1,6 @@
 package com.neatwitstudios.terrajengine.entity;
 
 import com.neatwitstudios.terrajengine.Camera;
-import com.neatwitstudios.terrajengine.map.BlockMapManager;
 
 import java.awt.*;
 
@@ -16,7 +15,7 @@ public abstract class Entity {
 
     protected int health;
 
-    public abstract void update(BlockMapManager blockMapManager);
+    public abstract void update();
 
     public abstract void draw(Graphics2D g2d, Camera camera);
 

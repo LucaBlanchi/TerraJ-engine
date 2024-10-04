@@ -3,8 +3,7 @@ package com.neatwitstudios.terrajengine.entity;
 import com.neatwitstudios.terrajengine.Camera;
 import com.neatwitstudios.terrajengine.GamePanel;
 import com.neatwitstudios.terrajengine.map.Block;
-import com.neatwitstudios.terrajengine.map.BlockCollisionsChecker;
-import com.neatwitstudios.terrajengine.map.BlockMapManager;
+import com.neatwitstudios.terrajengine.map.CollisionsChecker;
 
 import java.awt.*;
 
@@ -19,12 +18,12 @@ public class Enemy extends Entity {
 
     private final Player player;
     private final AttackManager attackManager;
-    private final BlockCollisionsChecker blockCollisionsChecker;
+    private final CollisionsChecker collisionsChecker;
 
-    public Enemy(int x, int y, Player player, AttackManager attackManager, BlockCollisionsChecker blockCollisionsChecker) {
+    public Enemy(int x, int y, Player player, AttackManager attackManager, CollisionsChecker collisionsChecker) {
         this.player = player;
         this.attackManager = attackManager;
-        this.blockCollisionsChecker = blockCollisionsChecker;
+        this.collisionsChecker = collisionsChecker;
 
         this.x = x;
         this.y = y;
@@ -40,9 +39,9 @@ public class Enemy extends Entity {
     }
 
     @Override
-    public void update(BlockMapManager blockMapManager) {
+    public void update() {
         handleAttacking();
-        updatePositionAndSpeed(blockMapManager);
+        updatePositionAndSpeed();
         updateSprite();
     }
 
@@ -66,23 +65,23 @@ public class Enemy extends Entity {
         }
     }
 
-    private void updatePositionAndSpeed(BlockMapManager blockMapManager) {
+    private void updatePositionAndSpeed() {
         if (isPlayerInRange()) {
             if (player.getX() < x) {
                 xSpeed = -SPEED;
             } else {
                 xSpeed = SPEED;
             }
-            x += blockCollisionsChecker.getAdjustedXDiffAvoidCollision(this);
+            x += collisionsChecker.getAdjustedXSpeedToAvoidCollisions(this);
         }
 
-        boolean isStandingOnGround = blockCollisionsChecker.isStandingOnGround(this);
+        boolean isStandingOnGround = collisionsChecker.isStandingOnGround(this);
         if (isStandingOnGround) {
             ySpeed = 0;
         } else {
             ySpeed = Math.max(ySpeed - GRAVITY, -MAX_FALL_SPEED);
         }
-        y += blockCollisionsChecker.getAdjustedYDiffAvoidCollisionResettingOnHeadBump(this);
+        y += collisionsChecker.getAdjustedYSpeedToAvoidCollision(this);
     }
 
     private boolean isPlayerInRange() {

@@ -2,7 +2,7 @@ package com.neatwitstudios.terrajengine.map;
 
 import com.neatwitstudios.terrajengine.entity.Entity;
 
-public class BlockCollisionsChecker {
+public class BlockCollisionsChecker implements CollisionsChecker {
 
     private final BlockMapManager blockMapManager;
 
@@ -22,7 +22,7 @@ public class BlockCollisionsChecker {
         return blockMapManager.isBlockSolid(playerBottomRow, playerLeftCol) || blockMapManager.isBlockSolid(playerBottomRow, playerRightCol);
     }
 
-    public int getAdjustedXDiffAvoidCollision(Entity entity) {
+    public int getAdjustedXSpeedToAvoidCollisions(Entity entity) {
         int projectedRightX = entity.getX() + entity.getXSpeed() + entity.getSolidBounds().x + entity.getSolidBounds().width;
         int projectedLeftX = entity.getX() + entity.getXSpeed() + entity.getSolidBounds().x;
         int topY = entity.getY() + entity.getSolidBounds().y + entity.getSolidBounds().height;
@@ -50,7 +50,7 @@ public class BlockCollisionsChecker {
         return entity.getXSpeed();
     }
 
-    public int getAdjustedYDiffAvoidCollisionResettingOnHeadBump(Entity entity) {
+    public int getAdjustedYSpeedToAvoidCollision(Entity entity) {
         int rightX = entity.getX() + entity.getSolidBounds().x + entity.getSolidBounds().width;
         int leftX = entity.getX() + entity.getSolidBounds().x;
         int projectedTopY = entity.getY() + entity.getYSpeed() + entity.getSolidBounds().y;

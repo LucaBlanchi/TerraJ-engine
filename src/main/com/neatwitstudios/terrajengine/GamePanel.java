@@ -122,8 +122,8 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void update() {
-        enemyManager.updateEnemies(blockMapManager);
-        player.update(blockMapManager);
+        enemyManager.updateEnemies();
+        player.update();
         itemsManager.checkCollisions(player);
         if (player.getHealth() <= 0) {
             loadLevel(0);
