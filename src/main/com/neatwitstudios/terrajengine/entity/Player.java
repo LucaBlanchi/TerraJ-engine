@@ -27,24 +27,25 @@ public class Player extends Entity {
     private final AttackManager attackManager;
     private final BlockCollisionsChecker blockCollisionsChecker;
 
-    public Player(KeyHandler keyHandler, AttackManager attackManager, BlockCollisionsChecker blockCollisionsChecker, int level) {
-        initializePlayerByLevel(level);
-        xSpeed = 0;
-        ySpeed = 0;
+    public Player(KeyHandler keyHandler, AttackManager attackManager, BlockCollisionsChecker blockCollisionsChecker) {
+        initializePlayerByMapId(0);
         solidBounds = new Rectangle(
                 Block.SIZE / 6,
                 0,
                 Block.SIZE * 2/3,
                 Block.SIZE * 9/10
         );
+
         this.keyHandler = keyHandler;
         this.attackManager = attackManager;
         this.blockCollisionsChecker = blockCollisionsChecker;
     }
 
-    private void initializePlayerByLevel(int level) {
+    public void initializePlayerByMapId(int mapId) {
         health = 100;
-        switch (level) {
+        xSpeed = 0;
+        ySpeed = 0;
+        switch (mapId) {
             case 0 -> {
                 x = 0;
                 y = Block.SIZE + 1;
@@ -62,7 +63,7 @@ public class Player extends Entity {
     public void update(BlockMapManager blockMapManager) {
         attackManager.damageEntities(List.of(this));
         handleAttacking();
-        updatePositionAndSpeed(blockMapManager);
+        updatePositionAndSpeed();
         updateSprite();
     }
 
@@ -94,7 +95,7 @@ public class Player extends Entity {
         }
     }
 
-    private void updatePositionAndSpeed(BlockMapManager blockMapManager) {
+    private void updatePositionAndSpeed() {
         boolean isJumping = false;
         boolean isStandingOnGround = blockCollisionsChecker.isStandingOnGround(this);
         if (keyHandler.isUpPressed() && isStandingOnGround) {

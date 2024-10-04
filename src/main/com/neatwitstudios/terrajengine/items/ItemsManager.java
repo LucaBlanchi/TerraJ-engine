@@ -15,14 +15,14 @@ public class ItemsManager {
 
     private final List<Item> items = new ArrayList<>();
 
-    public ItemsManager(GamePanel gamePanel, int level) {
+    public ItemsManager(GamePanel gamePanel, int mapId) {
         this.gamePanel = gamePanel;
-        loadItems(level);
+        loadItems(mapId);
     }
 
-    public void loadItems(int level) {
+    private void loadItems(int mapId) {
         items.clear();
-        switch (level) {
+        switch (mapId) {
             case 0 -> items.add(new NextLevelFlag(new Rectangle(
                         Block.SIZE * 22,
                         Block.SIZE * 14,

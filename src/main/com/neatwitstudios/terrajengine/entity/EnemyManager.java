@@ -17,17 +17,17 @@ public class EnemyManager {
     private final AttackManager attackManager;
     private final BlockCollisionsChecker blockCollisionsChecker;
 
-    public EnemyManager(Player player, AttackManager attackManager, BlockCollisionsChecker blockCollisionsChecker, int level) {
+    public EnemyManager(Player player, AttackManager attackManager, BlockCollisionsChecker blockCollisionsChecker) {
         this.player = player;
         this.attackManager = attackManager;
         this.blockCollisionsChecker = blockCollisionsChecker;
 
-        loadEnemies(level);
+        loadEnemies(0);
     }
 
-    private void loadEnemies(int level) {
+    public void loadEnemies(int mapId) {
         enemies.clear();
-        switch (level) {
+        switch (mapId) {
             case 0 -> {
                 enemies.add(new Enemy(Block.SIZE * 18, Block.SIZE * 3 + 1, player, attackManager, blockCollisionsChecker));
                 enemies.add(new Enemy(Block.SIZE * 8, Block.SIZE + 1, player, attackManager, blockCollisionsChecker));

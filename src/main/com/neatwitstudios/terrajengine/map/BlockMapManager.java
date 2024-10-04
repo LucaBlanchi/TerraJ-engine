@@ -17,14 +17,14 @@ public class BlockMapManager {
     private int maxWorldCol;
     private int maxWorldRow;
 
-    public BlockMapManager(int level) {
+    public BlockMapManager() {
         blocks = new Block[16];
         loadBlocks();
-        loadMap(level);
+        loadMap(0);
     }
 
-    private void loadMap(int level) {
-        String mapPath = switch (level) {
+    public void loadMap(int mapId) {
+        String mapPath = switch (mapId) {
             case 0 -> "/resources/static/maps/map.txt";
             case 1 -> "/resources/static/maps/map1.txt";
             default -> "/resources/static/maps/map.txt";

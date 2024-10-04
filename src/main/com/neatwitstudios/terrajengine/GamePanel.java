@@ -28,13 +28,12 @@ public class GamePanel extends JPanel implements Runnable {
     private static final boolean START_WITH_MUSIC = false;
 
     private final KeyHandler keyHandler = new KeyHandler();
-    private AttackManager attackManager = new AttackManager();
-    private BlockMapManager blockMapManager = new BlockMapManager(0);
-    private BlockCollisionsChecker blockCollisionsChecker = new BlockCollisionsChecker(blockMapManager);
-    private Player player = new Player(keyHandler, attackManager, blockCollisionsChecker, 0);
-    private EnemyManager enemyManager = new EnemyManager(player, attackManager, blockCollisionsChecker, 0);
+    private final AttackManager attackManager = new AttackManager();
+    private final BlockMapManager blockMapManager = new BlockMapManager();
+    private final BlockCollisionsChecker blockCollisionsChecker = new BlockCollisionsChecker(blockMapManager);
+    private final Player player = new Player(keyHandler, attackManager, blockCollisionsChecker);
+    private final EnemyManager enemyManager = new EnemyManager(player, attackManager, blockCollisionsChecker);
     private ItemsManager itemsManager = new ItemsManager(this, 0);
-
     private final transient Camera camera = new Camera(Block.SIZE * BLOCKS_PER_ROW, Block.SIZE * BLOCKS_PER_ROW * HEIGHT / WIDTH);
 
     private transient Thread gameThread;
@@ -94,12 +93,10 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     private void loadLevel(int level) {
-        attackManager = new AttackManager();
-        blockMapManager = new BlockMapManager(level);
-        blockCollisionsChecker = new BlockCollisionsChecker(blockMapManager);
+        blockMapManager.loadMap(level);
         itemsManager = new ItemsManager(this, level);
-        player = new Player(keyHandler, attackManager, blockCollisionsChecker, level);
-        enemyManager = new EnemyManager(player, attackManager, blockCollisionsChecker, level);
+        player.initializePlayerByMapId(level);
+        enemyManager.loadEnemies(level);
 
         camera.setCenterX(player.getX());
         camera.setCenterY(player.getY());
