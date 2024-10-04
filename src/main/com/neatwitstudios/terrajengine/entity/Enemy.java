@@ -19,10 +19,12 @@ public class Enemy extends Entity {
 
     private final Player player;
     private final AttackManager attackManager;
+    private final BlockCollisionsChecker blockCollisionsChecker;
 
-    public Enemy(int x, int y, Player player, AttackManager attackManager) {
+    public Enemy(int x, int y, Player player, AttackManager attackManager, BlockCollisionsChecker blockCollisionsChecker) {
         this.player = player;
         this.attackManager = attackManager;
+        this.blockCollisionsChecker = blockCollisionsChecker;
 
         this.x = x;
         this.y = y;
@@ -71,16 +73,16 @@ public class Enemy extends Entity {
             } else {
                 xSpeed = SPEED;
             }
-            x += BlockCollisionsChecker.getAdjustedXDiffAvoidCollision(this, blockMapManager);
+            x += blockCollisionsChecker.getAdjustedXDiffAvoidCollision(this);
         }
 
-        boolean isStandingOnGround = BlockCollisionsChecker.isStandingOnGround(this, blockMapManager);
+        boolean isStandingOnGround = blockCollisionsChecker.isStandingOnGround(this);
         if (isStandingOnGround) {
             ySpeed = 0;
         } else {
             ySpeed = Math.max(ySpeed - GRAVITY, -MAX_FALL_SPEED);
         }
-        y += BlockCollisionsChecker.getAdjustedYDiffAvoidCollisionResettingOnHeadBump(this, blockMapManager);
+        y += blockCollisionsChecker.getAdjustedYDiffAvoidCollisionResettingOnHeadBump(this);
     }
 
     private boolean isPlayerInRange() {

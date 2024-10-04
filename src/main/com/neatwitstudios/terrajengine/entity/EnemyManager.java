@@ -2,6 +2,7 @@ package com.neatwitstudios.terrajengine.entity;
 
 import com.neatwitstudios.terrajengine.Camera;
 import com.neatwitstudios.terrajengine.map.Block;
+import com.neatwitstudios.terrajengine.map.BlockCollisionsChecker;
 import com.neatwitstudios.terrajengine.map.BlockMapManager;
 
 import java.awt.*;
@@ -14,10 +15,12 @@ public class EnemyManager {
 
     private final Player player;
     private final AttackManager attackManager;
+    private final BlockCollisionsChecker blockCollisionsChecker;
 
-    public EnemyManager(Player player, AttackManager attackManager, int level) {
+    public EnemyManager(Player player, AttackManager attackManager, BlockCollisionsChecker blockCollisionsChecker, int level) {
         this.player = player;
         this.attackManager = attackManager;
+        this.blockCollisionsChecker = blockCollisionsChecker;
 
         loadEnemies(level);
     }
@@ -26,12 +29,12 @@ public class EnemyManager {
         enemies.clear();
         switch (level) {
             case 0 -> {
-                enemies.add(new Enemy(Block.SIZE * 18, Block.SIZE * 3 + 1, player, attackManager));
-                enemies.add(new Enemy(Block.SIZE * 8, Block.SIZE + 1, player, attackManager));
+                enemies.add(new Enemy(Block.SIZE * 18, Block.SIZE * 3 + 1, player, attackManager, blockCollisionsChecker));
+                enemies.add(new Enemy(Block.SIZE * 8, Block.SIZE + 1, player, attackManager, blockCollisionsChecker));
             }
             case 1 -> {
-                enemies.add(new Enemy(Block.SIZE * 2, Block.SIZE + 1, player, attackManager));
-                enemies.add(new Enemy(Block.SIZE * 23, Block.SIZE * 7 + 1, player, attackManager));
+                enemies.add(new Enemy(Block.SIZE * 2, Block.SIZE + 1, player, attackManager, blockCollisionsChecker));
+                enemies.add(new Enemy(Block.SIZE * 23, Block.SIZE * 7 + 1, player, attackManager, blockCollisionsChecker));
             }
             default -> {
             }

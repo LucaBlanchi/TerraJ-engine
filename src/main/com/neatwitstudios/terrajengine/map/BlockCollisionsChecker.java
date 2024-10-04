@@ -4,10 +4,13 @@ import com.neatwitstudios.terrajengine.entity.Entity;
 
 public class BlockCollisionsChecker {
 
-    private BlockCollisionsChecker() {
+    private final BlockMapManager blockMapManager;
+
+    public BlockCollisionsChecker(BlockMapManager blockMapManager) {
+        this.blockMapManager = blockMapManager;
     }
 
-    public static boolean isStandingOnGround(Entity entity, BlockMapManager blockMapManager) {
+    public boolean isStandingOnGround(Entity entity) {
         int leftX = entity.getX() + entity.getSolidBounds().x;
         int rightX = entity.getX() + entity.getSolidBounds().x + entity.getSolidBounds().width;
         int justUnderBottomY = entity.getY() - 1 + entity.getSolidBounds().y;
@@ -19,7 +22,7 @@ public class BlockCollisionsChecker {
         return blockMapManager.isBlockSolid(playerBottomRow, playerLeftCol) || blockMapManager.isBlockSolid(playerBottomRow, playerRightCol);
     }
 
-    public static int getAdjustedXDiffAvoidCollision(Entity entity, BlockMapManager blockMapManager) {
+    public int getAdjustedXDiffAvoidCollision(Entity entity) {
         int projectedRightX = entity.getX() + entity.getXSpeed() + entity.getSolidBounds().x + entity.getSolidBounds().width;
         int projectedLeftX = entity.getX() + entity.getXSpeed() + entity.getSolidBounds().x;
         int topY = entity.getY() + entity.getSolidBounds().y + entity.getSolidBounds().height;
@@ -47,7 +50,7 @@ public class BlockCollisionsChecker {
         return entity.getXSpeed();
     }
 
-    public static int getAdjustedYDiffAvoidCollisionResettingOnHeadBump(Entity entity, BlockMapManager blockMapManager) {
+    public int getAdjustedYDiffAvoidCollisionResettingOnHeadBump(Entity entity) {
         int rightX = entity.getX() + entity.getSolidBounds().x + entity.getSolidBounds().width;
         int leftX = entity.getX() + entity.getSolidBounds().x;
         int projectedTopY = entity.getY() + entity.getYSpeed() + entity.getSolidBounds().y;
@@ -74,5 +77,4 @@ public class BlockCollisionsChecker {
         }
         return entity.getYSpeed();
     }
-
 }

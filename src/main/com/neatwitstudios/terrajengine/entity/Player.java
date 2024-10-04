@@ -25,8 +25,9 @@ public class Player extends Entity {
 
     private final KeyHandler keyHandler;
     private final AttackManager attackManager;
+    private final BlockCollisionsChecker blockCollisionsChecker;
 
-    public Player(KeyHandler keyHandler, AttackManager attackManager, int level) {
+    public Player(KeyHandler keyHandler, AttackManager attackManager, BlockCollisionsChecker blockCollisionsChecker, int level) {
         initializePlayerByLevel(level);
         xSpeed = 0;
         ySpeed = 0;
@@ -38,6 +39,7 @@ public class Player extends Entity {
         );
         this.keyHandler = keyHandler;
         this.attackManager = attackManager;
+        this.blockCollisionsChecker = blockCollisionsChecker;
     }
 
     private void initializePlayerByLevel(int level) {
@@ -94,7 +96,7 @@ public class Player extends Entity {
 
     private void updatePositionAndSpeed(BlockMapManager blockMapManager) {
         boolean isJumping = false;
-        boolean isStandingOnGround = BlockCollisionsChecker.isStandingOnGround(this, blockMapManager);
+        boolean isStandingOnGround = blockCollisionsChecker.isStandingOnGround(this);
         if (keyHandler.isUpPressed() && isStandingOnGround) {
             this.ySpeed = JUMP_SPEED;
             isJumping = true;
@@ -104,7 +106,7 @@ public class Player extends Entity {
         } else {
             ySpeed = Math.max(ySpeed - GRAVITY, -MAX_FALL_SPEED);
         }
-        int newYSpeed = BlockCollisionsChecker.getAdjustedYDiffAvoidCollisionResettingOnHeadBump(this, blockMapManager);
+        int newYSpeed = blockCollisionsChecker.getAdjustedYDiffAvoidCollisionResettingOnHeadBump(this);
         y += newYSpeed;
         if (isJumping && newYSpeed != 0) {
             SoundManager.playSE(1);
@@ -116,7 +118,7 @@ public class Player extends Entity {
         } else if (xSpeed < 0) {
             isFacingRight = false;
         }
-        x += BlockCollisionsChecker.getAdjustedXDiffAvoidCollision(this, blockMapManager);
+        x += blockCollisionsChecker.getAdjustedXDiffAvoidCollision(this);
     }
 
     private void updateSprite() {
