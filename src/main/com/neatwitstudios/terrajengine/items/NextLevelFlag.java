@@ -1,5 +1,6 @@
 package com.neatwitstudios.terrajengine.items;
 
+import com.neatwitstudios.terrajengine.CoordConverter;
 import com.neatwitstudios.terrajengine.camera.Camera;
 import com.neatwitstudios.terrajengine.GamePanel;
 import com.neatwitstudios.terrajengine.entity.Player;
@@ -32,29 +33,26 @@ public class NextLevelFlag extends Item {
 
     @Override
     public void draw(Graphics2D g2d, Camera camera) {
-        int itemScreenX = GamePanel.SCREEN_CENTER_X - (camera.getCenterX() - bounds.x) * GamePanel.TILE_SIZE / Block.SIZE;
-        int itemScreenY = GamePanel.SCREEN_CENTER_Y + (camera.getCenterY() - bounds.y) * GamePanel.TILE_SIZE / Block.SIZE;
+        int itemScreenX = CoordConverter.getScreenX(bounds.x, camera);
+        int itemScreenY = CoordConverter.getScreenY(bounds.y, camera);
 
         g2d.drawImage(
                 sprite,
                 itemScreenX,
                 itemScreenY,
-                GamePanel.TILE_SIZE,
-                GamePanel.TILE_SIZE,
+                CoordConverter.getResizedLength(bounds.width, camera),
+                CoordConverter.getResizedLength(bounds.height, camera),
                 null
         );
     }
 
     public void drawDebugFeatures(Graphics2D g2d, Camera camera) {
-        int itemScreenX = GamePanel.SCREEN_CENTER_X - (camera.getCenterX() - bounds.x) * GamePanel.TILE_SIZE / Block.SIZE;
-        int itemScreenY = GamePanel.SCREEN_CENTER_Y + (camera.getCenterY() - bounds.y) * GamePanel.TILE_SIZE / Block.SIZE;
-
         g2d.setColor(Color.RED);
         g2d.drawRect(
-                itemScreenX,
-                itemScreenY,
-                bounds.width * GamePanel.TILE_SIZE / Block.SIZE,
-                bounds.height * GamePanel.TILE_SIZE / Block.SIZE
+                CoordConverter.getScreenX(bounds.x, camera),
+                CoordConverter.getScreenY(bounds.y, camera),
+                CoordConverter.getResizedLength(bounds.width, camera),
+                CoordConverter.getResizedLength(bounds.height, camera)
         );
     }
 }

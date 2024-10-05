@@ -1,5 +1,6 @@
 package com.neatwitstudios.terrajengine.map;
 
+import com.neatwitstudios.terrajengine.CoordConverter;
 import com.neatwitstudios.terrajengine.camera.Camera;
 import com.neatwitstudios.terrajengine.GamePanel;
 
@@ -104,10 +105,14 @@ public class BlockMapManager {
                 int blockXPosition = currentCol * Block.SIZE;
                 int blockYPosition = currentRow * Block.SIZE;
 
-                int screenX = GamePanel.SCREEN_CENTER_X + (blockXPosition - cameraXPosition) * GamePanel.TILE_SIZE / Block.SIZE;
-                int screenY = GamePanel.SCREEN_CENTER_Y - (blockYPosition - cameraYPosition) * GamePanel.TILE_SIZE / Block.SIZE;
-
-                graphics2D.drawImage(blocks[tileNum].getImage(), screenX, screenY, GamePanel.TILE_SIZE, GamePanel.TILE_SIZE, null);
+                graphics2D.drawImage(
+                        blocks[tileNum].getImage(),
+                        CoordConverter.getScreenX(blockXPosition, camera),
+                        CoordConverter.getScreenY(blockYPosition, camera),
+                        CoordConverter.getResizedLength(Block.SIZE, camera),
+                        CoordConverter.getResizedLength(Block.SIZE, camera),
+                        null
+                );
             }
         }
     }

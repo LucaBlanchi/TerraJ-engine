@@ -142,42 +142,36 @@ public class Player extends Entity {
 
     @Override
     public void draw(Graphics2D g2d, Camera camera) {
-        int playerScreenX = GamePanel.SCREEN_CENTER_X - (camera.getCenterX() - x) * GamePanel.TILE_SIZE / Block.SIZE;
-        int playerScreenY = GamePanel.SCREEN_CENTER_Y + (camera.getCenterY() - y) * GamePanel.TILE_SIZE / Block.SIZE;
-
         g2d.drawImage(
                 SpritesManager.getSprites("player")[spriteNum],
-                playerScreenX,
-                playerScreenY,
-                GamePanel.TILE_SIZE,
-                GamePanel.TILE_SIZE,
+                CoordConverter.getScreenX(x, camera),
+                CoordConverter.getScreenY(y, camera),
+                CoordConverter.getResizedLength(Block.SIZE, camera),
+                CoordConverter.getResizedLength(Block.SIZE, camera),
                 null
         );
     }
 
     @Override
     public void drawDebugFeatures(Graphics2D g2d, Camera camera) {
-        int playerScreenX = GamePanel.SCREEN_CENTER_X - (camera.getCenterX() - x) * GamePanel.TILE_SIZE / Block.SIZE;
-        int playerScreenY = GamePanel.SCREEN_CENTER_Y + (camera.getCenterY() - y) * GamePanel.TILE_SIZE / Block.SIZE;
-
         g2d.setColor(Color.RED);
         g2d.drawRect(
-                playerScreenX + solidBounds.x * GamePanel.TILE_SIZE / Block.SIZE,
-                playerScreenY + solidBounds.y * GamePanel.TILE_SIZE / Block.SIZE,
-                solidBounds.width * GamePanel.TILE_SIZE / Block.SIZE,
-                solidBounds.height * GamePanel.TILE_SIZE / Block.SIZE
+                CoordConverter.getScreenX(x + solidBounds.x, camera),
+                CoordConverter.getScreenY(y + solidBounds.y, camera),
+                CoordConverter.getResizedLength(solidBounds.width, camera),
+                CoordConverter.getResizedLength(solidBounds.height, camera)
         );
-        g2d.drawString("Life: " + health, playerScreenX, playerScreenY);
+        g2d.drawString("Life: " + health, CoordConverter.getScreenX(x, camera), CoordConverter.getScreenY(y, camera) - 10);
 
         g2d.setColor(Color.GREEN);
-        g2d.drawRect(playerScreenX, playerScreenY, 10, 10);
+        g2d.drawRect(CoordConverter.getScreenX(x, camera), CoordConverter.getScreenY(y, camera), 10, 10);
 
         g2d.setColor(Color.BLUE);
         Rectangle spriteRect = new Rectangle(
-                playerScreenX,
-                playerScreenY,
-                GamePanel.TILE_SIZE,
-                GamePanel.TILE_SIZE
+                CoordConverter.getScreenX(x, camera),
+                CoordConverter.getScreenY(y, camera),
+                CoordConverter.getResizedLength(Block.SIZE, camera),
+                CoordConverter.getResizedLength(Block.SIZE, camera)
         );
         g2d.drawRect(spriteRect.x, spriteRect.y, spriteRect.width, spriteRect.height);
     }

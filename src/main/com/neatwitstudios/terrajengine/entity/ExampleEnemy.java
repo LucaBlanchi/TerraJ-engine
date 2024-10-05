@@ -1,5 +1,6 @@
 package com.neatwitstudios.terrajengine.entity;
 
+import com.neatwitstudios.terrajengine.CoordConverter;
 import com.neatwitstudios.terrajengine.camera.Camera;
 import com.neatwitstudios.terrajengine.GamePanel;
 import com.neatwitstudios.terrajengine.map.Block;
@@ -98,43 +99,37 @@ public class ExampleEnemy extends Entity {
 
     @Override
     public void draw(Graphics2D g2d, Camera camera) {
-        int enemyScreenX = GamePanel.SCREEN_CENTER_X - (camera.getCenterX() - x) * GamePanel.TILE_SIZE / Block.SIZE;
-        int enemyScreenY = GamePanel.SCREEN_CENTER_Y + (camera.getCenterY() - y) * GamePanel.TILE_SIZE / Block.SIZE;
-
         g2d.drawImage(
                 SpritesManager.getSprites("enemy")[spriteNum],
-                enemyScreenX,
-                enemyScreenY,
-                GamePanel.TILE_SIZE,
-                GamePanel.TILE_SIZE,
+                CoordConverter.getScreenX(x, camera),
+                CoordConverter.getScreenY(y, camera),
+                CoordConverter.getResizedLength(Block.SIZE, camera),
+                CoordConverter.getResizedLength(Block.SIZE, camera),
                 null
         );
     }
 
     @Override
     public void drawDebugFeatures(Graphics2D g2d, Camera camera) {
-        int enemyScreenX = GamePanel.SCREEN_CENTER_X - (camera.getCenterX() - x) * GamePanel.TILE_SIZE / Block.SIZE;
-        int enemyScreenY = GamePanel.SCREEN_CENTER_Y + (camera.getCenterY() - y) * GamePanel.TILE_SIZE / Block.SIZE;
-
         g2d.setColor(Color.RED);
         g2d.drawRect(
-                enemyScreenX + solidBounds.x * GamePanel.TILE_SIZE / Block.SIZE,
-                enemyScreenY + solidBounds.y * GamePanel.TILE_SIZE / Block.SIZE,
-                solidBounds.width * GamePanel.TILE_SIZE / Block.SIZE,
-                solidBounds.height * GamePanel.TILE_SIZE / Block.SIZE
+                CoordConverter.getScreenX(x + solidBounds.x, camera),
+                CoordConverter.getScreenY(y + solidBounds.y, camera),
+                CoordConverter.getResizedLength(solidBounds.width, camera),
+                CoordConverter.getResizedLength(solidBounds.height, camera)
         );
-        g2d.drawString("Life: " + health, enemyScreenX, enemyScreenY - 10);
-        g2d.drawString("Attack cooldown: " + attackCoolDown, enemyScreenX, enemyScreenY);
+        g2d.drawString("Life: " + health, CoordConverter.getScreenX(x, camera), CoordConverter.getScreenY(y, camera) - 10);
+        g2d.drawString("Attack cooldown: " + attackCoolDown, CoordConverter.getScreenX(x, camera), CoordConverter.getScreenY(y, camera));
 
         g2d.setColor(Color.GREEN);
-        g2d.drawRect(enemyScreenX, enemyScreenY, 10, 10);
+        g2d.drawRect(CoordConverter.getScreenX(x, camera), CoordConverter.getScreenY(y, camera), 10, 10);
 
         g2d.setColor(Color.BLUE);
         Rectangle spriteRect = new Rectangle(
-                enemyScreenX,
-                enemyScreenY,
-                GamePanel.TILE_SIZE,
-                GamePanel.TILE_SIZE
+                CoordConverter.getScreenX(x, camera),
+                CoordConverter.getScreenY(y, camera),
+                CoordConverter.getResizedLength(Block.SIZE, camera),
+                CoordConverter.getResizedLength(Block.SIZE, camera)
         );
         g2d.drawRect(spriteRect.x, spriteRect.y, spriteRect.width, spriteRect.height);
     }
