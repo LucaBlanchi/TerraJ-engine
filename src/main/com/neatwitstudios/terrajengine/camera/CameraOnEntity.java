@@ -18,7 +18,7 @@ public class CameraOnEntity implements Camera {
     }
 
     public int getCenterY() {
-        return entity.getY();
+        return entity.getY() + entity.getSolidBounds().height / 2;
     }
     public int getWidth() {
         return width;

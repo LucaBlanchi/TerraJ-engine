@@ -96,6 +96,7 @@ public class GamePanel extends JPanel implements Runnable {
         itemsManager.loadItems(mapId);
         player.initializePlayerByMapId(mapId);
         enemyManager.loadEnemies(mapId);
+        attackManager.clearAttacks();
 
         loadedLevel = mapId;
     }

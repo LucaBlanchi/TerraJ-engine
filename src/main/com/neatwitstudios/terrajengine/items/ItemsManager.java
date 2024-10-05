@@ -24,7 +24,7 @@ public class ItemsManager {
         items.clear();
         switch (mapId) {
             case 0 -> items.add(new NextLevelFlag(new Rectangle(
-                        Block.SIZE * 22,
+                        Block.SIZE * 22 + Block.SIZE / 2,
                         Block.SIZE * 14,
                         Block.SIZE,
                         Block.SIZE))

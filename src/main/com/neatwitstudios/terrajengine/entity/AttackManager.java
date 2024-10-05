@@ -10,6 +10,10 @@ public class AttackManager {
 
     private final List<Attack> attacks = new ArrayList<>();
 
+    public void clearAttacks() {
+        attacks.clear();
+    }
+
     public void updateAttacks() {
         for (Attack attack : attacks) {
             attack.update();

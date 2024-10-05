@@ -74,11 +74,11 @@ public class Player extends Entity {
                 Attack attack = new Attack(
                         new Rectangle(
                                 isFacingRight
-                                        ? x + solidBounds.width / 2 + Block.SIZE / 2
-                                        : x + solidBounds.width / 2 - Block.SIZE / 2,
-                                y,
+                                        ? x + solidBounds.width
+                                        : x - solidBounds.width,
+                                y + solidBounds.height / 4,
                                 Block.SIZE / 2,
-                                Block.SIZE
+                                Block.SIZE / 2
                         ),
                         40,
                         12,
@@ -144,8 +144,8 @@ public class Player extends Entity {
     public void draw(Graphics2D g2d, Camera camera) {
         g2d.drawImage(
                 SpritesManager.getSprites("player")[spriteNum],
-                CoordConverter.getScreenX(x, camera),
-                CoordConverter.getScreenY(y, camera),
+                CoordConverter.getScreenX(x - Block.SIZE / 2, camera),
+                CoordConverter.getScreenY(y + Block.SIZE, camera),
                 CoordConverter.getResizedLength(Block.SIZE, camera),
                 CoordConverter.getResizedLength(Block.SIZE, camera),
                 null
@@ -156,20 +156,21 @@ public class Player extends Entity {
     public void drawDebugFeatures(Graphics2D g2d, Camera camera) {
         g2d.setColor(Color.RED);
         g2d.drawRect(
-                CoordConverter.getScreenX(x + solidBounds.x, camera),
-                CoordConverter.getScreenY(y + solidBounds.y, camera),
+                CoordConverter.getScreenX(x - solidBounds.width / 2, camera),
+                CoordConverter.getScreenY(y + solidBounds.height, camera),
                 CoordConverter.getResizedLength(solidBounds.width, camera),
                 CoordConverter.getResizedLength(solidBounds.height, camera)
         );
-        g2d.drawString("Life: " + health, CoordConverter.getScreenX(x, camera), CoordConverter.getScreenY(y, camera) - 10);
-
-        g2d.setColor(Color.GREEN);
-        g2d.drawRect(CoordConverter.getScreenX(x, camera), CoordConverter.getScreenY(y, camera), 10, 10);
+        g2d.drawString(
+                "Life: " + health,
+                CoordConverter.getScreenX(x - Block.SIZE / 2, camera),
+                CoordConverter.getScreenY(y, camera) - 50
+        );
 
         g2d.setColor(Color.BLUE);
         Rectangle spriteRect = new Rectangle(
-                CoordConverter.getScreenX(x, camera),
-                CoordConverter.getScreenY(y, camera),
+                CoordConverter.getScreenX(x - Block.SIZE / 2, camera),
+                CoordConverter.getScreenY(y + Block.SIZE, camera),
                 CoordConverter.getResizedLength(Block.SIZE, camera),
                 CoordConverter.getResizedLength(Block.SIZE, camera)
         );

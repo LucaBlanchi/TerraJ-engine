@@ -2,7 +2,6 @@ package com.neatwitstudios.terrajengine.entity;
 
 import com.neatwitstudios.terrajengine.CoordConverter;
 import com.neatwitstudios.terrajengine.camera.Camera;
-import com.neatwitstudios.terrajengine.GamePanel;
 import com.neatwitstudios.terrajengine.map.Block;
 import com.neatwitstudios.terrajengine.map.CollisionsChecker;
 
@@ -16,6 +15,8 @@ public class ExampleEnemy extends Entity {
 
     private int spriteNum = 0;
     private int attackCoolDown = 0;
+
+    private boolean isFacingRight = false;
 
     private final Player player;
     private final AttackManager attackManager;
@@ -34,7 +35,7 @@ public class ExampleEnemy extends Entity {
                 Block.SIZE / 6,
                 0,
                 Block.SIZE * 2/3,
-                Block.SIZE * 9/10
+                Block.SIZE * 3/10
         );
         this.health = 100;
     }
@@ -50,10 +51,10 @@ public class ExampleEnemy extends Entity {
         if (Math.abs(player.getX() - x) < Block.SIZE / 3 && Math.abs(player.getY() - y) < Block.SIZE / 3 && attackCoolDown == 0) {
             attackManager.submitAttack(new Attack(
                     new Rectangle(
-                            x + solidBounds.width / 2,
+                            x + (isFacingRight ? solidBounds.width : -solidBounds.width) / 2,
                             y + solidBounds.height / 2,
                             Block.SIZE / 2,
-                            Block.SIZE / 2
+                            Block.SIZE / 4
                     ),
                     30,
                     12,
@@ -70,8 +71,10 @@ public class ExampleEnemy extends Entity {
         if (isPlayerInRange()) {
             if (player.getX() < x) {
                 xSpeed = -SPEED;
+                isFacingRight = false;
             } else {
                 xSpeed = SPEED;
+                isFacingRight = true;
             }
             x += collisionsChecker.getAdjustedXSpeedToAvoidCollisions(this);
         }
@@ -101,8 +104,8 @@ public class ExampleEnemy extends Entity {
     public void draw(Graphics2D g2d, Camera camera) {
         g2d.drawImage(
                 SpritesManager.getSprites("enemy")[spriteNum],
-                CoordConverter.getScreenX(x, camera),
-                CoordConverter.getScreenY(y, camera),
+                CoordConverter.getScreenX(x - Block.SIZE / 2, camera),
+                CoordConverter.getScreenY(y + Block.SIZE, camera),
                 CoordConverter.getResizedLength(Block.SIZE, camera),
                 CoordConverter.getResizedLength(Block.SIZE, camera),
                 null
@@ -113,21 +116,26 @@ public class ExampleEnemy extends Entity {
     public void drawDebugFeatures(Graphics2D g2d, Camera camera) {
         g2d.setColor(Color.RED);
         g2d.drawRect(
-                CoordConverter.getScreenX(x + solidBounds.x, camera),
-                CoordConverter.getScreenY(y + solidBounds.y, camera),
+                CoordConverter.getScreenX(x - solidBounds.width / 2, camera),
+                CoordConverter.getScreenY(y + solidBounds.height, camera),
                 CoordConverter.getResizedLength(solidBounds.width, camera),
                 CoordConverter.getResizedLength(solidBounds.height, camera)
         );
-        g2d.drawString("Life: " + health, CoordConverter.getScreenX(x, camera), CoordConverter.getScreenY(y, camera) - 10);
-        g2d.drawString("Attack cooldown: " + attackCoolDown, CoordConverter.getScreenX(x, camera), CoordConverter.getScreenY(y, camera));
-
-        g2d.setColor(Color.GREEN);
-        g2d.drawRect(CoordConverter.getScreenX(x, camera), CoordConverter.getScreenY(y, camera), 10, 10);
+        g2d.drawString(
+                "Life: " + health,
+                CoordConverter.getScreenX(x - Block.SIZE / 2, camera),
+                CoordConverter.getScreenY(y, camera) - 30
+        );
+        g2d.drawString(
+                "Attack cooldown: " + attackCoolDown,
+                CoordConverter.getScreenX(x - Block.SIZE / 2, camera),
+                CoordConverter.getScreenY(y, camera) - 40
+        );
 
         g2d.setColor(Color.BLUE);
         Rectangle spriteRect = new Rectangle(
-                CoordConverter.getScreenX(x, camera),
-                CoordConverter.getScreenY(y, camera),
+                CoordConverter.getScreenX(x - Block.SIZE / 2, camera),
+                CoordConverter.getScreenY(y + Block.SIZE, camera),
                 CoordConverter.getResizedLength(Block.SIZE, camera),
                 CoordConverter.getResizedLength(Block.SIZE, camera)
         );

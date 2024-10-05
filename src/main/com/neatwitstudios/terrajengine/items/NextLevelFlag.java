@@ -2,7 +2,6 @@ package com.neatwitstudios.terrajengine.items;
 
 import com.neatwitstudios.terrajengine.CoordConverter;
 import com.neatwitstudios.terrajengine.camera.Camera;
-import com.neatwitstudios.terrajengine.GamePanel;
 import com.neatwitstudios.terrajengine.entity.Player;
 import com.neatwitstudios.terrajengine.entity.SpritesManager;
 import com.neatwitstudios.terrajengine.map.Block;
@@ -33,13 +32,10 @@ public class NextLevelFlag extends Item {
 
     @Override
     public void draw(Graphics2D g2d, Camera camera) {
-        int itemScreenX = CoordConverter.getScreenX(bounds.x, camera);
-        int itemScreenY = CoordConverter.getScreenY(bounds.y, camera);
-
         g2d.drawImage(
                 sprite,
-                itemScreenX,
-                itemScreenY,
+                CoordConverter.getScreenX(bounds.x, camera),
+                CoordConverter.getScreenY(bounds.y + Block.SIZE, camera),
                 CoordConverter.getResizedLength(bounds.width, camera),
                 CoordConverter.getResizedLength(bounds.height, camera),
                 null
@@ -50,7 +46,7 @@ public class NextLevelFlag extends Item {
         g2d.setColor(Color.RED);
         g2d.drawRect(
                 CoordConverter.getScreenX(bounds.x, camera),
-                CoordConverter.getScreenY(bounds.y, camera),
+                CoordConverter.getScreenY(bounds.y + Block.SIZE, camera),
                 CoordConverter.getResizedLength(bounds.width, camera),
                 CoordConverter.getResizedLength(bounds.height, camera)
         );

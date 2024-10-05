@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Add debug mode (F3), showing hitboxes">
-      <change afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/CoordConverter.java" afterDir="false" />
+    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Add CoordConverter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/camera/CameraOnEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/camera/CameraOnEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Attack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Attack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/AttackManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/AttackManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/ExampleEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/ExampleEnemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/items/ItemsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/items/ItemsManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/items/NextLevelFlag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/items/NextLevelFlag.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/map/BlockMapManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/map/BlockMapManager.java" afterDir="false" />
     </list>
@@ -149,21 +151,7 @@
       <workItem from="1727766014752" duration="745000" />
       <workItem from="1727766812737" duration="189000" />
       <workItem from="1727990843132" duration="5088000" />
-      <workItem from="1728068111762" duration="23120000" />
-    </task>
-    <task id="LOCAL-00033" summary="Simplify Player code">
-      <created>1727119148732</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1727119148732</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Simplify Player code">
-      <created>1727119332399</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1727119332399</updated>
+      <workItem from="1728068111762" duration="27171000" />
     </task>
     <task id="LOCAL-00035" summary="Simplify Player code">
       <created>1727119442104</created>
@@ -494,14 +482,27 @@
       <option name="project" value="LOCAL" />
       <updated>1728124277552</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="Add CoordConverter">
+      <created>1728138481631</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1728138481631</updated>
+    </task>
+    <task id="LOCAL-00083" summary="Add CoordConverter">
+      <created>1728138536033</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1728138536033</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Enhance collision logic" />
     <MESSAGE value="Dynamically compute max rows and cols" />
     <MESSAGE value="Add sound" />
     <MESSAGE value="Add camera" />
@@ -526,6 +527,7 @@
     <MESSAGE value="Refactor items" />
     <MESSAGE value="Add debug mode (F3), showing hitboxes and health" />
     <MESSAGE value="Add debug mode (F3), showing hitboxes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add debug mode (F3), showing hitboxes" />
+    <MESSAGE value="Add CoordConverter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add CoordConverter" />
   </component>
 </project>

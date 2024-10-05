@@ -2,7 +2,6 @@ package com.neatwitstudios.terrajengine.map;
 
 import com.neatwitstudios.terrajengine.CoordConverter;
 import com.neatwitstudios.terrajengine.camera.Camera;
-import com.neatwitstudios.terrajengine.GamePanel;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -107,8 +106,8 @@ public class BlockMapManager {
 
                 graphics2D.drawImage(
                         blocks[tileNum].getImage(),
-                        CoordConverter.getScreenX(blockXPosition, camera),
-                        CoordConverter.getScreenY(blockYPosition, camera),
+                        CoordConverter.getScreenX(blockXPosition - Block.SIZE / 2, camera),
+                        CoordConverter.getScreenY(blockYPosition + Block.SIZE, camera),
                         CoordConverter.getResizedLength(Block.SIZE, camera),
                         CoordConverter.getResizedLength(Block.SIZE, camera),
                         null

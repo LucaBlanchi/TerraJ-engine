@@ -2,6 +2,7 @@ package com.neatwitstudios.terrajengine.entity;
 
 import com.neatwitstudios.terrajengine.CoordConverter;
 import com.neatwitstudios.terrajengine.camera.Camera;
+import com.neatwitstudios.terrajengine.map.Block;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -53,8 +54,8 @@ public class Attack {
     public void drawDebugFeatures(Graphics2D g2d, Camera camera) {
         g2d.setColor(Color.RED);
         g2d.drawRect(
-                CoordConverter.getScreenX(hitBox.x, camera),
-                CoordConverter.getScreenY(hitBox.y, camera),
+                CoordConverter.getScreenX(hitBox.x - hitBox.width / 2, camera),
+                CoordConverter.getScreenY(hitBox.y + hitBox.height, camera),
                 CoordConverter.getResizedLength(hitBox.width, camera),
                 CoordConverter.getResizedLength(hitBox.height, camera)
         );
