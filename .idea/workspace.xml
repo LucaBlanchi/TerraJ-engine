@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Add BackgroundAndForegroundManager">
+    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Add mossy stone">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Attack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Attack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/ExampleEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/ExampleEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,11 +62,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\blocks" />
       <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\backgrounds" />
       <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\bg0.png" />
       <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\bg0" />
       <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\sprites" />
-      <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\enemyRight" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -155,21 +151,8 @@
       <workItem from="1728481187478" duration="325000" />
       <workItem from="1728481612266" duration="3551000" />
       <workItem from="1728897381713" duration="608000" />
-      <workItem from="1728917648148" duration="6008000" />
-    </task>
-    <task id="LOCAL-00040" summary="Clean Player code">
-      <created>1727132426089</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1727132426089</updated>
-    </task>
-    <task id="LOCAL-00041" summary="Make positive y mean up">
-      <created>1727134327836</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1727134327836</updated>
+      <workItem from="1728917648148" duration="8066000" />
+      <workItem from="1728925749570" duration="27000" />
     </task>
     <task id="LOCAL-00042" summary="Make positive y mean up">
       <created>1727134868406</created>
@@ -500,15 +483,27 @@
       <option name="project" value="LOCAL" />
       <updated>1728922324135</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="Make attack hitboxes stick to the owner">
+      <created>1728923727603</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1728923727603</updated>
+    </task>
+    <task id="LOCAL-00090" summary="Add mossy stone">
+      <created>1728924913825</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1728924913825</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add camera" />
-    <MESSAGE value="Start with music off" />
     <MESSAGE value="Fix gravity" />
     <MESSAGE value="Add attack animation" />
     <MESSAGE value="Add an enemy (does nothing for now)" />
@@ -532,6 +527,8 @@
     <MESSAGE value="Add CoordConverter" />
     <MESSAGE value="Adjust hitboxes" />
     <MESSAGE value="Add BackgroundAndForegroundManager" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add BackgroundAndForegroundManager" />
+    <MESSAGE value="Make attack hitboxes stick to the owner" />
+    <MESSAGE value="Add mossy stone" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add mossy stone" />
   </component>
 </project>

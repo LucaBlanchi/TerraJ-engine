@@ -58,7 +58,7 @@ public class GamePanel extends JPanel implements Runnable {
             }
         });
 
-        loadLevel(loadedLevel);
+        loadMap(loadedLevel);
 
         if (START_WITH_MUSIC) {
             SoundManager.playMusic(0);
@@ -93,7 +93,7 @@ public class GamePanel extends JPanel implements Runnable {
         }
     }
 
-    private void loadLevel(int mapId) {
+    private void loadMap(int mapId) {
         blockMapManager.loadMap(mapId);
         itemsManager.loadItems(mapId);
         player.initializePlayerByMapId(mapId);
@@ -104,9 +104,9 @@ public class GamePanel extends JPanel implements Runnable {
         loadedLevel = mapId;
     }
 
-    public void loadNextLevel() {
+    public void loadNextMap() {
         loadedLevel++;
-        loadLevel(loadedLevel);
+        loadMap(loadedLevel);
     }
 
     private void sleepToCapFps(long elapsedTime) {
@@ -126,10 +126,10 @@ public class GamePanel extends JPanel implements Runnable {
         enemyManager.updateEnemies();
         itemsManager.checkCollisions(player);
         if (player.getHealth() <= 0)  {
-            loadLevel(0);
+            loadMap(0);
         }
         if (keyHandler.isRPressed()) {
-            loadLevel(loadedLevel);
+            loadMap(loadedLevel);
         }
     }
 

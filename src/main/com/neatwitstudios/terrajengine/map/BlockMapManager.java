@@ -25,9 +25,9 @@ public class BlockMapManager {
 
     public void loadMap(int mapId) {
         String mapPath = switch (mapId) {
-            case 0 -> "/resources/static/maps/map.txt";
+            case 0 -> "/resources/static/maps/map0.txt";
             case 1 -> "/resources/static/maps/map1.txt";
-            default -> "/resources/static/maps/map.txt";
+            default -> "/static/maps/map0.txt";
         };
 
         InputStream inputStream = getClass().getResourceAsStream(mapPath);
@@ -78,6 +78,10 @@ public class BlockMapManager {
             blocks[2] = new Block();
             blocks[2].setImage(ImageIO.read(getClass().getResourceAsStream("/static/blocks/grass.png")));
             blocks[2].setSolid(true);
+
+            blocks[3] = new Block();
+            blocks[3].setImage(ImageIO.read(getClass().getResourceAsStream("/static/blocks/mossyStone.png")));
+            blocks[3].setSolid(true);
         } catch (IOException e) {
             e.printStackTrace();
         }

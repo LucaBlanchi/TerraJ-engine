@@ -48,7 +48,7 @@ public class ItemsManager {
         items.removeIf(Item::isPickedUp);
         for (String effect : effects) {
             switch (effect) {
-                case "nextLevel" -> gamePanel.loadNextLevel();
+                case "nextLevel" -> gamePanel.loadNextMap();
                 default -> {
                 }
             }
