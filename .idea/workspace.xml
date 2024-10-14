@@ -4,17 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Add CoordConverter">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/camera/CameraOnEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/camera/CameraOnEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Attack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Attack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/AttackManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/AttackManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/ExampleEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/ExampleEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/items/ItemsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/items/ItemsManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/items/NextLevelFlag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/items/NextLevelFlag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/map/BlockMapManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/map/BlockMapManager.java" afterDir="false" />
+    <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Add BackgroundAndForegroundManager">
+      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/map/BackgroundAndForegroundManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/map/BackgroundAndForegroundManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,11 +61,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\backgrounds" />
+      <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\bg0.png" />
+      <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\bg0" />
       <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\sprites" />
       <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\enemyRight" />
-      <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\sound" />
-      <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static\blocks" />
-      <recent name="C:\Users\lblanchi\Desktop\TerraJ-Engine\src\main\resources\static" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -151,21 +142,15 @@
       <workItem from="1727766014752" duration="745000" />
       <workItem from="1727766812737" duration="189000" />
       <workItem from="1727990843132" duration="5088000" />
-      <workItem from="1728068111762" duration="27171000" />
-    </task>
-    <task id="LOCAL-00035" summary="Simplify Player code">
-      <created>1727119442104</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1727119442104</updated>
-    </task>
-    <task id="LOCAL-00036" summary="Use world coordinates instead of screen coordinates">
-      <created>1727128312632</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1727128312632</updated>
+      <workItem from="1728068111762" duration="27461000" />
+      <workItem from="1728375208184" duration="592000" />
+      <workItem from="1728385143321" duration="612000" />
+      <workItem from="1728477282824" duration="42000" />
+      <workItem from="1728479587746" duration="1528000" />
+      <workItem from="1728481187478" duration="325000" />
+      <workItem from="1728481612266" duration="3551000" />
+      <workItem from="1728897381713" duration="608000" />
+      <workItem from="1728917648148" duration="2989000" />
     </task>
     <task id="LOCAL-00037" summary="Rework collisions">
       <created>1727131231453</created>
@@ -496,15 +481,27 @@
       <option name="project" value="LOCAL" />
       <updated>1728138536033</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="Adjust hitboxes">
+      <created>1728142635855</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1728142635855</updated>
+    </task>
+    <task id="LOCAL-00085" summary="Add BackgroundAndForegroundManager">
+      <created>1728920500001</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1728920500002</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Dynamically compute max rows and cols" />
-    <MESSAGE value="Add sound" />
     <MESSAGE value="Add camera" />
     <MESSAGE value="Start with music off" />
     <MESSAGE value="Fix gravity" />
@@ -528,6 +525,8 @@
     <MESSAGE value="Add debug mode (F3), showing hitboxes and health" />
     <MESSAGE value="Add debug mode (F3), showing hitboxes" />
     <MESSAGE value="Add CoordConverter" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add CoordConverter" />
+    <MESSAGE value="Adjust hitboxes" />
+    <MESSAGE value="Add BackgroundAndForegroundManager" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add BackgroundAndForegroundManager" />
   </component>
 </project>

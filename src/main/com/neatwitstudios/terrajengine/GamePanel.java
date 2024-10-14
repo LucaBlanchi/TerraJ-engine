@@ -5,6 +5,7 @@ import com.neatwitstudios.terrajengine.entity.AttackManager;
 import com.neatwitstudios.terrajengine.entity.EnemyManager;
 import com.neatwitstudios.terrajengine.entity.Player;
 import com.neatwitstudios.terrajengine.items.ItemsManager;
+import com.neatwitstudios.terrajengine.map.BackgroundAndForegroundManager;
 import com.neatwitstudios.terrajengine.map.Block;
 import com.neatwitstudios.terrajengine.map.BlockCollisionsChecker;
 import com.neatwitstudios.terrajengine.map.BlockMapManager;
@@ -30,6 +31,7 @@ public class GamePanel extends JPanel implements Runnable {
     private final AttackManager attackManager = new AttackManager();
     private final BlockMapManager blockMapManager = new BlockMapManager();
     private final BlockCollisionsChecker blockCollisionsChecker = new BlockCollisionsChecker(blockMapManager);
+    private final BackgroundAndForegroundManager bgAndFgManager = new BackgroundAndForegroundManager();
     private final Player player = new Player(keyHandler, attackManager, blockCollisionsChecker);
     private final EnemyManager enemyManager = new EnemyManager(player, attackManager, blockCollisionsChecker);
     private final ItemsManager itemsManager = new ItemsManager(this);
@@ -56,7 +58,7 @@ public class GamePanel extends JPanel implements Runnable {
             }
         });
 
-        loadLevel(0);
+        loadLevel(loadedLevel);
 
         if (START_WITH_MUSIC) {
             SoundManager.playMusic(0);
@@ -97,6 +99,7 @@ public class GamePanel extends JPanel implements Runnable {
         player.initializePlayerByMapId(mapId);
         enemyManager.loadEnemies(mapId);
         attackManager.clearAttacks();
+        bgAndFgManager.loadBgAndFg(mapId);
 
         loadedLevel = mapId;
     }
@@ -137,10 +140,12 @@ public class GamePanel extends JPanel implements Runnable {
 
         g2d.scale(scaleFactorX, scaleFactorY);
 
+        bgAndFgManager.drawBackground(g2d, camera);
         blockMapManager.draw(g2d, camera);
         enemyManager.drawEnemies(g2d, camera);
         itemsManager.drawItems(g2d, camera);
         player.draw(g2d, camera);
+        bgAndFgManager.drawForeground(g2d, camera);
 
         if (debugMode) {
             drawDebugFeatures(g2d);
