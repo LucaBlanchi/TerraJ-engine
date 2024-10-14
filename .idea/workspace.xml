@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Add BackgroundAndForegroundManager">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/map/BackgroundAndForegroundManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/map/BackgroundAndForegroundManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -150,14 +152,7 @@
       <workItem from="1728481187478" duration="325000" />
       <workItem from="1728481612266" duration="3551000" />
       <workItem from="1728897381713" duration="608000" />
-      <workItem from="1728917648148" duration="2989000" />
-    </task>
-    <task id="LOCAL-00037" summary="Rework collisions">
-      <created>1727131231453</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1727131231453</updated>
+      <workItem from="1728917648148" duration="4363000" />
     </task>
     <task id="LOCAL-00038" summary="Clean Player code">
       <created>1727131913117</created>
@@ -495,7 +490,14 @@
       <option name="project" value="LOCAL" />
       <updated>1728920500002</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="Add BackgroundAndForegroundManager">
+      <created>1728920709715</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1728920709715</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

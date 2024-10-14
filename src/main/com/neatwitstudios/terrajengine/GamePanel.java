@@ -125,7 +125,7 @@ public class GamePanel extends JPanel implements Runnable {
         enemyManager.updateEnemies();
         player.update();
         itemsManager.checkCollisions(player);
-        if (player.getHealth() <= 0) {
+        if (player.getHealth() <= 0)  {
             loadLevel(0);
         }
         if (keyHandler.isRPressed()) {

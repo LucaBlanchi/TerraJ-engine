@@ -11,14 +11,14 @@ import java.util.List;
 
 public class BackgroundAndForegroundManager {
 
-    private final List<BackgroundOrForeground> background = new ArrayList<>();
-    private final List<BackgroundOrForeground> foreground = new ArrayList<>();
+    private List<BackgroundOrForeground> background = new ArrayList<>();
+    private List<BackgroundOrForeground> foreground = new ArrayList<>();
 
     public BackgroundAndForegroundManager() {}
 
     public void loadBgAndFg(int mapId) {
-        background.clear();
-        foreground.clear();
+        background = new ArrayList<>();
+        foreground = new ArrayList<>();
         try {
             switch (mapId) {
                 case 0 -> {

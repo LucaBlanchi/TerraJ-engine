@@ -15,13 +15,13 @@ public class Player extends Entity {
     private static final int GRAVITY = Block.SIZE / 64;
     private static final int MAX_FALL_SPEED = Block.SIZE * 3/32;
 
-    private int spriteCounter = 0;
-    private int spriteNum = 0;
+    private int spriteCounter;
+    private int spriteNum;
 
-    private boolean isFacingRight = true;
-    private boolean isAttacking = false;
-    private int attackCounter = 0;
-    private boolean endAttackSprite = false;
+    private boolean isFacingRight;
+    private boolean isAttacking;
+    private int attackCounter;
+    private boolean endAttackSprite;
 
     private final KeyHandler keyHandler;
     private final AttackManager attackManager;
@@ -45,6 +45,14 @@ public class Player extends Entity {
         health = 100;
         xSpeed = 0;
         ySpeed = 0;
+
+        spriteCounter = 0;
+        spriteNum = 0;
+        isFacingRight = true;
+        isAttacking = false;
+        attackCounter = 0;
+        endAttackSprite = false;
+
         switch (mapId) {
             case 0 -> {
                 x = 0;
