@@ -18,7 +18,6 @@ public class Player extends Entity {
     private int spriteCounter;
     private int spriteNum;
 
-    private boolean isFacingRight;
     private boolean isAttacking;
     private int attackCounter;
     private boolean endAttackSprite;
@@ -80,14 +79,10 @@ public class Player extends Entity {
             isAttacking = true;
             if (attackCounter == 0) {
                 Attack attack = new Attack(
-                        new Rectangle(
-                                isFacingRight
-                                        ? x + solidBounds.width
-                                        : x - solidBounds.width,
-                                y + solidBounds.height / 4,
-                                Block.SIZE / 2,
-                                Block.SIZE / 2
-                        ),
+                        solidBounds.width,
+                        solidBounds.height / 4,
+                        Block.SIZE / 2,
+                        Block.SIZE / 4,
                         40,
                         12,
                         this

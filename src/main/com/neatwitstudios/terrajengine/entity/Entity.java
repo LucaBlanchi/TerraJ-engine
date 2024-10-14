@@ -12,6 +12,7 @@ public abstract class Entity {
     protected int ySpeed;
 
     protected Rectangle solidBounds;
+    protected boolean isFacingRight;
 
     protected int health;
 
@@ -43,6 +44,10 @@ public abstract class Entity {
 
     public Rectangle getSolidBounds() {
         return solidBounds;
+    }
+
+    public boolean isFacingRight() {
+        return isFacingRight;
     }
 
     public int getHealth() {

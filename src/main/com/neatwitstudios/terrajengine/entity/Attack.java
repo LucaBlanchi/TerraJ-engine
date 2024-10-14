@@ -2,7 +2,6 @@ package com.neatwitstudios.terrajengine.entity;
 
 import com.neatwitstudios.terrajengine.CoordConverter;
 import com.neatwitstudios.terrajengine.camera.Camera;
-import com.neatwitstudios.terrajengine.map.Block;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -10,20 +9,31 @@ import java.util.List;
 
 public class Attack {
 
+    private final int xDisplacement;
+    private final int yDisplacement;
     private final Rectangle hitBox;
     private final int damage;
     private int duration;
     private final Entity owner;
     private final List<Entity> damagedEntities = new ArrayList<>();
 
-    public Attack(Rectangle hitBox, int damage, int duration, Entity owner) {
-        this.hitBox = hitBox;
+    public Attack(int xDisplacement, int yDisplacement, int width, int height, int damage, int duration, Entity owner) {
+        this.xDisplacement = xDisplacement;
+        this.yDisplacement = yDisplacement;
+        this.hitBox = new Rectangle(
+                owner.getX() + (owner.isFacingRight ? xDisplacement : -xDisplacement),
+                owner.getY() + yDisplacement,
+                width,
+                height
+        );
         this.damage = damage;
         this.duration = duration;
         this.owner = owner;
     }
 
     public void update() {
+        hitBox.x = owner.getX() + (owner.isFacingRight ? xDisplacement : -xDisplacement);
+        hitBox.y = owner.getY() + yDisplacement;
         duration--;
     }
 

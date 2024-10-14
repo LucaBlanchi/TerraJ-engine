@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e9741dc5-9a5f-47ce-89ab-fa451c8a4095" name="Changes" comment="Add BackgroundAndForegroundManager">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Attack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Attack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/ExampleEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/ExampleEnemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/map/BackgroundAndForegroundManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/neatwitstudios/terrajengine/map/BackgroundAndForegroundManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,21 +155,7 @@
       <workItem from="1728481187478" duration="325000" />
       <workItem from="1728481612266" duration="3551000" />
       <workItem from="1728897381713" duration="608000" />
-      <workItem from="1728917648148" duration="4363000" />
-    </task>
-    <task id="LOCAL-00038" summary="Clean Player code">
-      <created>1727131913117</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1727131913117</updated>
-    </task>
-    <task id="LOCAL-00039" summary="Clean Player code">
-      <created>1727132241086</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1727132241086</updated>
+      <workItem from="1728917648148" duration="6008000" />
     </task>
     <task id="LOCAL-00040" summary="Clean Player code">
       <created>1727132426089</created>
@@ -497,7 +486,21 @@
       <option name="project" value="LOCAL" />
       <updated>1728920709715</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="Add BackgroundAndForegroundManager">
+      <created>1728922097939</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1728922097939</updated>
+    </task>
+    <task id="LOCAL-00088" summary="Add BackgroundAndForegroundManager">
+      <created>1728922324135</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1728922324135</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -16,7 +16,6 @@ public class ExampleEnemy extends Entity {
     private int spriteNum = 0;
     private int attackCoolDown = 0;
 
-    private boolean isFacingRight = false;
 
     private final Player player;
     private final AttackManager attackManager;
@@ -37,6 +36,7 @@ public class ExampleEnemy extends Entity {
                 Block.SIZE * 2/3,
                 Block.SIZE * 3/10
         );
+        this.isFacingRight = false;
         this.health = 100;
     }
 
@@ -50,12 +50,10 @@ public class ExampleEnemy extends Entity {
     private void handleAttacking() {
         if (Math.abs(player.getX() - x) < Block.SIZE / 3 && Math.abs(player.getY() - y) < Block.SIZE / 3 && attackCoolDown == 0) {
             attackManager.submitAttack(new Attack(
-                    new Rectangle(
-                            x + (isFacingRight ? solidBounds.width : -solidBounds.width) / 2,
-                            y + solidBounds.height / 2,
-                            Block.SIZE / 2,
-                            Block.SIZE / 4
-                    ),
+                    solidBounds.width / 2,
+                    solidBounds.height / 2,
+                    Block.SIZE / 2,
+                    Block.SIZE / 4,
                     30,
                     12,
                     this
